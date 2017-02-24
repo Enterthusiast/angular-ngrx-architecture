@@ -6,11 +6,12 @@ import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { titleReducer } from '../stores/title.store';
+import { titleReducer } from './stores/title.store';
+import { TitleService } from './services/title.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,9 @@ import { titleReducer } from '../stores/title.store';
     HttpModule,
     StoreModule.provideStore({title: titleReducer})
   ],
-  providers: [],
+  providers: [
+    TitleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
