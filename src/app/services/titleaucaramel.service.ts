@@ -22,7 +22,7 @@ export class TitleAuCaramelService implements ITitleService {
     this.http.get(this.companiesUrl, {headers: this.headers}).subscribe(res => {
       const json = res.json();
       const companyName = json._embedded.companies[0].name;
-      this.store.dispatch({ type: 'NEW_TITLE', payload: title + ' au caramel de chez ' + companyName + ', mon préféré!' });
+      this.store.dispatch({ type: 'NEW_TITLE', payload: `${title} au caramel de chez ${companyName}, mon préféré!` });
     });
   }
 
