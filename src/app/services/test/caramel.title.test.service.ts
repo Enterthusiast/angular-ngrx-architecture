@@ -3,12 +3,13 @@ import { Headers, Http } from '@angular/http';
 
 import { Store } from '@ngrx/store';
 
-import { IAppState } from '../stores/IAppState';
-import { ITitleService } from './ITitle.service';
-import { privateParams } from "../../privateparams";
+import { IAppStore } from '../../reducers/app-store.interface';
+import { ITitleTestService } from './title.test.interface';
+
+import { privateParams } from '../../../privateparams';
 
 @Injectable()
-export class TitleAuCaramelService implements ITitleService {
+export class CaramelTitleTestService implements ITitleTestService {
 
   private headers = new Headers({
     'Content-Type': 'application/json'
@@ -16,7 +17,7 @@ export class TitleAuCaramelService implements ITitleService {
   });
   private companiesUrl = privateParams.links.origamiCompanies;
 
-  constructor(private store: Store<IAppState>, private http: Http) {}
+  constructor(private store: Store<IAppStore>, private http: Http) {}
 
   setTitle(title): void {
     this.http.get(this.companiesUrl, {headers: this.headers}).subscribe(res => {

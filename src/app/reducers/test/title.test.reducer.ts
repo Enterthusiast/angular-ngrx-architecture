@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-export function titleReducer(state: string = 'Hello World', action: Action) {
+export function titleTestReducer(state: string = 'Default title', action: Action) {
   switch (action.type) {
     case 'NEW_TITLE':
       return action.payload;

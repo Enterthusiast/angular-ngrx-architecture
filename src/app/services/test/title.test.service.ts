@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
-import { IAppState } from '../stores/IAppState';
-import { ITitleService } from './ITitle.service';
+import { IAppStore } from '../../reducers/app-store.interface';
+import { ITitleTestService } from './title.test.interface';
 
 @Injectable()
-export class TitleService implements ITitleService {
+export class TitleTestService implements ITitleTestService {
 
-  constructor(private store: Store<IAppState>) {}
+  constructor(private store: Store<IAppStore>) {}
 
   setTitle(title): void {
     this.store.dispatch({ type: 'NEW_TITLE', payload: title });
