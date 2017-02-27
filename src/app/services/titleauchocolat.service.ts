@@ -6,16 +6,16 @@ import { IAppState } from '../stores/IAppState';
 import { ITitleService } from './ITitle.service';
 
 @Injectable()
-export class TitleService implements ITitleService {
+export class TitleAuChocolatService /* implements ITitleService */ {
 
   constructor(private store: Store<IAppState>) {}
 
-  setTitle(title): void {
-    this.store.dispatch({ type: 'NEW_TITLE', payload: title });
-  }
+  // setTitle(title): void {
+  //   this.store.dispatch({ type: 'NEW_TITLE', payload: title + ' au chocolat, mon préféré!' });
+  // }
 
   setTitleWithQuestionMark(title): void {
-    this.store.dispatch({ type: 'NEW_TITLE', payload: `${title}?` });
+    this.store.dispatch({ type: 'NEW_TITLE', payload: `${title} au chocolat?` });
   }
 
 }

@@ -42,3 +42,4 @@ Thumbs.db
 
 #Debug
 debug.log
+/src/privateparams.ts
