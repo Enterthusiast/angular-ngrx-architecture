@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { RouteAppClass } from '../../../../classes/app/route/route.app.class';
+import { RouteMap } from '../../../../classes/app/routemap/routemap.app.class';
+
+
 @Component({
   selector: 'app-nav',
   template: `
@@ -11,14 +15,12 @@ import { Component } from '@angular/core';
 })
 export class AppNavComponent {
 
-  private routeMap: any;
+  private routeMap: RouteAppClass[];
 
   constructor() {
-    this.routeMap = [
-      { name: 'name_placeholder_1', link: 'link_placeholder_1'}
-      , { name: 'name_placeholder_2', link: 'link_placeholder_2'}
-      , { name: 'name_placeholder_3', link: 'link_placeholder_3'}
-    ]
+
+    this.routeMap = RouteMap.routes;
+
   }
 
 }

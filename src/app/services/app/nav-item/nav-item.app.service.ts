@@ -3,17 +3,17 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IAppStore } from '../../../reducers/app-store.interface';
-import { routeMap } from '../../../routers/routemap/routemap.const';
+import { routemapLinks } from '../../../routers/config/routemap-links.const';
 
 /* WIP */
 
 @Injectable()
-export class NavItemHomeService {
+export class NavItemAppService {
 
   private routeMap: any;
 
   constructor(private store: Store<IAppStore>) {
-    this.routeMap = routeMap;
+    this.routeMap = routemapLinks;
   }
 
   setItems(): void {

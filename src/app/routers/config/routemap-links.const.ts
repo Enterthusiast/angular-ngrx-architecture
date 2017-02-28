@@ -1,4 +1,4 @@
-export const routeMap = {
+export const routemapLinks = {
   test: {
     self: 'test',
     item: 'item',
