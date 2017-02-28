@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TestModule } from './test.module';
 
 import { AppRoutingModule } from '../routers/app.router';
@@ -27,6 +28,9 @@ import { AppNavComponent } from '../views/components/app/app-nav/app-nav.compone
     FormsModule,
     HttpModule,
     StoreModule.provideStore({title: titleTestReducer}),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
+    }),
     TestRoutingModule,
     AppRoutingModule
   ],

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-nav',
   template: `
   <nav>
-    <a *ngFor="let route of routeMap">{{ route }}</a>
+    <a *ngFor="let route of routeMap" routerLink="{{ route.link }}">{{ route.name }}</a>
   </nav>
   `,
   styles: []
@@ -15,9 +15,9 @@ export class AppNavComponent {
 
   constructor() {
     this.routeMap = [
-      'link_placeholder_1'
-      , 'link_placeholder_2'
-      , 'link_placeholder_3'
+      { name: 'name_placeholder_1', link: 'link_placeholder_1'}
+      , { name: 'name_placeholder_2', link: 'link_placeholder_2'}
+      , { name: 'name_placeholder_3', link: 'link_placeholder_3'}
     ]
   }
 

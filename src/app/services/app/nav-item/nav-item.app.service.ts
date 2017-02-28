@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
-import { IAppStore } from '../../reducers/app-store.interface';
-import { routeMap } from '../../routers/routemap/routemap.const';
+import { IAppStore } from '../../../reducers/app-store.interface';
+import { routeMap } from '../../../routers/routemap/routemap.const';
 
 /* WIP */
 
@@ -17,7 +17,7 @@ export class NavItemHomeService {
   }
 
   setItems(): void {
-    this.store.dispatch({ type: 'NEW_TITLE', payload: this.routeMap });
+    this.store.dispatch({ type: 'ROUTEMAP_SET_ROUTES', payload: this.routeMap });
   }
 
 }

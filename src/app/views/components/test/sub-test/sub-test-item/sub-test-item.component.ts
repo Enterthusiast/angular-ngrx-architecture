@@ -3,12 +3,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { IAppStore } from '../../../../../reducers/app-store.interface';
-import { TitleTestService } from '../../../../../services/test/title.test.service';
+import { TitleTestService } from '../../../../../services/test/title/title.test.service';
 
 @Component({
   selector: 'app-sub-test-item',
   template: `
-    <div>{{ title | async }}</div>
+    <div (click)="changeTitle()">{{ title | async }}</div>
   `,
   styles:  []
 })
@@ -28,8 +28,6 @@ export class SubTestItemComponent {
   changeTitle() {
 
     this.myService.setTitle('my sub title');
-    // this.store.dispatch({ type: 'NEW_TITLE', payload: this.nextTitle });
-    // this.store.dispatch({ type: 'NEW_TITLE_WITH_QUESTION_MARK', payload: this.nextTitle });
 
   }
 

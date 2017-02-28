@@ -8,9 +8,9 @@ import { TestItemComponent } from '../views/components/test/test-item/test-item.
 import { TestListComponent } from '../views/components/test/test-list/test-list.component';
 import { SubTestItemComponent } from '../views/components/test/sub-test/sub-test-item/sub-test-item.component';
 import { TestRoutingModule } from '../routers/test.router';
-import { TitleTestService } from '../services/test/title.test.service';
-import { CaramelTitleTestService } from '../services/test/caramel.title.test.service';
-import { ChocolateTitleTestService } from '../services/test/chocolate.title.test.service';
+import { TitleTestService } from '../services/test/title/title.test.service';
+import { CaramelTitleTestService } from '../services/test/title/caramel.title.test.service';
+import { ChocolateTitleTestService } from '../services/test/title/chocolate.title.test.service';
 
 @NgModule({
   declarations: [

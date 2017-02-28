@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 
 import { IAppStore } from '../../../../reducers/app-store.interface';
 
-import { TitleTestService } from '../../../../services/test/title.test.service';
-import { CaramelTitleTestService } from '../../../../services/test/caramel.title.test.service';
-import { ChocolateTitleTestService } from '../../../../services/test/chocolate.title.test.service';
+import { TitleTestService } from '../../../../services/test/title/title.test.service';
+import { CaramelTitleTestService } from '../../../../services/test/title/caramel.title.test.service';
+import { ChocolateTitleTestService } from '../../../../services/test/title/chocolate.title.test.service';
 
 @Component({
   selector: 'app-test-item',
@@ -42,8 +42,6 @@ export class TestItemComponent {
   changeTitle() {
 
     this.titleService.setTitle(this.nextTitle);
-    // this.store.dispatch({ type: 'NEW_TITLE', payload: this.nextTitle });
-    // this.store.dispatch({ type: 'NEW_TITLE_WITH_QUESTION_MARK', payload: this.nextTitle });
 
   }
 

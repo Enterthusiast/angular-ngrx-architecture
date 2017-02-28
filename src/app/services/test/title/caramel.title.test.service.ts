@@ -3,10 +3,11 @@ import { Headers, Http } from '@angular/http';
 
 import { Store } from '@ngrx/store';
 
-import { IAppStore } from '../../reducers/app-store.interface';
+import { IAppStore } from '../../../reducers/app-store.interface';
 import { ITitleTestService } from './title.test.interface';
 
-import { privateParams } from '../../../privateparams';
+import { privateParams } from '../../../../privateparams';
+
 
 @Injectable()
 export class CaramelTitleTestService implements ITitleTestService {
@@ -23,12 +24,12 @@ export class CaramelTitleTestService implements ITitleTestService {
     this.http.get(this.companiesUrl, {headers: this.headers}).subscribe(res => {
       const json = res.json();
       const companyName = json._embedded.companies[0].name;
-      this.store.dispatch({ type: 'NEW_TITLE', payload: `${title} au caramel de chez ${companyName}, mon préféré!` });
+      this.store.dispatch({ type: 'TEST_TITLE_NEW_TITLE', payload: `${title} au caramel de chez ${companyName}, mon préféré!` });
     });
   }
 
   setTitleWithQuestionMark(title): void {
-    this.store.dispatch({ type: 'NEW_TITLE', payload: `${title} au chocolat?` });
+    this.store.dispatch({ type: 'TEST_TITLE_NEW_TITLE', payload: `${title} au chocolat?` });
   }
 
 }
