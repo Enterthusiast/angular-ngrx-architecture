@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { RouteAppClass } from '../../../../classes/app/route/route.app.class';
-import { RouteMap } from '../../../../classes/app/routemap/routemap.app.class';
+import { RouteMapClass } from '../../../../classes/app/routemap/routemap.app.class';
 
 
 @Component({
@@ -18,9 +18,8 @@ export class AppNavComponent {
   private routeMap: RouteAppClass[];
 
   constructor() {
-
-    this.routeMap = RouteMap.routes;
-
+    this.routeMap = RouteMapClass.routeAppClassList;
+    // this.routeMap = RouteMapClass.getRouteAppClassListFrom(['home', 'test']);
   }
 
 }
