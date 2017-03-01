@@ -15,10 +15,10 @@ import { RouteMapClass } from '../../../../classes/app/routemap/routemap.app.cla
 })
 export class AppNavComponent {
 
-  private routeMap: RouteAppClass[];
+  private routeMap: any[];
 
   constructor() {
-    this.routeMap = RouteMapClass.routeAppClassList;
+    this.routeMap = RouteMapClass.routeAppClassList();
     // this.routeMap = RouteMapClass.getRouteAppClassListFrom(['home', 'test']);
   }
 

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IAppStore } from '../../../reducers/app-store.interface';
-import { routemapLinks } from '../../../routers/config/routemap-links.const';
 import { RouteAppClass } from '../../../classes/app/route/route.app.class';
 
 /* WIP */
@@ -22,7 +21,7 @@ export class RouteMapCommonService {
     if(this.routeMap) {
 
     } else {
-      this.routeMap = routemapLinks;
+      // this.routeMap = ;
     }
 
     return this.routes;

@@ -1,23 +1,23 @@
-import { routemap } from '../../../routers/config/routemap.const';
+import { routeConfigList } from '../../../routers/config/route-config-list.const';
 import { RouteAppFactory } from '../route/route.app.factory';
 import { RouteAppClass } from "../route/route.app.class";
 
-export class RouteMapClass {
+export const RouteMapClass = {
 
-  private static _routeAppClassList: RouteAppClass[];
-  private static _routemap;
+  _routeAppClassList: []
+  , _routeConfigList: []
 
-  public static get routeAppClassList() {
-    if(RouteMapClass._routeAppClassList) {
+  , routeAppClassList() {
+    if(RouteMapClass._routeAppClassList && RouteMapClass._routeAppClassList.length > 0) {
       return RouteMapClass._routeAppClassList;
     } else {
-      return RouteMapClass._routeAppClassList = routemap
+      return RouteMapClass._routeAppClassList = routeConfigList
         .map(RouteMapClass.RouteToRouteClass)
         .map(route => RouteAppFactory.createRoute(route));
     }
   }
 
-  private static RouteToRouteClass(routeMap) {
+  , RouteToRouteClass(routeMap) {
     const joinChar = '/';
     return {
       name: routeMap.displayName
@@ -30,22 +30,26 @@ export class RouteMapClass {
     }
   }
 
-  public static getRouteAppClassListFrom(routeIDList) {
+  , getRouteAppClassListFrom(routeIDList) {
     return routeIDList
       .map(RouteMapClass.getRoute)
       .map(RouteMapClass.RouteToRouteClass)
   }
 
-  public static getRoute(routeID) {
-    if(!RouteMapClass._routemap) {
-      RouteMapClass._routemap = routemap.slice();
+  , getRoute(routeID) {
+    if(!RouteMapClass._routeConfigList || RouteMapClass._routeConfigList.length === 0) {
+      RouteMapClass._routeConfigList = routeConfigList.slice();
     }
-    return RouteMapClass._routemap.find(routeData => routeData.routeID === routeID);
+    return RouteMapClass._routeConfigList.find(routeData => routeData.routeID === routeID);
   }
 
-  public static getLeafLink(routeID) {
+  , getLeafLink(routeID) {
     const route = RouteMapClass.getRoute(routeID);
-    return route.leafLink;
+    if (route && route.leafLink) {
+      return route.leafLink;
+    } else {
+      console.error(`Origami-Hub: route note found with routeID: ${routeID}`);
+    }
   }
 
-}
+};
