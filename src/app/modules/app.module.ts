@@ -41,7 +41,7 @@ import { RouterCommonService } from '../services/common/router/router.common.ser
       , router: routerAppReducer
     }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
-      maxAge: 5
+      maxAge: 10
     }),
     PeopleRoutingModule,
     TestRoutingModule,

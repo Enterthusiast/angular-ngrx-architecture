@@ -15,14 +15,15 @@ import { RouterConnectedToStoreModule } from './router-store/router-store.module
 
 const appRoutes: Routes = [
   { path: '',   redirectTo: RouteMapClass.getLeafLink('home'), pathMatch: 'full' },
-  { path: RouteMapClass.getLeafLink('home'), component: HomePageComponent }
-  // { path: '**', component: PageNotFoundComponent }
+  { path: RouteMapClass.getLeafLink('home'), component: HomePageComponent },
+  { path: '**', redirectTo: RouteMapClass.getLeafLink('home') }
 ];
 
 @NgModule({
   imports: [
     // Here we are using the router-store logic
     RouterConnectedToStoreModule.forRoot(appRoutes)
+    // Fallback to standard logic if anything goes wrong
     // RouterModule.forRoot(appRoutes)
   ],
   exports: [
