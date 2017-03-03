@@ -7,6 +7,8 @@ import { SubTestItemComponent } from '../views/components/test/sub-test/sub-test
 
 import { RouteMapClass } from '../classes/app/routemap/routemap.app.class';
 
+import { RouterConnectedToStoreModule } from './router-store/router-store.module';
+
 const testRoutes: Routes = [
   { path: RouteMapClass.getLeafLink('test'), component: TestPageComponent, children: [
     { path: '', redirectTo: RouteMapClass.getLeafLink('item'), pathMatch: 'full' },
@@ -17,7 +19,7 @@ const testRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(testRoutes)
+    RouterConnectedToStoreModule.forChild(testRoutes)
   ],
   exports: [
     RouterModule

@@ -7,6 +7,8 @@ import { ItemDataPeopleComponent } from '../views/components/people/data/item/it
 
 import { RouteMapClass } from '../classes/app/routemap/routemap.app.class';
 
+import { RouterConnectedToStoreModule } from './router-store/router-store.module';
+
 const peopleRoutes: Routes = [
   { path: RouteMapClass.getLeafLink('people'), component: PeoplePageComponent, children: [
     { path: '', redirectTo: RouteMapClass.getLeafLink('people-list'), pathMatch: 'full' },
@@ -17,7 +19,7 @@ const peopleRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(peopleRoutes)
+    RouterConnectedToStoreModule.forChild(peopleRoutes)
   ],
   exports: [
     RouterModule

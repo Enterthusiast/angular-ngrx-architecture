@@ -12,12 +12,16 @@ import { AppRoutingModule } from '../routers/app.router';
 import { TestRoutingModule } from '../routers/test.router';
 import { PeopleRoutingModule } from '../routers/people.router';
 
+import { routerAppReducer } from '../reducers/app/router.app.reducer';
 import { titleTestReducer } from '../reducers/test/title.test.reducer';
 import { apiPeopleReducer } from '../reducers/people/api.people.reducer';
 
 import { AppComponent } from '../views/pages/app-page/app.component';
 import { HomePageComponent } from '../views/pages/home-page/home-page.component';
 import { AppNavComponent } from '../views/components/app/app-nav/app-nav.component';
+
+import { RouterCommonService } from '../services/common/router/router.common.service';
+
 
 @NgModule({
   declarations: [
@@ -34,15 +38,18 @@ import { AppNavComponent } from '../views/components/app/app-nav/app-nav.compone
     StoreModule.provideStore({
       title: titleTestReducer
       , people: apiPeopleReducer
+      , router: routerAppReducer
     }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
+    PeopleRoutingModule,
     TestRoutingModule,
-    AppRoutingModule,
-    PeopleRoutingModule
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    RouterCommonService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
