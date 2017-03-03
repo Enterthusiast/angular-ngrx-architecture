@@ -8,10 +8,17 @@ import { RouteMapClass } from '../../../../classes/app/routemap/routemap.app.cla
   selector: 'app-nav',
   template: `
   <nav>
-    <a *ngFor="let route of routeMap" routerLink="{{ route.link }}">{{ route.name }}</a>
+    <a class="app-nav-li" *ngFor="let route of routeMap" routerLink="{{ route.link }}" routerLinkActive="active">{{ route.name }}</a><br>
   </nav>
   `,
-  styles: []
+  styles: [`
+    .app-nav-li {
+        margin: 0 5px 0 5px;
+    }
+    .active {
+      color: green;
+    }
+  `]
 })
 export class AppNavComponent {
 

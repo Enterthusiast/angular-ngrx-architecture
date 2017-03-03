@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterCommonService} from "../../../services/common/router/router.common.service";
+import { RouterCommonService } from '../../../services/common/router/router.common.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import {RouterCommonService} from "../../../services/common/router/router.common
     <router-outlet></router-outlet>`,
   styles:  []
 })
-export class AppComponent {
+export class AppPageComponent {
 
   // Starting the routerCommonService so we can react to router change if required
   constructor(private routerCommonService: RouterCommonService) {}

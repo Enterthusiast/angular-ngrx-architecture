@@ -1,55 +1,55 @@
 import { routeConfigList } from '../../../routers/config/route-config-list.const';
 import { RouteAppFactory } from '../route/route.app.factory';
-import { RouteAppClass } from "../route/route.app.class";
 
-export const RouteMapClass = {
+export const RouteMapClass = new function() {
 
-  _routeAppClassList: []
-  , _routeConfigList: []
+  let _routeAppClassList = [];
+  let _routeConfigList = [];
+  const self = this;
 
-  , routeAppClassList() {
-    if(RouteMapClass._routeAppClassList && RouteMapClass._routeAppClassList.length > 0) {
-      return RouteMapClass._routeAppClassList;
+  self.routeAppClassList = function() {
+    if(_routeAppClassList && _routeAppClassList.length > 0) {
+      return _routeAppClassList;
     } else {
-      return RouteMapClass._routeAppClassList = routeConfigList
-        .map(RouteMapClass.RouteToRouteClass)
+      return _routeAppClassList = routeConfigList
+        .map(self.RouteToRouteClass)
         .map(route => RouteAppFactory.createRoute(route));
     }
-  }
+  };
 
-  , RouteToRouteClass(routeMap) {
+  self.RouteToRouteClass = function(routeMap) {
     const joinChar = '/';
     return {
       name: routeMap.displayName
       , link: [
         ...routeMap.nesting
-          .map(routeID => RouteMapClass.getLeafLink(routeID))
+          .map(routeID => self.getLeafLink(routeID))
         , routeMap.leafLink
       ]
         .join(joinChar)
     }
-  }
+  };
 
-  , getRouteAppClassListFrom(routeIDList) {
+  self.getRouteAppClassListFrom = function(routeIDList) {
     return routeIDList
-      .map(RouteMapClass.getRoute)
-      .map(RouteMapClass.RouteToRouteClass)
-  }
+      .map(self.getRoute)
+      .map(self.RouteToRouteClass)
+  };
 
-  , getRoute(routeID) {
-    if(!RouteMapClass._routeConfigList || RouteMapClass._routeConfigList.length === 0) {
-      RouteMapClass._routeConfigList = routeConfigList.slice();
+  self.getRoute = function(routeID) {
+    if(!_routeConfigList || _routeConfigList.length === 0) {
+      _routeConfigList = routeConfigList.slice();
     }
-    return RouteMapClass._routeConfigList.find(routeData => routeData.routeID === routeID);
-  }
+    return _routeConfigList.find(routeData => routeData.routeID === routeID);
+  };
 
-  , getLeafLink(routeID) {
-    const route = RouteMapClass.getRoute(routeID);
+  self.getLeafLink = function(routeID) {
+    const route = self.getRoute(routeID);
     if (route && route.leafLink) {
       return route.leafLink;
     } else {
       console.error(`Origami-Hub: route note found with routeID: ${routeID}`);
     }
-  }
+  };
 
-};
+}

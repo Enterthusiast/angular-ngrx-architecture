@@ -25,4 +25,6 @@ const peopleRoutes: Routes = [
     RouterModule
   ]
 })
-export class PeopleRoutingModule {}
+export class PeopleRoutingModule {
+
+}

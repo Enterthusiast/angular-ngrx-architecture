@@ -16,7 +16,7 @@ import { routerAppReducer } from '../reducers/app/router.app.reducer';
 import { titleTestReducer } from '../reducers/test/title.test.reducer';
 import { apiPeopleReducer } from '../reducers/people/api.people.reducer';
 
-import { AppComponent } from '../views/pages/app-page/app.component';
+import { AppPageComponent } from '../views/pages/app-page/app-page.component';
 import { HomePageComponent } from '../views/pages/home-page/home-page.component';
 import { AppNavComponent } from '../views/components/app/app-nav/app-nav.component';
 
@@ -25,7 +25,7 @@ import { RouterCommonService } from '../services/common/router/router.common.ser
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppPageComponent,
     HomePageComponent,
     AppNavComponent
   ],
@@ -50,6 +50,6 @@ import { RouterCommonService } from '../services/common/router/router.common.ser
   providers: [
     RouterCommonService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppPageComponent]
 })
 export class AppModule { }

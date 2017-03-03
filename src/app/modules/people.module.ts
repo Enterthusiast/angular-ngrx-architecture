@@ -8,9 +8,9 @@ import { ItemDataPeopleComponent } from '../views/components/people/data/item/it
 import { ListDataPeopleComponent } from '../views/components/people/data/list/list.data.people.component';
 import { PeopleRoutingModule } from '../routers/people.router';
 import { ApiPeopleService } from '../services/people/api/api.people.service';
-import {ItemDisplayPeopleComponent} from "../views/components/people/display/item/item.display.people.component";
-import {ListDisplayPeopleComponent} from "../views/components/people/display/list/list.display.people.component";
-import {ListItemDisplayPeopleComponent} from "../views/components/people/display/list/list-item.display.people.component";
+import { ItemDisplayPeopleComponent } from '../views/components/people/display/item/item.display.people.component';
+import { ListDisplayPeopleComponent } from '../views/components/people/display/list/list.display.people.component';
+import { ListItemDisplayPeopleComponent } from '../views/components/people/display/list/list-item.display.people.component';
 
 @NgModule({
   declarations: [
