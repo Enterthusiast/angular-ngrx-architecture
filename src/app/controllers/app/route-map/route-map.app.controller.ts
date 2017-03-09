@@ -1,7 +1,7 @@
 import { routeConfigList } from '../../../routers/config/route-config-list.const';
 import { RouteAppFactory } from '../route/route.app.factory';
 
-export const RouteMapClass = new function() {
+export const RouteMapController = new function() {
 
   let _routeAppClassList = [];
   let _routeConfigList = [];
@@ -52,4 +52,4 @@ export const RouteMapClass = new function() {
     }
   };
 
-}
+};

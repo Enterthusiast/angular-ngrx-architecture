@@ -1,4 +1,4 @@
-import { RouteAppClass } from './route.app.class';
+import { RouteAppClass } from '../../../models/app/route/route.app.class';
 
 export class RouteAppFactory {
 

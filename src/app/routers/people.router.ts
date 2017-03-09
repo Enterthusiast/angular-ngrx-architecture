@@ -5,15 +5,15 @@ import { PeoplePageComponent } from '../views/pages/people-page/people-page.comp
 import { ListDataPeopleComponent } from '../views/components/people/data/list/list.data.people.component';
 import { ItemDataPeopleComponent } from '../views/components/people/data/item/item.data.people.component';
 
-import { RouteMapClass } from '../classes/app/routemap/routemap.app.class';
+import { RouteMapController } from '../controllers/app/route-map/route-map.app.controller';
 
 import { RouterConnectedToStoreModule } from './router-store/router-store.module';
 
 const peopleRoutes: Routes = [
-  { path: RouteMapClass.getLeafLink('people'), component: PeoplePageComponent, children: [
-    { path: '', redirectTo: RouteMapClass.getLeafLink('people-list'), pathMatch: 'full' },
-    { path: RouteMapClass.getLeafLink('people-list'), component: ListDataPeopleComponent },
-    { path: RouteMapClass.getLeafLink('people-item'), component: ItemDataPeopleComponent },
+  { path: RouteMapController.getLeafLink('people'), component: PeoplePageComponent, children: [
+    { path: '', redirectTo: RouteMapController.getLeafLink('people-list'), pathMatch: 'full' },
+    { path: RouteMapController.getLeafLink('people-list'), component: ListDataPeopleComponent },
+    { path: RouteMapController.getLeafLink('people-item'), component: ItemDataPeopleComponent },
   ]}
 ];
 

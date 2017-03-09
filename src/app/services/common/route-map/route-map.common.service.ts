@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IAppStore } from '../../../reducers/app-store.interface';
-import { RouteAppClass } from '../../../classes/app/route/route.app.class';
+import { RouteAppClass } from '../../../models/app/route/route.app.class';
 
 /* WIP */
 
