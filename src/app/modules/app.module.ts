@@ -12,15 +12,17 @@ import { AppRoutingModule } from '../routers/app.router';
 import { TestRoutingModule } from '../routers/test.router';
 import { PeopleRoutingModule } from '../routers/people.router';
 
-import { routerAppReducer } from '../reducers/app/router.app.reducer';
+import { routerReducer } from '../reducers/app/router.app.reducer';
 import { titleTestReducer } from '../reducers/test/title.test.reducer';
-import { apiPeopleReducer } from '../reducers/people/api.people.reducer';
+import { peopleListReducer } from '../reducers/people/list.people.reducer';
 
 import { AppPageComponent } from '../views/pages/app-page/app-page.component';
 import { HomePageComponent } from '../views/pages/home-page/home-page.component';
 import { AppNavComponent } from '../views/components/app/app-nav/app-nav.component';
 
 import { RouterCommonService } from '../services/common/router/router.common.service';
+import {peopleItemReducer} from '../reducers/people/item.people.reducer';
+import {ModelCommonService} from '../services/common/model/model.common.service';
 
 
 @NgModule({
@@ -36,9 +38,10 @@ import { RouterCommonService } from '../services/common/router/router.common.ser
     FormsModule,
     HttpModule,
     StoreModule.provideStore({
-      title: titleTestReducer
-      , people: apiPeopleReducer
-      , router: routerAppReducer
+      title: titleTestReducer,
+      peopleList: peopleListReducer,
+      peopleItem: peopleItemReducer,
+      router: routerReducer,
     }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 10
@@ -48,7 +51,8 @@ import { RouterCommonService } from '../services/common/router/router.common.ser
     AppRoutingModule
   ],
   providers: [
-    RouterCommonService
+    RouterCommonService,
+    ModelCommonService
   ],
   bootstrap: [AppPageComponent]
 })

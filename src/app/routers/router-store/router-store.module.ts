@@ -9,14 +9,12 @@
  *
  */
 
-import {Injectable, ModuleWithProviders, NgModule, Optional} from "@angular/core";
-import {
-  ActivatedRouteSnapshot, CanActivateChild, ExtraOptions, RouterModule, RouterStateSnapshot,
-  Routes
-} from "@angular/router";
-import {Store} from "@ngrx/store";
+import { Injectable, ModuleWithProviders, NgModule, Optional } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivateChild, ExtraOptions, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
 
-export const ROUTER_NAVIGATION = 'ROUTER_NAVIGATION';
+import { Store } from '@ngrx/store';
+
+import { routerNavigation } from '../../reducers/app/router.app.reducer';
 
 @Injectable()
 export class CanActivateChild_Internal implements CanActivateChild {
@@ -24,7 +22,7 @@ export class CanActivateChild_Internal implements CanActivateChild {
 
   constructor(@Optional() private store: Store<any>) {
     if (!store) {
-      throw new Error("RouterConnectedToStoreModule can only be used in combination with StoreModule");
+      throw new Error('RouterConnectedToStoreModule can only be used in combination with StoreModule');
     }
   }
 
@@ -32,7 +30,7 @@ export class CanActivateChild_Internal implements CanActivateChild {
     if (!this.lastState
       || (this.lastState !== state && this.lastState.url !== state.url)) {
       this.lastState = state;
-      this.store.dispatch({type: ROUTER_NAVIGATION, payload: state});
+      this.store.dispatch(routerNavigation(state));
     }
     return true;
   }

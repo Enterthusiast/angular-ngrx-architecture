@@ -11,6 +11,8 @@ import { ApiPeopleService } from '../services/people/api/api.people.service';
 import { ItemDisplayPeopleComponent } from '../views/components/people/display/item/item.display.people.component';
 import { ListDisplayPeopleComponent } from '../views/components/people/display/list/list.display.people.component';
 import { ListItemDisplayPeopleComponent } from '../views/components/people/display/list/list-item.display.people.component';
+import {TransformerPeopleService} from "../services/people/api/transformer.people.service";
+import {ItemPeopleFactoryService} from "../services/people/api/item.people.factory.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ListItemDisplayPeopleComponent } from '../views/components/people/displ
     PeopleRoutingModule
   ],
   providers: [
-    ApiPeopleService
+    ApiPeopleService,
+    TransformerPeopleService,
+    ItemPeopleFactoryService
   ],
   bootstrap: []
 })

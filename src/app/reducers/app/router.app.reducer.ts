@@ -6,9 +6,13 @@
 
 import { Action, State } from '@ngrx/store';
 
-import { ROUTER_NAVIGATION } from '../../routers/router-store/router-store.module';
+export const ROUTER_NAVIGATION = 'ROUTER_NAVIGATION';
 
-export function routerAppReducer(state: State<any>, action: Action) {
+export function routerNavigation(newRouterState) {
+  return {type: ROUTER_NAVIGATION, payload: newRouterState};
+}
+
+export function routerReducer(state: State<any>, action: Action) {
   switch (action.type) {
     case ROUTER_NAVIGATION: // 'ROUTER_NAVIGATION'
       return action.payload;

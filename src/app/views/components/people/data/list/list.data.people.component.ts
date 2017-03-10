@@ -11,27 +11,24 @@ import { ApiPeopleService } from '../../../../../services/people/api/api.people.
   selector: 'app-data-people-list',
   template: `
     <div>ListDataPeopleComponent</div>
-    <app-display-people-list [peopleList]="peoples | async"></app-display-people-list>
+    <app-display-people-list [peopleList]="peopleList | async"></app-display-people-list>
   `,
   styles: []
 })
 export class ListDataPeopleComponent {
-  peoples: Observable<any[]>;
 
-  constructor (
-    private store: Store<IAppStore>
-    , private apiPeopleService: ApiPeopleService
-  ) {
+  peopleList: Observable<any[]>;
 
-    this.peoples = store.select('people');
+  constructor (private store: Store<IAppStore>,
+               private apiPeopleService: ApiPeopleService) {
+
+    this.peopleList = store.select('peopleList');
     this.getPeopleList();
 
   }
 
-  getPeopleList() {
-
-    this.apiPeopleService.getPeopleList();
-
+  private getPeopleList() {
+    this.apiPeopleService.getList();
   }
 
 
