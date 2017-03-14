@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {combineReducers} from '@ngrx/store';
+import {compose} from '@ngrx/core/compose';
+import {storeFreeze} from 'ngrx-store-freeze';
 import { TestModule } from './test.module';
 import { PeopleModule } from './people.module';
 
@@ -23,7 +26,23 @@ import { AppNavComponent } from '../views/components/app/app-nav/app-nav.compone
 import { RouterCommonService } from '../services/common/router/router.common.service';
 import {peopleItemReducer} from '../reducers/people/item.people.reducer';
 import {ModelCommonService} from '../services/common/model/model.common.service';
+import {appConfig} from '../../appconfig';
 
+
+// Add deepfreeze on stores while in development
+// With deepfreeze you can't change a store state
+// And that's the way it should be!
+// A store must stay immutable or dangerous bug will occure
+const metaReducers = appConfig.environment.DEV
+  ? [storeFreeze, combineReducers]
+  : [combineReducers];
+
+const store = compose(...metaReducers)({
+  title: titleTestReducer,
+  peopleList: peopleListReducer,
+  peopleItem: peopleItemReducer,
+  router: routerReducer,
+});
 
 @NgModule({
   declarations: [
@@ -37,12 +56,7 @@ import {ModelCommonService} from '../services/common/model/model.common.service'
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({
-      title: titleTestReducer,
-      peopleList: peopleListReducer,
-      peopleItem: peopleItemReducer,
-      router: routerReducer,
-    }),
+    StoreModule.provideStore(store),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 10
     }),
