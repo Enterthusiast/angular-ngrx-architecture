@@ -8,11 +8,10 @@ import { Action, State } from '@ngrx/store';
 
 import * as _ from 'lodash';
 
-export const ROUTER_NAVIGATION = 'ROUTER_NAVIGATION';
+import {RouterState} from '../../models/app/router/router-state.app.class';
 
-export class RouterState {
-  public url: string;
-}
+
+export const ROUTER_NAVIGATION = 'ROUTER_NAVIGATION';
 
 export function routerNavigation(newRouterState) {
   return {type: ROUTER_NAVIGATION, payload: _.assignIn({}, newRouterState)};
