@@ -1,6 +1,6 @@
 import * as _ from "lodash";
 import {ModelCommonConfig} from "../../services/common/model/config/model.common.config";
-import {TransformerPeopleService} from "../../services/people/api/transformer.people.service";
+import {TransformerPeopleService} from "../../services/people/transformer.people.service";
 import {Directive} from "@angular/core";
 
 @Directive({

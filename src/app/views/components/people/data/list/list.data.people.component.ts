@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { IAppStore } from '../../../../../reducers/app-store.interface';
 
-import { ApiPeopleService } from '../../../../../services/people/api/api.people.service';
+import { ApiPeopleService } from '../../../../../services/people/api.people.service';
 
 @Component({
   selector: 'app-data-people-list',

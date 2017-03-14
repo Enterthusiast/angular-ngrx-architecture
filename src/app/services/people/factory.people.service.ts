@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {TransformerPeopleService} from './transformer.people.service';
-import {ItemPeopleClass} from '../../../models/people/item.people.class';
-import {ModelCommonConfig} from "../../common/model/config/model.common.config";
+import {ItemPeopleClass} from '../../models/people/item.people.class';
+import {ModelCommonConfig} from "../common/model/config/model.common.config";
 
 @Injectable()
-export class ItemPeopleFactoryService {
+export class FactoryPeopleService {
 
   constructor(private transformerPeopleService: TransformerPeopleService) {}
 

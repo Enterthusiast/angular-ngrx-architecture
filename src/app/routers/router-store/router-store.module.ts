@@ -14,11 +14,13 @@ import { ActivatedRouteSnapshot, CanActivateChild, ExtraOptions, RouterModule, R
 
 import { Store } from '@ngrx/store';
 
+import * as _ from 'lodash';
+
 import { routerNavigation } from '../../reducers/app/router.app.reducer';
 
 @Injectable()
 export class CanActivateChild_Internal implements CanActivateChild {
-  private lastState: RouterStateSnapshot = null;
+  private lastUrl = { url: '' };
 
   constructor(@Optional() private store: Store<any>) {
     if (!store) {
@@ -27,10 +29,10 @@ export class CanActivateChild_Internal implements CanActivateChild {
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (!this.lastState
-      || (this.lastState !== state && this.lastState.url !== state.url)) {
-      this.lastState = state;
-      this.store.dispatch(routerNavigation(state));
+    if (!this.lastUrl
+      || this.lastUrl.url !== state.url) {
+      this.lastUrl.url = state.url;
+      this.store.dispatch(routerNavigation(this.lastUrl));
     }
     return true;
   }
@@ -65,7 +67,7 @@ export function wrapRoutes(routes: Routes): Routes {
 
 @NgModule({})
 export class RouterConnectedToStoreModule {
-  static forRoot(routes: Routes, config?: ExtraOptions): ModuleWithProviders{
+  static forRoot(routes: Routes, config?: ExtraOptions): ModuleWithProviders {
     return {
       ngModule: RouterModule,
       providers: [
@@ -74,7 +76,7 @@ export class RouterConnectedToStoreModule {
       ]
     };
   }
-  static forChild(routes: Routes): ModuleWithProviders{
+  static forChild(routes: Routes): ModuleWithProviders {
     return {
       ngModule: RouterModule,
       providers: [

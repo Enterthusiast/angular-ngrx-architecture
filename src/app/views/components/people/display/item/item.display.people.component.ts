@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {ApiPeopleService} from "../../../../../services/people/api/api.people.service";
+import {ApiPeopleService} from "../../../../../services/people/api.people.service";
 import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
-import {TransformerPeopleService} from "../../../../../services/people/api/transformer.people.service";
+import {TransformerPeopleService} from "../../../../../services/people/transformer.people.service";
 
 @Component({
   selector: 'app-display-people-item',

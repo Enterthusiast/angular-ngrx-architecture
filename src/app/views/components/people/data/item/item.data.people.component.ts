@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {ApiPeopleService} from '../../../../../services/people/api/api.people.service';
+import {ApiPeopleService} from '../../../../../services/people/api.people.service';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../../../../../reducers/app-store.interface';
 import * as _ from 'lodash';
-import {ItemPeopleFactoryService} from '../../../../../services/people/api/item.people.factory.service';
+import {FactoryPeopleService} from '../../../../../services/people/factory.people.service';
 import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
 
 @Component({

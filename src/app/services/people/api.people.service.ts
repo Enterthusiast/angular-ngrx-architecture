@@ -4,14 +4,14 @@ import 'rxjs/add/operator/toPromise';
 
 import { Store } from '@ngrx/store';
 
-import { IAppStore } from '../../../reducers/app-store.interface';
-import { privateParams } from '../../../../privateparams';
-import { peopleListSetList } from '../../../reducers/people/list.people.reducer';
-import { peopleItemSetItem } from '../../../reducers/people/item.people.reducer';
-import {ItemPeopleClass} from "../../../models/people/item.people.class";
+import { IAppStore } from '../../reducers/app-store.interface';
+import { privateParams } from '../../../privateparams';
+import { peopleListSetList } from '../../reducers/people/list.people.reducer';
+import { peopleItemSetItem } from '../../reducers/people/item.people.reducer';
+import {ItemPeopleClass} from "../../models/people/item.people.class";
 import {TransformerPeopleService} from "./transformer.people.service";
-import {ItemPeopleFactoryService} from "./item.people.factory.service";
-import {ModelCommonConfig} from "../../common/model/config/model.common.config";
+import {FactoryPeopleService} from "./factory.people.service";
+import {ModelCommonConfig} from "../common/model/config/model.common.config";
 
 
 @Injectable()
@@ -30,7 +30,7 @@ export class ApiPeopleService {
   constructor(private store: Store<IAppStore>,
               private http: Http,
               private transformerPeopleService: TransformerPeopleService,
-              private itemPeopleFactoryService: ItemPeopleFactoryService) {}
+              private itemPeopleFactoryService: FactoryPeopleService) {}
 
   private getListUrl(): string {
     return this.apiUrl;
@@ -87,7 +87,6 @@ export class ApiPeopleService {
 
   putItem(item, id): void {
     const itemPeoplePutData = this.transformerPeopleService.toPutAttributes(item);
-    debugger
     this.http.put(this.putItemUrl(id), this.postItemWrapper(itemPeoplePutData), {headers: this.headers})
       .toPromise()
       .then(res => {

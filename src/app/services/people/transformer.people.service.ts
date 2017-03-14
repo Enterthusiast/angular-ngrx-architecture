@@ -4,7 +4,7 @@ import {ItemPeopleGetFields} from './config/item.people.get.fields';
 import {ItemPeoplePostFields} from './config/item.people.post.fields';
 import {ItemPeoplePutFields} from './config/item.people.put.fields';
 import * as _ from 'lodash';
-import {ModelCommonService} from '../../common/model/model.common.service';
+import {ModelCommonService} from '../common/model/model.common.service';
 
 @Injectable()
 export class TransformerPeopleService {
