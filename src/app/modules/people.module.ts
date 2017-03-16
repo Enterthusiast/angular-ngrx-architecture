@@ -13,6 +13,8 @@ import { ListDisplayPeopleComponent } from '../views/components/people/display/l
 import { ListItemDisplayPeopleComponent } from '../views/components/people/display/list/list-item.display.people.component';
 import {TransformerPeopleService} from "../services/people/transformer.people.service";
 import {FactoryPeopleService} from "../services/people/factory.people.service";
+import {EasyFormsModule} from "angular2-easy-forms-enterthusiast/components";
+import { ButtonsModule } from 'ng2-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,10 @@ import {FactoryPeopleService} from "../services/people/factory.people.service";
   imports: [
     CommonModule,
     FormsModule,
+    ButtonsModule,
     HttpModule,
-    PeopleRoutingModule
+    PeopleRoutingModule,
+    EasyFormsModule
   ],
   providers: [
     ApiPeopleService,
