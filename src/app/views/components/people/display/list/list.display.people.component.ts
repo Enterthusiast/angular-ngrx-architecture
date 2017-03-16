@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-display-people-list',
+  selector: 'ori-display-people-list',
   template: `
     <div>ListDisplayPeopleComponent</div>
-    <app-display-people-list-item *ngFor="let peopleListItem of peopleList" [peopleListItem]="peopleListItem"></app-display-people-list-item>
+    <ori-display-people-list-item *ngFor="let peopleListItem of peopleList" [peopleListItem]="peopleListItem"></ori-display-people-list-item>
   `,
   styles: []
 })

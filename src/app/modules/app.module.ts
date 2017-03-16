@@ -26,16 +26,16 @@ import { AppNavComponent } from '../views/components/app/app-nav/app-nav.compone
 import { RouterCommonService } from '../services/common/router/router.common.service';
 import {peopleItemReducer} from '../reducers/people/item.people.reducer';
 import {ModelCommonService} from '../services/common/model/model.common.service';
-import {appConfig} from '../../appconfig';
+import {environment} from '../../environments/environment';
 
 
 // Add deepfreeze on stores while in development
 // With deepfreeze you can't change a store state
 // And that's the way it should be!
 // A store must stay immutable or dangerous bug will occure
-const metaReducers = appConfig.environment.DEV
-  ? [storeFreeze, combineReducers]
-  : [combineReducers];
+const metaReducers = environment.production
+  ? [combineReducers]
+  : [storeFreeze, combineReducers];
 
 const store = compose(...metaReducers)({
   title: titleTestReducer,

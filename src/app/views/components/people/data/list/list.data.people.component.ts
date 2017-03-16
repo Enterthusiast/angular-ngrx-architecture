@@ -8,10 +8,10 @@ import { IAppStore } from '../../../../../reducers/app-store.interface';
 import { ApiPeopleService } from '../../../../../services/people/api.people.service';
 
 @Component({
-  selector: 'app-data-people-list',
+  selector: 'ori-data-people-list',
   template: `
     <div>ListDataPeopleComponent</div>
-    <app-display-people-list [peopleList]="peopleList | async"></app-display-people-list>
+    <ori-display-people-list [peopleList]="peopleList | async"></ori-display-people-list>
   `,
   styles: []
 })

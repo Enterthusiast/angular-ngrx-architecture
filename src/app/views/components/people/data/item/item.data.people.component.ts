@@ -8,10 +8,10 @@ import {FactoryPeopleService} from '../../../../../services/people/factory.peopl
 import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
 
 @Component({
-  selector: 'app-data-people-item',
+  selector: 'ori-data-people-item',
   template: `
     <div>I'm a people-item</div>
-    <app-display-people-item [peopleItem]="currentPeopleItem"></app-display-people-item>
+    <ori-display-people-item [peopleItem]="currentPeopleItem"></ori-display-people-item>
   `,
   styles: []
 })

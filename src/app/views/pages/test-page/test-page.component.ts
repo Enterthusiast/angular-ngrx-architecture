@@ -8,7 +8,7 @@ import { IAppStore } from '../../../reducers/app-store.interface';
 import { RouterCommonService } from '../../../services/common/router/router.common.service';
 
 @Component({
-  selector: 'app-test-page',
+  selector: 'ori-test-page',
   template: `
     <p>
       test-page works!

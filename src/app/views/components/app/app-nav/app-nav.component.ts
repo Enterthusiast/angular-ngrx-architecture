@@ -5,7 +5,7 @@ import { RouteMapController } from '../../../../controllers/app/route-map/route-
 
 
 @Component({
-  selector: 'app-nav',
+  selector: 'ori-nav',
   template: `
   <nav>
     <a class="app-nav-li" *ngFor="let route of routeMap" routerLink="{{ route.link }}" routerLinkActive="active">{{ route.name }}</a><br>

@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterCommonService } from '../../../services/common/router/router.common.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ori-root',
   template: `
     <h1>
       Hello World
     </h1>
-    <app-nav></app-nav>
+    <ori-nav></ori-nav>
     <router-outlet></router-outlet>`,
   styles:  []
 })

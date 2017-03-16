@@ -10,7 +10,7 @@ import { CaramelTitleTestService } from '../../../../services/test/title/caramel
 import { ChocolateTitleTestService } from '../../../../services/test/title/chocolate.title.test.service';
 
 @Component({
-  selector: 'app-test-item',
+  selector: 'ori-test-item',
   providers: [
     { provide: TitleTestService, useClass: CaramelTitleTestService },
     { provide: ChocolateTitleTestService, useClass: ChocolateTitleTestService }
@@ -21,7 +21,7 @@ import { ChocolateTitleTestService } from '../../../../services/test/title/choco
      </h1>
      <input type="text" [(ngModel)]="nextTitle">
      <button (click)="changeTitle()">Change Title</button>
-     <app-sub-test-item [myService]="childService"></app-sub-test-item>
+     <ori-sub-test-item [myService]="childService"></ori-sub-test-item>
   `,
   styles:  []
 })

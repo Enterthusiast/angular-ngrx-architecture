@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'ori-home',
   template: `
     <h2>
       WELCOME MATE!

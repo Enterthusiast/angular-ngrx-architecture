@@ -6,7 +6,7 @@ import { IAppStore } from '../../../../../reducers/app-store.interface';
 import { TitleTestService } from '../../../../../services/test/title/title.test.service';
 
 @Component({
-  selector: 'app-sub-test-item',
+  selector: 'ori-sub-test-item',
   template: `
     <div (click)="changeTitle()">{{ title | async }}</div>
   `,

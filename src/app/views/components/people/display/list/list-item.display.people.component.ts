@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-display-people-list-item',
+  selector: 'ori-display-people-list-item',
   template: `
     <dl>
       <dt>Firstname</dt>
