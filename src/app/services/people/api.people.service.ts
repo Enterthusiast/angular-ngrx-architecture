@@ -25,7 +25,7 @@ export class ApiPeopleService {
   private apiUrl = privateParams.links.origamiPeoples;
   private embeddedListKey = 'peoples';
   private formItemKey = 'people';
-  private uuidItemKey = ModelCommonConfig.DEFAULT_UUID_KEY;
+  private uuidItemKey = ModelCommonConfig.DEFAULT_ID_KEY;
 
   constructor(private store: Store<IAppStore>,
               private http: Http,
@@ -87,7 +87,11 @@ export class ApiPeopleService {
 
   putItem(item, id): void {
     const itemPeoplePutData = this.transformerPeopleService.toPutAttributes(item);
-    this.http.put(this.putItemUrl(id), this.postItemWrapper(itemPeoplePutData), {headers: this.headers})
+    this.putObject(itemPeoplePutData, id);
+  }
+
+  putObject(object, id): void {
+    this.http.put(this.putItemUrl(id), this.postItemWrapper(object), {headers: this.headers})
       .toPromise()
       .then(res => {
         const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });

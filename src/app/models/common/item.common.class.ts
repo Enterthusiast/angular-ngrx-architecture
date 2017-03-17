@@ -4,6 +4,8 @@ import {ModelCommonConfig} from '../../services/common/model/config/model.common
 
 export class ItemCommonClass {
 
+  private idKey = ModelCommonConfig.DEFAULT_ID_KEY;
+
   constructor(params) {
     _.assign(
       {
@@ -26,6 +28,10 @@ export class ItemCommonClass {
     } else {
       return undefined;
     }
+  }
+
+  getId(): any {
+    return this.get(this.idKey);
   }
 
   getAttributes(): any {

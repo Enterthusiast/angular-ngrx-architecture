@@ -11,10 +11,12 @@ import { ApiPeopleService } from '../services/people/api.people.service';
 import { ItemDisplayPeopleComponent } from '../views/components/people/display/item/item.display.people.component';
 import { ListDisplayPeopleComponent } from '../views/components/people/display/list/list.display.people.component';
 import { ListItemDisplayPeopleComponent } from '../views/components/people/display/list/list-item.display.people.component';
-import {TransformerPeopleService} from "../services/people/transformer.people.service";
-import {FactoryPeopleService} from "../services/people/factory.people.service";
-import {EasyFormsModule} from "angular2-easy-forms-enterthusiast/components";
+import {TransformerPeopleService} from '../services/people/transformer.people.service';
+import {FactoryPeopleService} from '../services/people/factory.people.service';
+import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
 import { ButtonsModule } from 'ng2-bootstrap';
+import {ItemFormPutPeopleComponent} from '../views/components/people/form/item/item.form.put.people.component';
+import {ItemFormPostPeopleComponent} from '../views/components/people/form/item/item.form.post.people.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ButtonsModule } from 'ng2-bootstrap';
     ListDataPeopleComponent,
     ItemDisplayPeopleComponent,
     ListDisplayPeopleComponent,
-    ListItemDisplayPeopleComponent
+    ListItemDisplayPeopleComponent,
+    ItemFormPutPeopleComponent,
+    ItemFormPostPeopleComponent
   ],
   imports: [
     CommonModule,
