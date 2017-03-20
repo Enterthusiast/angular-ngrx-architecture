@@ -8,8 +8,6 @@ import {ItemFormPutPeopleComponent} from '../../form/item/item.form.put.people.c
   template: `
     <div>ItemDisplayPeopleComponent</div>
     <div>{{ peopleItem?.attributes?.firstname }}</div>
-    <ori-form-put-people-item [peopleItem]="peopleItem"></ori-form-put-people-item>
-    <ori-form-post-people-item></ori-form-post-people-item>
   `,
   styles: []
 })

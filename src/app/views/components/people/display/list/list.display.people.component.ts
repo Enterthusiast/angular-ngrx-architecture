@@ -4,7 +4,6 @@ import {Component, Input} from '@angular/core';
   selector: 'ori-display-people-list',
   template: `
     <div>ListDisplayPeopleComponent</div>
-    <ori-display-people-list-item *ngFor="let peopleListItem of peopleList" [peopleListItem]="peopleListItem"></ori-display-people-list-item>
   `,
   styles: []
 })
@@ -15,3 +14,5 @@ export class ListDisplayPeopleComponent {
   constructor() { }
 
 }
+
+// <ori-display-people-list-item *ngFor="let peopleListItem of peopleList" [peopleListItem]="peopleListItem"></ori-display-people-list-item>

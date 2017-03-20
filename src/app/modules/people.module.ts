@@ -17,12 +17,18 @@ import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
 import { ButtonsModule } from 'ng2-bootstrap';
 import {ItemFormPutPeopleComponent} from '../views/components/people/form/item/item.form.put.people.component';
 import {ItemFormPostPeopleComponent} from '../views/components/people/form/item/item.form.post.people.component';
+import {ListItemDataPeopleComponent} from '../views/components/people/data/list/list-item.data.people.component';
+import {ItemDataPutPeopleComponent} from '../views/components/people/data/item/item.data.put.people.components';
+import {ItemDataDisplayPeopleComponent} from '../views/components/people/data/item/item.data.display.people.component';
 
 @NgModule({
   declarations: [
     PeoplePageComponent,
     ItemDataPeopleComponent,
     ListDataPeopleComponent,
+    ItemDataPutPeopleComponent,
+    ItemDataDisplayPeopleComponent,
+    ListItemDataPeopleComponent,
     ItemDisplayPeopleComponent,
     ListDisplayPeopleComponent,
     ListItemDisplayPeopleComponent,

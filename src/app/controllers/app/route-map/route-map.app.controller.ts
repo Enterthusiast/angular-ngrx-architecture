@@ -8,39 +8,45 @@ export const RouteMapController = new function() {
   const self = this;
 
   self.routeAppClassList = function() {
-    if(_routeAppClassList && _routeAppClassList.length > 0) {
+    if (_routeAppClassList && _routeAppClassList.length > 0) {
       return _routeAppClassList;
     } else {
       return _routeAppClassList = routeConfigList
-        .map(self.RouteToRouteClass)
-        .map(route => RouteAppFactory.createRoute(route));
-    }
-  };
-
-  self.RouteToRouteClass = function(routeMap) {
-    const joinChar = '/';
-    return {
-      name: routeMap.displayName
-      , link: [
-        ...routeMap.nesting
-          .map(routeID => self.getLeafLink(routeID))
-        , routeMap.leafLink
-      ]
-        .join(joinChar)
+        .map(self.RouteToRouteClass);
     }
   };
 
   self.getRouteAppClassListFrom = function(routeIDList) {
     return routeIDList
       .map(self.getRoute)
-      .map(self.RouteToRouteClass)
+      .map(self.RouteToRouteClass);
+  };
+
+  self.getRouteAppClass = function(routeID) {
+    return self.RouteToRouteClass(self.getRoute(routeID));
   };
 
   self.getRoute = function(routeID) {
-    if(!_routeConfigList || _routeConfigList.length === 0) {
+    if (!_routeConfigList || _routeConfigList.length === 0) {
       _routeConfigList = routeConfigList.slice();
     }
     return _routeConfigList.find(routeData => routeData.routeID === routeID);
+  };
+
+  self.RouteToRouteClass = function(routeMap) {
+    if (routeMap) {
+      const joinChar = '/';
+      return RouteAppFactory.createRoute({
+        name: routeMap.displayName
+        , link: [
+          joinChar,
+          ...routeMap.nesting
+            .map(routeID => self.getLeafLink(routeID)),
+          routeMap.leafLink
+        ]
+          .join(joinChar)
+      });
+    }
   };
 
   self.getLeafLink = function(routeID) {

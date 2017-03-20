@@ -59,7 +59,8 @@ export class ApiPeopleService {
       .toPromise()
       .then(res => {
         const json = res.json();
-        const peopleList = json._embedded[this.embeddedListKey];
+        const peopleListData = json._embedded[this.embeddedListKey];
+        const peopleList = this.itemPeopleFactoryService.createPeopleList({ list: peopleListData, type: 'get' });
         this.store.dispatch(peopleListSetList(peopleList));
       })
       .catch(console.log);

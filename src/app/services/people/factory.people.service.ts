@@ -21,6 +21,12 @@ export class FactoryPeopleService {
     }
   }
 
+  public createPeopleList(params): ItemPeopleClass[] {
+    const list = params.list;
+    const type = params.type || 'get';
+    return list.map((data) => this.createPeople({ data: data, type: type }));
+  }
+
   public createGetPeople(data): ItemPeopleClass {
     const attributes = this.transformerPeopleService.toGetAttributes(data);
     return new ItemPeopleClass({ [ModelCommonConfig.ATTRIBUTES] : attributes });
