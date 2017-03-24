@@ -11,8 +11,6 @@ import { HomePageComponent } from '../views/pages/home-page/home-page.component'
 
 import { RouteMapController } from '../controllers/app/route-map/route-map.app.controller';
 
-import { RouterConnectedToStoreModule } from './router-store/router-store.module';
-
 const appRoutes: Routes = [
   { path: '',   redirectTo: RouteMapController.getLeafLink('home'), pathMatch: 'full' },
   { path: RouteMapController.getLeafLink('home'), component: HomePageComponent },
@@ -21,10 +19,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    // Here we are using the router-store controllers
-    RouterConnectedToStoreModule.forRoot(appRoutes)
-    // Fallback to standard controllers if anything goes wrong
-    // RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
     RouterModule

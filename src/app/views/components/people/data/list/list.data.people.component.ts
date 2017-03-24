@@ -4,30 +4,50 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { IAppStore } from '../../../../../reducers/app-store.interface';
-
 import { ApiPeopleService } from '../../../../../services/people/api.people.service';
-import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
+import {PeopleState} from '../../../../../reducers/people/list.people.reducer';
 
 @Component({
   selector: 'ori-data-people-list',
   template: `
-    <div>ListDataPeopleComponent</div>
-    <ori-display-people-list [peopleList]="peopleList"></ori-display-people-list>
-    <ori-data-people-list-item *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-data-people-list-item>
+    <div class="col-md-6">
+      <ori-display-people-list [peopleList]="peopleList"></ori-display-people-list>
+      <ori-data-people-list-item *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-data-people-list-item>
+    </div>
+    <div class="col-md-6">
+      <div class="fixed">
+        <router-outlet name="action"></router-outlet>
+      </div>
+    </div>
   `,
-  styles: []
+  styles: [`
+    .fixed {
+      display: block;
+      position: fixed;
+      top: 128px;
+      left: 50%;
+      width: 50%;
+    }
+    .block {
+      display: block;
+    }
+    .inlineblock {
+      display: inline-block;
+      vertical-align: top;
+    }
+  `]
 })
 export class ListDataPeopleComponent {
 
-  private peopleList$: Observable<ItemPeopleClass[]>;
+  private peopleList$: Observable<PeopleState>;
   peopleList: any[];
 
   constructor (private store: Store<IAppStore>,
                private apiPeopleService: ApiPeopleService) {
 
     this.peopleList$ = store.select('peopleList');
-    this.peopleList$.subscribe((list) => {
-      this.peopleList = [...list];
+    this.peopleList$.subscribe((value) => {
+      this.peopleList = [...value.list];
     });
     this.getPeopleList();
 

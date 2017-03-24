@@ -20,6 +20,9 @@ import {ItemFormPostPeopleComponent} from '../views/components/people/form/item/
 import {ListItemDataPeopleComponent} from '../views/components/people/data/list/list-item.data.people.component';
 import {ItemDataPutPeopleComponent} from '../views/components/people/data/item/item.data.put.people.components';
 import {ItemDataDisplayPeopleComponent} from '../views/components/people/data/item/item.data.display.people.component';
+import {ListItemDataPutPeopleComponent} from "../views/components/people/data/list/list-item.data.put.people.component";
+import {SubjectPeopleService} from "../services/people/subject.people.service";
+import {EffectPeopleService} from "../services/people/effect.people.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import {ItemDataDisplayPeopleComponent} from '../views/components/people/data/it
     ItemDataPutPeopleComponent,
     ItemDataDisplayPeopleComponent,
     ListItemDataPeopleComponent,
+    ListItemDataPutPeopleComponent,
     ItemDisplayPeopleComponent,
     ListDisplayPeopleComponent,
     ListItemDisplayPeopleComponent,
@@ -45,6 +49,8 @@ import {ItemDataDisplayPeopleComponent} from '../views/components/people/data/it
   ],
   providers: [
     ApiPeopleService,
+    EffectPeopleService,
+    SubjectPeopleService,
     TransformerPeopleService,
     FactoryPeopleService
   ],

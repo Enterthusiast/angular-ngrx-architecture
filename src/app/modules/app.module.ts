@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {combineReducers} from '@ngrx/store';
 import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
+
 import { TestModule } from './test.module';
 import { PeopleModule } from './people.module';
 
@@ -15,7 +16,6 @@ import { AppRoutingModule } from '../routers/app.router';
 import { TestRoutingModule } from '../routers/test.router';
 import { PeopleRoutingModule } from '../routers/people.router';
 
-import { routerReducer } from '../reducers/app/router.app.reducer';
 import { titleTestReducer } from '../reducers/test/title.test.reducer';
 import { peopleListReducer } from '../reducers/people/list.people.reducer';
 
@@ -23,8 +23,6 @@ import { AppPageComponent } from '../views/pages/app-page/app-page.component';
 import { HomePageComponent } from '../views/pages/home-page/home-page.component';
 import { AppNavComponent } from '../views/components/app/app-nav/app-nav.component';
 
-import { RouterCommonService } from '../services/common/router/router.common.service';
-import {peopleItemReducer} from '../reducers/people/item.people.reducer';
 import {ModelCommonService} from '../services/common/model/model.common.service';
 import {environment} from '../../environments/environment';
 
@@ -40,8 +38,6 @@ const metaReducers = environment.production
 const store = compose(...metaReducers)({
   title: titleTestReducer,
   peopleList: peopleListReducer,
-  peopleItem: peopleItemReducer,
-  router: routerReducer,
 });
 
 @NgModule({
@@ -65,7 +61,7 @@ const store = compose(...metaReducers)({
     AppRoutingModule
   ],
   providers: [
-    RouterCommonService,
+    // RouterCommonService,
     ModelCommonService
   ],
   bootstrap: [AppPageComponent]

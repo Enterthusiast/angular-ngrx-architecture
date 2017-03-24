@@ -11,13 +11,15 @@ import { TestRoutingModule } from '../routers/test.router';
 import { TitleTestService } from '../services/test/title/title.test.service';
 import { CaramelTitleTestService } from '../services/test/title/caramel.title.test.service';
 import { ChocolateTitleTestService } from '../services/test/title/chocolate.title.test.service';
+import {TestDirective} from '../views/components/test/test-item/test.directive';
 
 @NgModule({
   declarations: [
     TestPageComponent,
     TestItemComponent,
     TestListComponent,
-    SubTestItemComponent
+    SubTestItemComponent,
+    TestDirective
   ],
   imports: [
     CommonModule,

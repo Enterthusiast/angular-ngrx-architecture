@@ -6,12 +6,13 @@ import { Store } from '@ngrx/store';
 
 import { IAppStore } from '../../reducers/app-store.interface';
 import { privateParams } from '../../../privateparams';
-import { peopleListSetList } from '../../reducers/people/list.people.reducer';
-import { peopleItemSetItem } from '../../reducers/people/item.people.reducer';
+import {peopleSetList, peopleAddItem} from '../../reducers/people/list.people.reducer';
 import {ItemPeopleClass} from "../../models/people/item.people.class";
 import {TransformerPeopleService} from "./transformer.people.service";
 import {FactoryPeopleService} from "./factory.people.service";
 import {ModelCommonConfig} from "../common/model/config/model.common.config";
+import {SubjectPeopleService} from "./subject.people.service";
+import {EffectPeopleService} from "./effect.people.service";
 
 
 @Injectable()
@@ -30,7 +31,8 @@ export class ApiPeopleService {
   constructor(private store: Store<IAppStore>,
               private http: Http,
               private transformerPeopleService: TransformerPeopleService,
-              private itemPeopleFactoryService: FactoryPeopleService) {}
+              private itemPeopleFactoryService: FactoryPeopleService,
+              private effectPeopleService: EffectPeopleService) {}
 
   private getListUrl(): string {
     return this.apiUrl;
@@ -61,7 +63,7 @@ export class ApiPeopleService {
         const json = res.json();
         const peopleListData = json._embedded[this.embeddedListKey];
         const peopleList = this.itemPeopleFactoryService.createPeopleList({ list: peopleListData, type: 'get' });
-        this.store.dispatch(peopleListSetList(peopleList));
+        this.store.dispatch(peopleSetList(peopleList));
       })
       .catch(console.log);
   }
@@ -71,7 +73,7 @@ export class ApiPeopleService {
       .toPromise()
       .then(res => {
         const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });
-        this.store.dispatch(peopleItemSetItem(itemPeople));
+        this.store.dispatch(peopleAddItem(itemPeople));
       })
       .catch(console.log);
   }
@@ -81,7 +83,7 @@ export class ApiPeopleService {
       .toPromise()
       .then(res => {
         const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });
-        this.store.dispatch(peopleItemSetItem(itemPeople));
+        this.store.dispatch(peopleAddItem(itemPeople));
       })
       .catch(console.log);
   }
@@ -96,7 +98,7 @@ export class ApiPeopleService {
       .toPromise()
       .then(res => {
         const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });
-        this.store.dispatch(peopleItemSetItem(itemPeople));
+        this.effectPeopleService.peopleUpdateItem(itemPeople);
       })
       .catch(console.log);
   }

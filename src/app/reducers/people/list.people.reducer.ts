@@ -1,18 +1,43 @@
 import { Action } from '@ngrx/store';
 
 import * as _ from 'lodash';
-import {ItemPeopleClass} from "../../models/people/item.people.class";
+import {ItemPeopleClass} from '../../models/people/item.people.class';
 
-export const PEOPLE_LIST_SET_LIST = 'PEOPLE_LIST_SET_LIST';
+export const PEOPLE_SET_LIST = 'PEOPLE_SET_LIST';
+export const PEOPLE_ADD_ITEM = 'PEOPLE_ADD_ITEM';
+export const PEOPLE_UPDATE_ITEM = 'PEOPLE_UPDATE_ITEM';
+export const PEOPLE_SET_WATCHEDID = 'PEOPLE_SET_WATCHEDID';
 
-export function peopleListSetList(newPeopleList: ItemPeopleClass[]) {
-  return {type: PEOPLE_LIST_SET_LIST, payload: [...newPeopleList]};
+export function peopleSetList(newPeopleList: ItemPeopleClass[]) {
+  return {type: PEOPLE_SET_LIST, payload: newPeopleList};
+}
+export function peopleAddItem(newPeopleItem) {
+  return {type: PEOPLE_ADD_ITEM, payload: newPeopleItem};
+}
+export function peopleSetWatchedId(newWatchedId) {
+  return {type: PEOPLE_SET_WATCHEDID, payload: newWatchedId};
 }
 
-export function peopleListReducer(state: any[] = [], action: Action) {
+export interface PeopleState {
+  list: ItemPeopleClass[];
+  filters: string[];
+  watchedId: string;
+}
+
+export const InitPeopleState = {
+  list: [],
+  filters: [],
+  watchedId: ''
+};
+
+export function peopleListReducer(state: PeopleState = InitPeopleState, action: Action) {
   switch (action.type) {
-    case 'PEOPLE_LIST_SET_LIST':
-      return action.payload;
+    case PEOPLE_SET_LIST:
+      return _.assignIn({}, state, { list: action.payload });
+    case PEOPLE_ADD_ITEM:
+      return _.assignIn({}, state, { list: [action.payload, ...state.list] });
+    case PEOPLE_SET_WATCHEDID:
+      return _.assignIn({}, state, { watchedId: action.payload });
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import {Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -21,6 +21,9 @@ import { ChocolateTitleTestService } from '../../../../services/test/title/choco
      </h1>
      <input type="text" [(ngModel)]="nextTitle">
      <button (click)="changeTitle()">Change Title</button>
+     
+     <div test-directive (outputField)="bindToData($event)">data from dir: {{ dataFromDirective }}</div>
+     
      <ori-sub-test-item [myService]="childService"></ori-sub-test-item>
   `,
   styles:  []
@@ -28,6 +31,7 @@ import { ChocolateTitleTestService } from '../../../../services/test/title/choco
 export class TestItemComponent {
   title: Observable<string>;
   nextTitle: string;
+  dataFromDirective: string;
 
   constructor (
     private store: Store<IAppStore>
@@ -37,6 +41,10 @@ export class TestItemComponent {
 
     this.title = store.select('title');
 
+  }
+
+  bindToData($event) {
+    this.dataFromDirective = $event;
   }
 
   changeTitle() {

@@ -10,18 +10,20 @@ import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
       <dd>{{ peopleItem.get('firstname') }}</dd>
       <dt>Lastname</dt>
       <dd>{{ peopleItem.get('lastname') }}</dd>
+      <dt></dt>
+      <dd>
+        <a class="btn btn-link"
+           [routerLink]="[ { outlets: { action: [peopleItem.getId()] } } ]"
+           routerLinkActive="active" [hidden]="displayData?.routerLink">
+          Afficher
+        </a>
+        <a class="btn btn-link"
+           [routerLink]="[ { outlets: { action: [peopleItem.getId(), 'edit'] } } ]"
+           routerLinkActive="active" [hidden]="displayData?.routerLink">
+          Editer
+        </a>
+      </dd>
     </dl>
-    <a class="btn btn-link"
-       routerLink="{{ displayData?.routerLinkShow }}"
-       routerLinkActive="active" [hidden]="displayData?.routerLink">
-      Afficher
-    </a>
-    <a class="btn btn-link"
-       routerLink="{{ displayData?.routerLinkEdit }}"
-       routerLinkActive="active" [hidden]="displayData?.routerLink">
-      Editer
-    </a>
-    <br>
   `,
   styles: []
 })
