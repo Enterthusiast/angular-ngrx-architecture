@@ -28,10 +28,5 @@ import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
   styles: []
 })
 export class ListItemDisplayPeopleComponent {
-
   @Input() peopleItem: ItemPeopleClass;
-  @Input() displayData: any;
-
-  constructor() { }
-
 }

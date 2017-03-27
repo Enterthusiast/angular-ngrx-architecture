@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Validators, FormGroup} from '@angular/forms';
+// import {Validators, FormGroup} from '@angular/forms';
 import {ApiPeopleService} from '../../../../../services/people/api.people.service';
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
+// import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
 import {TransformerPeopleService} from '../../../../../services/people/transformer.people.service';
-import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
-import { ButtonsModule } from 'ng2-bootstrap';
-import * as _ from 'lodash';
+// import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
+// import {ButtonsModule} from 'ng2-bootstrap';
+// import * as _ from 'lodash';
 import {
   formDefaultStyle, formQuestionDefaultStyle,
   formQuestionRadioCheckboxStyle
@@ -14,19 +14,15 @@ import {
 @Component({
   selector: 'ori-form-post-people-item',
   template: `
-    <easy-form [easyFormData]="data" (onSubmit)="submit($event)"></easy-form>
+    <easy-form [easyFormData]="formParams" (onSubmit)="submit($event)"></easy-form>
   `,
   styles: []
 })
-
 export class ItemFormPostPeopleComponent implements OnInit {
 
-  @Input() peopleItem: ItemPeopleClass;
+  public formParams = {};
 
-  public data = {};
-
-  constructor(private apiPeopleService: ApiPeopleService,
-    private transformerPeopleService: TransformerPeopleService) { }
+  constructor(private apiPeopleService: ApiPeopleService) { }
 
   ngOnInit() {
     this.setData();
@@ -37,8 +33,7 @@ export class ItemFormPostPeopleComponent implements OnInit {
   }
 
   setData() {
-
-    this.data = {
+    this.formParams = {
       classes: formDefaultStyle,
       settings: {
         submitButtonText: 'Send',
@@ -122,7 +117,6 @@ export class ItemFormPostPeopleComponent implements OnInit {
         }
       ]
     };
-
   }
 
 }

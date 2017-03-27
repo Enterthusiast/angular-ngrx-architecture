@@ -4,7 +4,13 @@ import {ItemCommonClass} from '../common/item.common.class';
 
 export class ItemPeopleClass extends ItemCommonClass {
 
-  private itemRouteId = routeIDList.peopleItemShow;
-  private listRouteId = routeIDList.peopleList;
+  constructor(params) {
+
+    super(params);
+
+    this.itemRouteId = routeIDList.peopleItemShow;
+    this.listRouteId = routeIDList.peopleList;
+
+  }
 
 }

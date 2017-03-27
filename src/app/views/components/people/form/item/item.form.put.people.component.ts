@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Validators, FormGroup} from '@angular/forms';
 import {ApiPeopleService} from '../../../../../services/people/api.people.service';
 import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
@@ -14,31 +14,29 @@ import {
 @Component({
   selector: 'ori-form-put-people-item',
   template: `
-    <easy-form [easyFormData]="data" (onSubmit)="submit($event)"></easy-form>
+    <div ori-data-people-watched-item (dataEmitter)="setPeopleItem($event)"></div>
+    <easy-form *ngIf="formParams" [easyFormData]="formParams" (onSubmit)="submit($event)"></easy-form>
   `,
   styles: []
 })
+export class ItemFormPutPeopleComponent {
 
-export class ItemFormPutPeopleComponent implements OnChanges {
+  private _peopleItem: ItemPeopleClass;
+  formParams: any;
 
-  @Input() peopleItem: ItemPeopleClass;
+  constructor(private apiPeopleService: ApiPeopleService) { }
 
-  public data = {};
-
-  constructor(private apiPeopleService: ApiPeopleService,
-    private transformerPeopleService: TransformerPeopleService) { }
-
-  ngOnChanges() {
+  setPeopleItem($event) {
+    this._peopleItem = $event;
     this.setData();
   }
 
   submit($event) {
-    this.apiPeopleService.putItem($event, this.peopleItem.getId());
+    this.apiPeopleService.putItem($event, this._peopleItem.getId());
   }
 
   setData() {
-
-    this.data = {
+    this.formParams = {
       classes: formDefaultStyle,
       settings: {
         submitButtonText: 'Send',
@@ -51,7 +49,7 @@ export class ItemFormPutPeopleComponent implements OnChanges {
           type: 'dropdown',
           key: 'civility',
           label: 'Civility',
-          value: this.peopleItem.get('civility'),
+          value: this._peopleItem.get('civility'),
           options: [
             { value: '1', name: 'M'},
             { value: '2', name: 'Mme'},
@@ -68,7 +66,7 @@ export class ItemFormPutPeopleComponent implements OnChanges {
           type: 'text',
           key: 'firstname',
           label: 'Firstname',
-          value: this.peopleItem.get('firstname'),
+          value: this._peopleItem.get('firstname'),
           validation: [
             {type: 'required'},
             {type: 'pattern', value: '[a-zA-Z ]+'}
@@ -79,7 +77,7 @@ export class ItemFormPutPeopleComponent implements OnChanges {
           type: 'text',
           key: 'lastname',
           label: 'Lastname',
-          value: this.peopleItem.get('lastname'),
+          value: this._peopleItem.get('lastname'),
           validation: [
             {type: 'required'},
             {type: 'pattern', value: '[a-zA-Z ]+'}
@@ -90,7 +88,7 @@ export class ItemFormPutPeopleComponent implements OnChanges {
           type: 'dropdown',
           key: 'status',
           label: 'Status',
-          value: this.peopleItem.get('status'),
+          value: this._peopleItem.get('status'),
           options: [
             { value: 'ENA', name: 'Actif'},
             { value: 'DIS', name: 'Désactivé'},
@@ -105,32 +103,31 @@ export class ItemFormPutPeopleComponent implements OnChanges {
           type: 'text',
           key: 'email',
           label: 'Email',
-          value: this.peopleItem.get('email')
+          value: this._peopleItem.get('email')
         },
         {
           classes: formQuestionDefaultStyle,
           type: 'text',
           key: 'mobile',
           label: 'Mobile',
-          value: this.peopleItem.get('mobile')
+          value: this._peopleItem.get('mobile')
         },
         {
           classes: formQuestionDefaultStyle,
           type: 'text',
           key: 'phone',
           label: 'Phone',
-          value: this.peopleItem.get('phone')
+          value: this._peopleItem.get('phone')
         },
         {
           classes: formQuestionDefaultStyle,
           type: 'text',
           key: 'description',
           label: 'Description',
-          value: this.peopleItem.get('description')
+          value: this._peopleItem.get('description')
         }
       ]
     };
-
   }
 
 }

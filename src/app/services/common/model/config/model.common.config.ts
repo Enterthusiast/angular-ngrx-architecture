@@ -1,5 +1,5 @@
 export const ModelCommonConfig = {
   ATTRIBUTES: 'attributes',
-  DECORATORS: 'decorator',
+  DECORATORS: 'decorators',
   DEFAULT_ID_KEY: 'uuid'
 };
