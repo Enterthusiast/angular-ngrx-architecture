@@ -14,13 +14,13 @@ import {ItemFormPutPeopleComponent} from '../views/components/people/form/item/i
 const peopleRoutes: Routes = [
   { path: RouteMapController.getLeafLink('people'), component: PeoplePageComponent, children: [
     { path: RouteMapController.getLeafLink('people-list'), component: ListDisplayPeopleComponent, children: [
-      { path: RouteMapController.getLeafLink('people-item-add'), component: ItemFormPostPeopleComponent },
-      { path: RouteMapController.getLeafLink('people-item-edit'), component: ItemFormPutPeopleComponent },
-      { path: RouteMapController.getLeafLink('people-item-show'), component: ItemDisplayPeopleComponent },
       { path: RouteMapController.getLeafLink('people-item-add'), outlet: 'action', component: ItemFormPostPeopleComponent },
       { path: RouteMapController.getLeafLink('people-item-edit'), outlet: 'action', component: ItemFormPutPeopleComponent },
       { path: RouteMapController.getLeafLink('people-item-show'), outlet: 'action', component: ItemDisplayPeopleComponent }
     ]},
+    { path: RouteMapController.getLeafLink('people-item-add'), component: ItemFormPostPeopleComponent },
+    { path: RouteMapController.getLeafLink('people-item-edit'), component: ItemFormPutPeopleComponent },
+    { path: RouteMapController.getLeafLink('people-item-show'), component: ItemDisplayPeopleComponent }
   ]},
 ];
 

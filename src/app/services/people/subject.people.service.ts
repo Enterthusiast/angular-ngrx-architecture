@@ -17,15 +17,11 @@ export class SubjectPeopleService {
 
   constructor (private store: Store<IAppStore>,
                private apiPeopleService: ApiPeopleService) {
-
     this.peopleState$ = this.store.select('peopleList');
-
     this.createWatchedIdSubject();
-
   }
 
   private createWatchedIdSubject() {
-
     this.peopleState$.subscribe(value => {
       let result;
       if (value.watchedId) {
@@ -39,7 +35,6 @@ export class SubjectPeopleService {
         }
       }
     });
-
   }
 
 }

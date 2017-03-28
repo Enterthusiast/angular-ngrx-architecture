@@ -8,7 +8,7 @@ export const routeConfigList = [
   , { routeID: routeIDList.people, leafLink: 'contact', displayName: 'Contacts', nesting: [] }
     , { routeID: routeIDList.peopleList, leafLink: 'list', displayName: 'Contacts', nesting: [routeIDList.people] }
     , { routeID: routeIDList.peopleItem, leafLink: 'item', displayName: 'Fiche Contact', nesting: [routeIDList.people] }
-      , { routeID: routeIDList.peopleItemAdd, leafLink: 'add', displayName: 'Fiche Contact (Ajouter)', nesting: [routeIDList.people, routeIDList.peopleItem] }
-      , { routeID: routeIDList.peopleItemEdit, leafLink: ':id/edit', displayName: 'Fiche Contact (Edition)', nesting: [routeIDList.people, routeIDList.peopleItem] }
-      , { routeID: routeIDList.peopleItemShow, leafLink: ':id', displayName: 'Fiche Contact (Afficher)', nesting: [routeIDList.people, routeIDList.peopleItem] }
+    , { routeID: routeIDList.peopleItemAdd, leafLink: 'add', displayName: 'Fiche Contact (Ajouter)', nesting: [routeIDList.people] }
+    , { routeID: routeIDList.peopleItemEdit, leafLink: ':id/edit', displayName: 'Fiche Contact (Edition)', nesting: [routeIDList.people] }
+    , { routeID: routeIDList.peopleItemShow, leafLink: ':id', displayName: 'Fiche Contact (Afficher)', nesting: [routeIDList.people] }
 ];

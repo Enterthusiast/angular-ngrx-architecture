@@ -14,11 +14,8 @@ export class EffectPeopleService {
   private peopleState: PeopleState;
 
   constructor (private store: Store<IAppStore>) {
-
     this.peopleState$ = this.store.select('peopleList');
-
     this.peopleListSubscription();
-
   }
 
   private peopleListSubscription() {

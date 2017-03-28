@@ -1,4 +1,4 @@
-import {Directive, EventEmitter, OnInit, Output} from '@angular/core';
+import {Directive, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {IAppStore} from '../../../../../reducers/app-store.interface';
@@ -9,25 +9,32 @@ import {SubjectPeopleService} from '../../../../../services/people/subject.peopl
 @Directive({
   selector: '[ori-data-people-watched-item]'
 })
-export class ItemDataWatchedPeopleDirective implements OnInit {
+export class ItemDataWatchedPeopleDirective implements OnInit, OnDestroy {
 
   @Output() dataEmitter: EventEmitter<ItemPeopleClass> = new EventEmitter();
+  private watchedPeopleItemSubscription: any;
+  private routeParamsSubscribption: any;
 
   constructor (private store: Store<IAppStore>,
                private subjectPeopleService: SubjectPeopleService,
                private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.subjectPeopleService.watchedPeopleItem$.subscribe(peopleItem => {
+    this.watchedPeopleItemSubscription = this.subjectPeopleService.watchedPeopleItem$.subscribe(peopleItem => {
       this.dataEmitter.emit(peopleItem);
     });
-    this.route.params.subscribe((params: Params) => {
+    this.routeParamsSubscribption = this.route.params.subscribe((params: Params) => {
       if (params['id']) {
         this.store.dispatch(peopleSetWatchedId(params['id']));
       } else {
         this.store.dispatch(peopleSetWatchedId(''));
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.watchedPeopleItemSubscription.unsubscribe();
+    this.routeParamsSubscribption.unsubscribe();
   }
 
 }
