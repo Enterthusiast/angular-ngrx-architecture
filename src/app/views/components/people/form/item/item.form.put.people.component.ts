@@ -1,15 +1,13 @@
-import {Component, Input} from '@angular/core';
-import {Validators, FormGroup} from '@angular/forms';
-import {ApiPeopleService} from '../../../../../services/people/api.people.service';
+import {Component} from '@angular/core';
 import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {TransformerPeopleService} from '../../../../../services/people/transformer.people.service';
-import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
-import { ButtonsModule } from 'ng2-bootstrap';
-import * as _ from 'lodash';
+
 import {
-  formDefaultStyle, formQuestionDefaultStyle,
+  formDefaultStyle,
+  formQuestionDefaultStyle,
   formQuestionRadioCheckboxStyle
 } from '../../../common/form/form-config.const';
+import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+
 
 @Component({
   selector: 'ori-form-put-people-item',
@@ -24,7 +22,7 @@ export class ItemFormPutPeopleComponent {
   private _peopleItem: ItemPeopleClass;
   formParams: any;
 
-  constructor(private apiPeopleService: ApiPeopleService) { }
+  constructor(private apiPeopleService: ManagerPeopleService) { }
 
   setPeopleItem($event) {
     this._peopleItem = $event;

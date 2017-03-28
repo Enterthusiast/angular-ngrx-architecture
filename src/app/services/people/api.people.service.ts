@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import {Injectable} from '@angular/core';
+import {Headers, Http} from '@angular/http';
 
-import { Store } from '@ngrx/store';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/toPromise';
 
 import { IAppStore } from '../../reducers/app-store.interface';
 import { privateParams } from '../../../privateparams';
-import {peopleSetList, peopleAddItem} from '../../reducers/people/list.people.reducer';
-import {ItemPeopleClass} from "../../models/people/item.people.class";
-import {TransformerPeopleService} from "./transformer.people.service";
-import {FactoryPeopleService} from "./factory.people.service";
-import {ModelCommonConfig} from "../common/model/config/model.common.config";
-import {SubjectPeopleService} from "./subject.people.service";
-import {EffectPeopleService} from "./effect.people.service";
+import {TransformerPeopleService} from './transformer.people.service';
+import {FactoryPeopleService} from './factory.people.service';
+import {ModelCommonConfig} from '../common/model/config/model.common.config';
+import {EffectPeopleService} from './effect.people.service';
 
 
 @Injectable()
@@ -56,51 +55,50 @@ export class ApiPeopleService {
     };
   }
 
-  getList(): void {
+  getList(): Observable<any> {
+    const response$ = new Subject();
     this.http.get(this.getListUrl(), {headers: this.headers})
       .toPromise()
       .then(res => {
         const json = res.json();
-        const peopleListData = json._embedded[this.embeddedListKey];
-        const peopleList = this.itemPeopleFactoryService.createPeopleList({ list: peopleListData, type: 'get' });
-        this.store.dispatch(peopleSetList(peopleList));
+        const peopleListJson = json._embedded[this.embeddedListKey];
+        response$.next(peopleListJson);
       })
       .catch(console.log);
+    return response$;
   }
 
-  getItem(id): void {
+  getItem(id): Observable<any> {
+    const response$ = new Subject();
     this.http.get(this.getItemUrl(id), {headers: this.headers})
       .toPromise()
       .then(res => {
-        const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });
-        this.store.dispatch(peopleAddItem(itemPeople));
+        response$.next(res.json());
       })
       .catch(console.log);
+    return response$;
   }
 
-  postItem(item): void {
+  postItem(item): Observable<any> {
+    const response$ = new Subject();
     this.http.post(this.postItemUrl(), this.postItemWrapper(item), {headers: this.headers})
       .toPromise()
       .then(res => {
-        const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });
-        this.store.dispatch(peopleAddItem(itemPeople));
+        response$.next(res.json());
       })
       .catch(console.log);
+    return response$;
   }
 
-  putItem(item, id): void {
-    const itemPeoplePutData = this.transformerPeopleService.toPutAttributes(item);
-    this.putObject(itemPeoplePutData, id);
-  }
-
-  putObject(object, id): void {
-    this.http.put(this.putItemUrl(id), this.postItemWrapper(object), {headers: this.headers})
+  putItem(item, id): Observable<any> {
+    const response$ = new Subject();
+    this.http.put(this.putItemUrl(id), this.postItemWrapper(item), {headers: this.headers})
       .toPromise()
       .then(res => {
-        const itemPeople = this.itemPeopleFactoryService.createPeople({ data: res.json(), type: 'get' });
-        this.effectPeopleService.peopleUpdateItem(itemPeople);
+        response$.next(res.json());
       })
       .catch(console.log);
+    return response$;
   }
 
 }

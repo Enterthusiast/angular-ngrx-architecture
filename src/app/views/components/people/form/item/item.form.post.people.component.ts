@@ -1,15 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
-// import {Validators, FormGroup} from '@angular/forms';
-import {ApiPeopleService} from '../../../../../services/people/api.people.service';
-// import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {TransformerPeopleService} from '../../../../../services/people/transformer.people.service';
-// import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
-// import {ButtonsModule} from 'ng2-bootstrap';
-// import * as _ from 'lodash';
+import {Component, OnInit} from '@angular/core';
+
 import {
-  formDefaultStyle, formQuestionDefaultStyle,
+  formDefaultStyle,
+  formQuestionDefaultStyle,
   formQuestionRadioCheckboxStyle
 } from '../../../common/form/form-config.const';
+import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+
 
 @Component({
   selector: 'ori-form-post-people-item',
@@ -22,7 +19,7 @@ export class ItemFormPostPeopleComponent implements OnInit {
 
   public formParams = {};
 
-  constructor(private apiPeopleService: ApiPeopleService) { }
+  constructor(private apiPeopleService: ManagerPeopleService) { }
 
   ngOnInit() {
     this.setData();
