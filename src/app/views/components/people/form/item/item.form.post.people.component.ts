@@ -19,14 +19,14 @@ export class ItemFormPostPeopleComponent implements OnInit {
 
   public formParams = {};
 
-  constructor(private apiPeopleService: ManagerPeopleService) { }
+  constructor(private managerPeopleService: ManagerPeopleService) { }
 
   ngOnInit() {
     this.setData();
   }
 
   submit($event) {
-    this.apiPeopleService.postItem($event);
+    this.managerPeopleService.postItem($event);
   }
 
   setData() {

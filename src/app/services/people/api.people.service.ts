@@ -1,17 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
-import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
-import { IAppStore } from '../../reducers/app-store.interface';
 import { privateParams } from '../../../privateparams';
-import {TransformerPeopleService} from './transformer.people.service';
-import {FactoryPeopleService} from './factory.people.service';
 import {ModelCommonConfig} from '../common/model/config/model.common.config';
-import {EffectPeopleService} from './effect.people.service';
 
 
 @Injectable()
@@ -27,11 +22,7 @@ export class ApiPeopleService {
   private formItemKey = 'people';
   private uuidItemKey = ModelCommonConfig.DEFAULT_ID_KEY;
 
-  constructor(private store: Store<IAppStore>,
-              private http: Http,
-              private transformerPeopleService: TransformerPeopleService,
-              private itemPeopleFactoryService: FactoryPeopleService,
-              private effectPeopleService: EffectPeopleService) {}
+  constructor(private http: Http) {}
 
   private getListUrl(): string {
     return this.apiUrl;
@@ -96,6 +87,17 @@ export class ApiPeopleService {
       .toPromise()
       .then(res => {
         response$.next(res.json());
+      })
+      .catch(console.log);
+    return response$;
+  }
+
+  deleteItem(id): Observable<any> {
+    const response$ = new Subject();
+    this.http.delete(this.putItemUrl(id), {headers: this.headers})
+      .toPromise()
+      .then(res => {
+        response$.next(true);
       })
       .catch(console.log);
     return response$;

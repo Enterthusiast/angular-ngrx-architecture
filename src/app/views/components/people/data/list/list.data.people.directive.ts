@@ -19,7 +19,7 @@ export class ListDataPeopleDirective implements OnDestroy {
   private peopleListSubscription: any;
 
   constructor (private store: Store<IAppStore>,
-               private apiPeopleService: ManagerPeopleService,
+               private managerPeopleService: ManagerPeopleService,
                private decoratorPeopleService: DecoratorPeopleService) {
 
     this.peopleList$ = store.select('peopleList');
@@ -35,7 +35,7 @@ export class ListDataPeopleDirective implements OnDestroy {
   }
 
   private getPeopleList() {
-    this.apiPeopleService.getList();
+    this.managerPeopleService.getList();
   }
 
   ngOnDestroy() {

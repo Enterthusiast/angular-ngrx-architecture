@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {RouteMapController} from "../../../../../controllers/app/route-map/route-map.app.controller";
-import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
+
+import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
+import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+
 
 @Component({
   selector: 'ori-display-people-list-item',
@@ -22,11 +24,22 @@ import {ItemPeopleClass} from "../../../../../models/people/item.people.class";
            routerLinkActive="active" [hidden]="displayData?.routerLink">
           Editer
         </a>
+        <a class="btn btn-link" (click)="deleteItem()">
+          Supprimer
+        </a>
       </dd>
     </dl>
   `,
   styles: []
 })
 export class ListItemDisplayPeopleComponent {
+
   @Input() peopleItem: ItemPeopleClass;
+
+  constructor(private managerPeopleService: ManagerPeopleService) {}
+
+  deleteItem() {
+    this.managerPeopleService.deleteItem(this.peopleItem.getId());
+  }
+
 }

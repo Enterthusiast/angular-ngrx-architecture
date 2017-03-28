@@ -22,7 +22,7 @@ export class ItemFormPutPeopleComponent {
   private _peopleItem: ItemPeopleClass;
   formParams: any;
 
-  constructor(private apiPeopleService: ManagerPeopleService) { }
+  constructor(private managerPeopleService: ManagerPeopleService) { }
 
   setPeopleItem($event) {
     this._peopleItem = $event;
@@ -30,7 +30,7 @@ export class ItemFormPutPeopleComponent {
   }
 
   submit($event) {
-    this.apiPeopleService.putItem($event, this._peopleItem.getId());
+    this.managerPeopleService.putItem($event, this._peopleItem.getId());
   }
 
   setData() {

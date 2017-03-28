@@ -5,14 +5,10 @@ import {ItemPeopleClass} from '../../models/people/item.people.class';
 
 export const PEOPLE_SET_LIST = 'PEOPLE_SET_LIST';
 export const PEOPLE_ADD_ITEM = 'PEOPLE_ADD_ITEM';
-export const PEOPLE_UPDATE_ITEM = 'PEOPLE_UPDATE_ITEM';
 export const PEOPLE_SET_WATCHEDID = 'PEOPLE_SET_WATCHEDID';
 
 export function peopleSetList(newPeopleList: ItemPeopleClass[]) {
   return {type: PEOPLE_SET_LIST, payload: newPeopleList};
-}
-export function peopleAddItem(newPeopleItem) {
-  return {type: PEOPLE_ADD_ITEM, payload: newPeopleItem};
 }
 export function peopleSetWatchedId(newWatchedId) {
   return {type: PEOPLE_SET_WATCHEDID, payload: newWatchedId};

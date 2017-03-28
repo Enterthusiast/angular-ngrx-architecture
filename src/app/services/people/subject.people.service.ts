@@ -16,7 +16,7 @@ export class SubjectPeopleService {
   watchedPeopleItem$: Subject<ItemPeopleClass> = new Subject();
 
   constructor (private store: Store<IAppStore>,
-               private apiPeopleService: ManagerPeopleService) {
+               private managerPeopleService: ManagerPeopleService) {
     this.peopleState$ = this.store.select('peopleList');
     this.createWatchedIdSubject();
   }
@@ -31,7 +31,7 @@ export class SubjectPeopleService {
         if (result) {
           this.watchedPeopleItem$.next(result);
         } else {
-          this.apiPeopleService.getItem(value.watchedId);
+          this.managerPeopleService.getItem(value.watchedId);
         }
       }
     });
