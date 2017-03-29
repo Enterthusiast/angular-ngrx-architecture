@@ -4,7 +4,6 @@ import * as _ from 'lodash';
 import {ItemPeopleClass} from '../../models/people/item.people.class';
 
 export const PEOPLE_SET_LIST = 'PEOPLE_SET_LIST';
-export const PEOPLE_ADD_ITEM = 'PEOPLE_ADD_ITEM';
 export const PEOPLE_SET_WATCHEDID = 'PEOPLE_SET_WATCHEDID';
 
 export function peopleSetList(newPeopleList: ItemPeopleClass[]) {
@@ -30,8 +29,6 @@ export function peopleListReducer(state: PeopleState = InitPeopleState, action: 
   switch (action.type) {
     case PEOPLE_SET_LIST:
       return _.assignIn({}, state, { list: action.payload });
-    case PEOPLE_ADD_ITEM:
-      return _.assignIn({}, state, { list: [action.payload, ...state.list] });
     case PEOPLE_SET_WATCHEDID:
       return _.assignIn({}, state, { watchedId: action.payload });
     default:

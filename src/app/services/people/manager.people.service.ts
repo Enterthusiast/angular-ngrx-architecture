@@ -66,6 +66,7 @@ export class ManagerPeopleService {
   }
 
   updateWatchedId(id): void {
+    // TODO: make an effect
     this.store.dispatch(peopleSetWatchedId(id));
   }
 
