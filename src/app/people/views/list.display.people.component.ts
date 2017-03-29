@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {ListDataPeopleDirective} from '../../data/list/list.data.people.directive';
-import {DecoratorPeopleService} from '../../../../../services/people/decorator.people.service';
+import {ItemPeopleClass} from '../models/item.people.class';
+import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
+
 
 @Component({
   selector: 'ori-display-people-list',

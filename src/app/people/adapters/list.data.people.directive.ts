@@ -2,11 +2,11 @@ import {Directive, EventEmitter, OnDestroy, Output} from '@angular/core';
 
 import {Observable} from 'rxjs/Observable';
 
-import {PeopleState} from '../../../../../reducers/people/list.people.reducer';
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {DecoratorPeopleService} from '../../../../../services/people/decorator.people.service';
-import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
-import {SubjectPeopleService} from '../../../../../services/people/subject.people.service';
+import {PeopleState} from '../reducers/list.people.reducer';
+import {ItemPeopleClass} from '../models/item.people.class';
+import {DecoratorPeopleService} from '../services/decorator.people.service';
+import {ManagerPeopleService} from '../services/manager.people.service';
+import {SubjectPeopleService} from '../services/subject.people.service';
 
 @Directive({
   selector: '[ori-data-people-list]'

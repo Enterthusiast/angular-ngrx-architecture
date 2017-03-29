@@ -1,4 +1,4 @@
-import {PeopleState} from './people/list.people.reducer';
+import {PeopleState} from '../people/reducers/list.people.reducer';
 
 export interface IAppStore {
   title: string;

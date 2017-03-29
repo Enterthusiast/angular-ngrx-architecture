@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+import {ItemPeopleClass} from '../models/item.people.class';
+import {ManagerPeopleService} from '../services/manager.people.service';
 
 
 @Component({

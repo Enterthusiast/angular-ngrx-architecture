@@ -1,7 +1,8 @@
 import {Component, HostBinding, Input} from '@angular/core';
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {ItemFormPutPeopleComponent} from '../../form/item/item.form.put.people.component';
-import {ItemDataWatchedPeopleDirective} from '../../data/item/item.data.watched.people.directive';
+
+import {ItemPeopleClass} from '../models/item.people.class';
+import {ItemDataWatchedPeopleDirective} from '../adapters/item.data.watched.people.directive';
+
 
 @Component({
   selector: 'ori-display-people-item',

@@ -1,7 +1,8 @@
 import { Action } from '@ngrx/store';
 
 import * as _ from 'lodash';
-import {ItemPeopleClass} from '../../models/people/item.people.class';
+
+import {ItemPeopleClass} from '../models/item.people.class';
 
 export const PEOPLE_SET_LIST = 'PEOPLE_SET_LIST';
 export const PEOPLE_SET_WATCHEDID = 'PEOPLE_SET_WATCHEDID';

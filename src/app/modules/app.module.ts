@@ -10,14 +10,14 @@ import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
 
 import { TestModule } from './test.module';
-import { PeopleModule } from './people.module';
+import { PeopleModule } from '../people/modules/people.module';
 
 import { AppRoutingModule } from '../routers/app.router';
 import { TestRoutingModule } from '../routers/test.router';
-import { PeopleRoutingModule } from '../routers/people.router';
+import { PeopleRoutingModule } from '../people/routers/people.router';
 
 import { titleTestReducer } from '../reducers/test/title.test.reducer';
-import { peopleListReducer } from '../reducers/people/list.people.reducer';
+import { peopleListReducer } from '../people/reducers/list.people.reducer';
 
 import { AppPageComponent } from '../views/pages/app-page/app-page.component';
 import { HomePageComponent } from '../views/pages/home-page/home-page.component';

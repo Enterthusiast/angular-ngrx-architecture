@@ -5,8 +5,8 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
 import {IAppStore} from '../../reducers/app-store.interface';
-import {ItemPeopleClass} from '../../models/people/item.people.class';
-import {PeopleState} from '../../reducers/people/list.people.reducer';
+import {ItemPeopleClass} from '../models/item.people.class';
+import {PeopleState} from '../reducers/list.people.reducer';
 import {ManagerPeopleService} from './manager.people.service';
 
 @Injectable()

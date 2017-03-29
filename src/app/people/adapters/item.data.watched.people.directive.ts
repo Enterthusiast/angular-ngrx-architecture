@@ -1,9 +1,9 @@
 import {Directive, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
-import {SubjectPeopleService} from '../../../../../services/people/subject.people.service';
-import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+import {ItemPeopleClass} from '../models/item.people.class';
+import {SubjectPeopleService} from '../services/subject.people.service';
+import {ManagerPeopleService} from '../services/manager.people.service';
 
 
 @Directive({

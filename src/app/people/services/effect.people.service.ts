@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 import {IAppStore} from '../../reducers/app-store.interface';
 import {Observable} from 'rxjs/Observable';
-import {peopleSetList, peopleSetWatchedId, PeopleState} from '../../reducers/people/list.people.reducer';
+import {peopleSetList, peopleSetWatchedId, PeopleState} from '../reducers/list.people.reducer';
 
 
 @Injectable()

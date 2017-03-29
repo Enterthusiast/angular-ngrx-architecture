@@ -5,8 +5,8 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
-import { privateParams } from '../../../privateparams';
-import {ModelCommonConfig} from '../common/model/config/model.common.config';
+import {privateParams} from '../../../privateparams';
+import {ModelCommonConfig} from '../../services/common/model/config/model.common.config';
 
 
 @Injectable()

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PeoplePageComponent } from '../views/pages/people-page/people-page.component';
-import { ListDisplayPeopleComponent } from '../views/components/people/display/list/list.display.people.component';
+import { PeoplePageComponent } from '../../views/pages/people-page/people-page.component';
+import { ListDisplayPeopleComponent } from '../views/list.display.people.component';
 
-import { RouteMapController } from '../controllers/app/route-map/route-map.app.controller';
+import { RouteMapController } from '../../controllers/app/route-map/route-map.app.controller';
 
-import {ItemFormPostPeopleComponent} from '../views/components/people/form/item/item.form.post.people.component';
-import {ItemDisplayPeopleComponent} from '../views/components/people/display/item/item.display.people.component';
-import {ItemFormPutPeopleComponent} from '../views/components/people/form/item/item.form.put.people.component';
+import {ItemFormPostPeopleComponent} from '../forms/item.form.post.people.component';
+import {ItemDisplayPeopleComponent} from '../views/item.display.people.component';
+import {ItemFormPutPeopleComponent} from '../forms/item.form.put.people.component';
 
 
 const peopleRoutes: Routes = [

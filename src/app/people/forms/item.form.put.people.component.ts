@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
 
 import {
   formDefaultStyle,
   formQuestionDefaultStyle,
   formQuestionRadioCheckboxStyle
-} from '../../../common/form/form-config.const';
-import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+} from '../../views/components/common/form/form-config.const';
+import {ManagerPeopleService} from '../services/manager.people.service';
+import {ItemPeopleClass} from '../models/item.people.class';
 
 
 @Component({

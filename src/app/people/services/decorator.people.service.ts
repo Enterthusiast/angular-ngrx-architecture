@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
-import {ModelCommonService} from '../common/model/model.common.service';
-import {ModelCommonConfig} from '../common/model/config/model.common.config';
 
-import {ItemPeopleClass} from '../../models/people/item.people.class';
+import {ModelCommonService} from '../../services/common/model/model.common.service';
+import {ItemPeopleClass} from '../models/item.people.class';
 
 
 @Injectable()

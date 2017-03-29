@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 
-import {ItemPeopleGetFields} from './config/item.people.get.fields';
-import {ItemPeoplePostFields} from './config/item.people.post.fields';
-import {ItemPeoplePutFields} from './config/item.people.put.fields';
 import * as _ from 'lodash';
-import {ModelCommonService} from '../common/model/model.common.service';
+
+import {ItemPeopleGetFields} from './fields/item.people.get.fields';
+import {ItemPeoplePostFields} from './fields/item.people.post.fields';
+import {ItemPeoplePutFields} from './fields/item.people.put.fields';
+import {ModelCommonService} from '../../services/common/model/model.common.service';
 
 @Injectable()
 export class TransformerPeopleService {
