@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {RouteMapController} from '../../../transverses/routes/route-map.app.controller';
-import {PageViewPeopleComponent} from '../views/page.people.component';
+import {PageViewPeopleComponent} from '../views/page.view.people.component';
 import {ListViewPeopleComponent} from '../views/list.view.people.component';
 import {PostItemFormPeopleComponent} from '../forms/post.item.form.people.component';
 import {ItemViewPeopleComponent} from '../views/item.view.people.component';

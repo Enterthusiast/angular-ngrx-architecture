@@ -7,7 +7,7 @@ import {RoutingPeopleModule} from './routing.people.module';
 import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
 import {ButtonsModule} from 'ng2-bootstrap';
 
-import {PageViewPeopleComponent} from '../views/page.people.component';
+import {PageViewPeopleComponent} from '../views/page.view.people.component';
 import {ListViewPeopleComponent} from '../views/list.view.people.component';
 import {ItemViewPeopleComponent} from '../views/item.view.people.component';
 import {ItemListViewPeopleComponent} from '../views/item.list.view.people.component';
