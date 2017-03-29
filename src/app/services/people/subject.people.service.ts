@@ -12,8 +12,7 @@ import {ManagerPeopleService} from './manager.people.service';
 @Injectable()
 export class SubjectPeopleService {
 
-  // TODO the sibject service will be the only way to listen to the store
-  private peopleState$: Observable<PeopleState>;
+  peopleState$: Observable<PeopleState>;
   watchedPeopleItem$: Subject<ItemPeopleClass> = new Subject();
 
   constructor (private store: Store<IAppStore>,

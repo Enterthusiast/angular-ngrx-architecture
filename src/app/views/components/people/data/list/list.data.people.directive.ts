@@ -1,13 +1,12 @@
 import {Directive, EventEmitter, OnDestroy, Output} from '@angular/core';
 
-import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 
-import {IAppStore} from '../../../../../reducers/app-store.interface';
 import {PeopleState} from '../../../../../reducers/people/list.people.reducer';
 import {ItemPeopleClass} from '../../../../../models/people/item.people.class';
 import {DecoratorPeopleService} from '../../../../../services/people/decorator.people.service';
 import {ManagerPeopleService} from '../../../../../services/people/manager.people.service';
+import {SubjectPeopleService} from '../../../../../services/people/subject.people.service';
 
 @Directive({
   selector: '[ori-data-people-list]'
@@ -18,11 +17,11 @@ export class ListDataPeopleDirective implements OnDestroy {
   private peopleList$: Observable<PeopleState>;
   private peopleListSubscription: any;
 
-  constructor (private store: Store<IAppStore>,
+  constructor (private subjectPeopleService: SubjectPeopleService,
                private managerPeopleService: ManagerPeopleService,
                private decoratorPeopleService: DecoratorPeopleService) {
 
-    this.peopleList$ = store.select('peopleList');
+    this.peopleList$ = subjectPeopleService.peopleState$;
     this.peopleListSubscription = this.peopleList$.subscribe((value) => {
       const list: ItemPeopleClass[] = value.list.map(peopleItem => {
         return this.decoratorPeopleService.addRouterLinks(peopleItem);

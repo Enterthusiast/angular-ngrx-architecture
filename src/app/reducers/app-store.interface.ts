@@ -1,5 +1,4 @@
-import {PeopleState} from "./people/list.people.reducer";
-import {Observable} from "rxjs/Observable";
+import {PeopleState} from './people/list.people.reducer';
 
 export interface IAppStore {
   title: string;

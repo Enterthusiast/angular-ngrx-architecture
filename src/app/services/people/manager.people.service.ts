@@ -1,21 +1,16 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
-import {Store} from '@ngrx/store';
-
-import {IAppStore} from '../../reducers/app-store.interface';
 import {TransformerPeopleService} from './transformer.people.service';
 import {FactoryPeopleService} from './factory.people.service';
 import {EffectPeopleService} from './effect.people.service';
 import {ApiPeopleService} from './api.people.service';
-import {peopleSetWatchedId} from '../../reducers/people/list.people.reducer';
 
 
 @Injectable()
 export class ManagerPeopleService {
 
-  constructor(private store: Store<IAppStore>,
-              private apiService: ApiPeopleService,
+  constructor(private apiService: ApiPeopleService,
               private transformerService: TransformerPeopleService,
               private factoryService: FactoryPeopleService,
               private effectService: EffectPeopleService) {}
@@ -65,9 +60,8 @@ export class ManagerPeopleService {
     });
   }
 
-  updateWatchedId(id): void {
-    // TODO: make an effect
-    this.store.dispatch(peopleSetWatchedId(id));
+  updateWatchedId(watchedId): void {
+    this.effectService.peopleUpdateWatchedId(watchedId);
   }
 
 }

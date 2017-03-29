@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 import {IAppStore} from '../../reducers/app-store.interface';
 import {Observable} from 'rxjs/Observable';
-import {peopleSetList, PeopleState} from '../../reducers/people/list.people.reducer';
+import {peopleSetList, peopleSetWatchedId, PeopleState} from '../../reducers/people/list.people.reducer';
 
 
 @Injectable()
@@ -23,6 +23,10 @@ export class EffectPeopleService {
     this.peopleState$.subscribe(value => {
       this.peopleState = value;
     });
+  }
+
+  peopleUpdateWatchedId(watchedId) {
+    this.store.dispatch(peopleSetWatchedId(watchedId));
   }
 
   peoplePostOrUpdateList(listPeople) {
