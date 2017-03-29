@@ -1,5 +1,5 @@
-import {routeIDList} from '../../routers/config/routeId.const';
-import {ItemCommonClass} from '../../models/common/item.common.class';
+import {routeIDList} from '../../root/routers/config/routeId.const';
+import {ItemCommonClass} from '../../common/models/item.common.class';
 
 
 export class ItemPeopleClass extends ItemCommonClass {
@@ -9,5 +9,5 @@ export class ItemPeopleClass extends ItemCommonClass {
     this.itemRouteId = routeIDList.peopleItemShow;
     this.listRouteId = routeIDList.peopleList;
   }
-  
+
 }

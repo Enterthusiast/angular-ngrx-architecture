@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 
 import * as _ from 'lodash';
 
-import {IAppStore} from '../../reducers/app-store.interface';
+import {IAppStore} from '../../root/reducers/app-store.interface';
 import {Observable} from 'rxjs/Observable';
 import {peopleSetList, peopleSetWatchedId, PeopleState} from '../reducers/list.people.reducer';
 

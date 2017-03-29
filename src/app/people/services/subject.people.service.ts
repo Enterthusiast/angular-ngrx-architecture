@@ -4,7 +4,7 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
-import {IAppStore} from '../../reducers/app-store.interface';
+import {IAppStore} from '../../root/reducers/app-store.interface';
 import {ItemPeopleClass} from '../models/item.people.class';
 import {PeopleState} from '../reducers/list.people.reducer';
 import {ManagerPeopleService} from './manager.people.service';

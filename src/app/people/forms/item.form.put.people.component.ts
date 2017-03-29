@@ -4,7 +4,7 @@ import {
   formDefaultStyle,
   formQuestionDefaultStyle,
   formQuestionRadioCheckboxStyle
-} from '../../views/components/common/form/form-config.const';
+} from '../../common/forms/config/form-config.const';
 import {ManagerPeopleService} from '../services/manager.people.service';
 import {ItemPeopleClass} from '../models/item.people.class';
 

@@ -5,7 +5,8 @@ import * as _ from 'lodash';
 import {ItemPeopleGetFields} from './fields/item.people.get.fields';
 import {ItemPeoplePostFields} from './fields/item.people.post.fields';
 import {ItemPeoplePutFields} from './fields/item.people.put.fields';
-import {ModelCommonService} from '../../services/common/model/model.common.service';
+import {ModelCommonService} from '../../common/services/model.common.service';
+
 
 @Injectable()
 export class TransformerPeopleService {

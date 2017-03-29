@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {TransformerPeopleService} from './transformer.people.service';
 import {ItemPeopleClass} from '../models/item.people.class';
-import {ModelCommonConfig} from '../../services/common/model/config/model.common.config';
+import {ModelCommonConfig} from '../../common/services/config/model.common.config';
 
 @Injectable()
 export class FactoryPeopleService {
