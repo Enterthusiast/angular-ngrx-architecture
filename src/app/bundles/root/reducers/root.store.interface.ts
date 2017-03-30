@@ -1,6 +1,6 @@
 import {PeopleState} from '../../people/reducers/people.reducer';
 
-export interface IAppStore {
+export interface IRootStore {
   title: string;
-  peopleList: PeopleState;
+  people: PeopleState;
 }

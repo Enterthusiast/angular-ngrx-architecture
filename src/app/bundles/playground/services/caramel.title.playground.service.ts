@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import { Store } from '@ngrx/store';
 
-import { IAppStore } from '../../root/reducers/app-store.interface';
+import { IRootStore } from '../../root/reducers/root.store.interface';
 import { ITitleServicePlayground } from './titleservice.playground.interface';
 
 import {privateParams} from '../../../../privateparams';
@@ -18,7 +18,7 @@ export class CaramelTitlePlaygroundService implements ITitleServicePlayground {
   });
   private companiesUrl = privateParams.links.origamiCompanies;
 
-  constructor(private store: Store<IAppStore>, private http: Http) {}
+  constructor(private store: Store<IRootStore>, private http: Http) {}
 
   setTitle(title): void {
     this.http.get(this.companiesUrl, {headers: this.headers}).subscribe(res => {

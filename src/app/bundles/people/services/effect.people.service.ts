@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 
 import * as _ from 'lodash';
 
-import {IAppStore} from '../../root/reducers/app-store.interface';
+import {IRootStore} from '../../root/reducers/root.store.interface';
 import {Observable} from 'rxjs/Observable';
 import {peopleReducerSetList, peopleReducerSetWatchedId, PeopleState} from '../reducers/people.reducer';
 
@@ -14,12 +14,8 @@ export class EffectPeopleService {
   private peopleState$: Observable<PeopleState>;
   private peopleState: PeopleState;
 
-  constructor (private store: Store<IAppStore>) {
-    this.peopleState$ = this.store.select('peopleList');
-    this.peopleListSubscription();
-  }
-
-  private peopleListSubscription() {
+  constructor (private store: Store<IRootStore>) {
+    this.peopleState$ = this.store.select('people');
     this.peopleState$.subscribe(value => {
       this.peopleState = value;
     });

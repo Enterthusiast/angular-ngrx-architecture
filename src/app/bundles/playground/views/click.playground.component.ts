@@ -2,7 +2,7 @@ import { Component, Input} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { IAppStore } from '../../root/reducers/app-store.interface';
+import { IRootStore } from '../../root/reducers/root.store.interface';
 import { TitlePlaygroundService } from '../services/title.playground.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ClickPlaygroundComponent {
   @Input() myService: TitlePlaygroundService;
 
   constructor (
-    private store: Store<IAppStore>
+    private store: Store<IRootStore>
   ) {
 
     this.title = store.select('title');

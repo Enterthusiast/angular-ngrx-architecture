@@ -7,13 +7,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {HomePageComponent} from '../views/home-page.component';
+import {WelcomeRootComponent} from '../views/welcome.root.component';
 import {RouteMapController} from '../../../transverses/routes/route-map.app.controller';
 
 
 const appRoutes: Routes = [
   { path: '',   redirectTo: RouteMapController.getLeafLink('home'), pathMatch: 'full' },
-  { path: RouteMapController.getLeafLink('home'), component: HomePageComponent },
+  { path: RouteMapController.getLeafLink('home'), component: WelcomeRootComponent },
   { path: '**', redirectTo: RouteMapController.getLeafLink('home') }
 ];
 
@@ -25,4 +25,4 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule {}
+export class RootRoutingModule {}

@@ -14,15 +14,15 @@ import {SubjectPeopleService} from '../services/subject.people.service';
 export class ListDataPeopleDirective implements OnDestroy {
 
   @Output() dataEmitter: EventEmitter<ItemPeopleClass[]> = new EventEmitter();
-  private peopleList$: Observable<PeopleState>;
+  private peopleState$: Observable<PeopleState>;
   private peopleListSubscription: any;
 
   constructor (private subjectPeopleService: SubjectPeopleService,
                private managerPeopleService: ManagerPeopleService,
                private decoratorPeopleService: DecoratorPeopleService) {
 
-    this.peopleList$ = subjectPeopleService.peopleState$;
-    this.peopleListSubscription = this.peopleList$.subscribe((value) => {
+    this.peopleState$ = subjectPeopleService.peopleState$;
+    this.peopleListSubscription = this.peopleState$.subscribe((value) => {
       const list: ItemPeopleClass[] = value.list.map(peopleItem => {
         return this.decoratorPeopleService.addRouterLinks(peopleItem);
       });

@@ -4,7 +4,7 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
-import {IAppStore} from '../../root/reducers/app-store.interface';
+import {IRootStore} from '../../root/reducers/root.store.interface';
 import {ItemPeopleClass} from '../models/item.people.class';
 import {PeopleState} from '../reducers/people.reducer';
 import {ManagerPeopleService} from './manager.people.service';
@@ -15,9 +15,9 @@ export class SubjectPeopleService {
   peopleState$: Observable<PeopleState>;
   watchedPeopleItem$: Subject<ItemPeopleClass> = new Subject();
 
-  constructor (private store: Store<IAppStore>,
+  constructor (private store: Store<IRootStore>,
                private managerPeopleService: ManagerPeopleService) {
-    this.peopleState$ = this.store.select('peopleList');
+    this.peopleState$ = this.store.select('people');
     this.createWatchedIdSubject();
   }
 

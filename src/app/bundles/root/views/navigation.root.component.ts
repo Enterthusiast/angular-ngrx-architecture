@@ -4,7 +4,7 @@ import {RouteMapController} from '../../../transverses/routes/route-map.app.cont
 
 
 @Component({
-  selector: 'ori-nav',
+  selector: 'ori-navigation-root',
   template: `
   <nav>
     <a class="app-nav-li" *ngFor="let route of routeMap" routerLink="{{ route.link }}" routerLinkActive="active">{{ route.name }}</a><br>
@@ -19,7 +19,7 @@ import {RouteMapController} from '../../../transverses/routes/route-map.app.cont
     }
   `]
 })
-export class AppNavComponent {
+export class NavigationRootComponent {
 
   private routeMap: any[];
 

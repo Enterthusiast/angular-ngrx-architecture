@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
-import {StoreModule } from '@ngrx/store';
-import {StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {combineReducers} from '@ngrx/store';
 import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
@@ -12,16 +12,16 @@ import {storeFreeze} from 'ngrx-store-freeze';
 import {PlaygroundModule} from '../../playground/modules/playground.module';
 import {PeopleModule} from '../../people/modules/people.module';
 
-import {AppRoutingModule} from '../routers/app.router';
+import {RootRoutingModule} from './root.routing.module';
 import {RoutingPlaygroundModule} from '../../playground/modules/routing.playground.module';
 import {RoutingPeopleModule} from '../../people/modules/routing.people.module';
 
 import {playgroundReducer} from '../../playground/reducers/playground.reducer';
 import {peopleReducer} from '../../people/reducers/people.reducer';
 
-import {AppPageComponent} from '../views/app-page.component';
-import {HomePageComponent} from '../views/home-page.component';
-import {AppNavComponent} from '../views/app-nav.component';
+import {PageRootComponent} from '../views/page.root.component';
+import {WelcomeRootComponent} from '../views/welcome.root.component';
+import {NavigationRootComponent} from '../views/navigation.root.component';
 
 import {ModelCommonService} from '../../common/services/model.common.service';
 import {environment} from '../../../../environments/environment';
@@ -37,14 +37,14 @@ const metaReducers = environment.production
 
 const store = compose(...metaReducers)({
   title: playgroundReducer,
-  peopleList: peopleReducer,
+  people: peopleReducer
 });
 
 @NgModule({
   declarations: [
-    AppPageComponent,
-    HomePageComponent,
-    AppNavComponent
+    PageRootComponent,
+    WelcomeRootComponent,
+    NavigationRootComponent
   ],
   imports: [
     PlaygroundModule,
@@ -58,11 +58,11 @@ const store = compose(...metaReducers)({
     }),
     RoutingPeopleModule,
     RoutingPlaygroundModule,
-    AppRoutingModule
+    RootRoutingModule
   ],
   providers: [
     ModelCommonService
   ],
-  bootstrap: [AppPageComponent]
+  bootstrap: [PageRootComponent]
 })
-export class AppModule { }
+export class RootModule { }
