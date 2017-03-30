@@ -9,14 +9,14 @@ import {combineReducers} from '@ngrx/store';
 import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
 
-import {TestModule} from '../../playground/modules/test.module';
+import {PlaygroundModule} from '../../playground/modules/playground.module';
 import {PeopleModule} from '../../people/modules/people.module';
 
 import {AppRoutingModule} from '../routers/app.router';
-import {TestRoutingModule} from '../../playground/routers/test.router';
+import {RoutingPlaygroundModule} from '../../playground/modules/routing.playground.module';
 import {RoutingPeopleModule} from '../../people/modules/routing.people.module';
 
-import {titleTestReducer} from '../../playground/reducers/title.test.reducer';
+import {playgroundReducer} from '../../playground/reducers/playground.reducer';
 import {peopleReducer} from '../../people/reducers/people.reducer';
 
 import {AppPageComponent} from '../views/app-page.component';
@@ -36,7 +36,7 @@ const metaReducers = environment.production
   : [storeFreeze, combineReducers];
 
 const store = compose(...metaReducers)({
-  title: titleTestReducer,
+  title: playgroundReducer,
   peopleList: peopleReducer,
 });
 
@@ -47,7 +47,7 @@ const store = compose(...metaReducers)({
     AppNavComponent
   ],
   imports: [
-    TestModule,
+    PlaygroundModule,
     PeopleModule,
     BrowserModule,
     FormsModule,
@@ -57,7 +57,7 @@ const store = compose(...metaReducers)({
       maxAge: 10
     }),
     RoutingPeopleModule,
-    TestRoutingModule,
+    RoutingPlaygroundModule,
     AppRoutingModule
   ],
   providers: [

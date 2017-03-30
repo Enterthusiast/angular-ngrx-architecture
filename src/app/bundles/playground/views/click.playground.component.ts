@@ -3,19 +3,19 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { IAppStore } from '../../root/reducers/app-store.interface';
-import { TitleTestService } from '../services/title.test.service';
+import { TitlePlaygroundService } from '../services/title.playground.service';
 
 @Component({
-  selector: 'ori-sub-test-item',
+  selector: 'ori-click-playground',
   template: `
     <div (click)="changeTitle()">{{ title | async }}</div>
   `,
   styles:  []
 })
-export class SubTestItemComponent {
+export class ClickPlaygroundComponent {
   title: Observable<string>;
 
-  @Input() myService: TitleTestService;
+  @Input() myService: TitlePlaygroundService;
 
   constructor (
     private store: Store<IAppStore>

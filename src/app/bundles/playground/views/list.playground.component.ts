@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ori-test-list',
+  selector: 'ori-list-playground',
   template: `
     <p>
-    test-list works!
+    Playground List
     </p>
   `,
   styles: []
 })
-export class TestListComponent {}
+export class ListPlaygroundComponent {}

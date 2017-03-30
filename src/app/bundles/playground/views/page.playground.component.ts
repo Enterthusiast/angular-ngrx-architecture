@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ori-test-page',
+  selector: 'ori-page-playground',
   template: `
     <p>
-      test-page works!
+      Playground Page
     </p>
     <router-outlet></router-outlet>
   `,
   styles: []
 })
-export class TestPageComponent { }
+export class PagePlaygroundComponent { }

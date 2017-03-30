@@ -1,8 +1,8 @@
 import {Directive, ElementRef, EventEmitter, OnInit, Output} from "@angular/core";
 @Directive({
-  selector: '[test-directive]'
+  selector: '[ori-eventemitter-playground]'
 })
-export class TestDirective implements OnInit {
+export class EventemitterPlaygroundDirective implements OnInit {
   @Output() outputField: EventEmitter<string> = new EventEmitter();
 
   constructor(el: ElementRef) {
