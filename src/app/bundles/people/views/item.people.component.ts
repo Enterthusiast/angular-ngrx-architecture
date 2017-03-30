@@ -5,7 +5,7 @@ import {WatchedItemDataPeopleDirective} from '../adapters/watched.item.data.peop
 
 
 @Component({
-  selector: 'ori-item-view-people',
+  selector: 'ori-item-people',
   template: `
     <div ori-watched-item-data-people (dataEmitter)="peopleItem=$event"></div>
     <div>{{ peopleItem?.attributes?.firstname }}</div>
@@ -13,6 +13,6 @@ import {WatchedItemDataPeopleDirective} from '../adapters/watched.item.data.peop
   `,
   styles: []
 })
-export class ItemViewPeopleComponent {
+export class ItemPeopleComponent {
   peopleItem: ItemPeopleClass;
 }

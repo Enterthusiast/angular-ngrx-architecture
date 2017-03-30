@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ori-page-view-people',
+  selector: 'ori-page-people',
   template: `    
     <router-outlet></router-outlet>
   `,
   styles: []
 })
-export class PageViewPeopleComponent {}
+export class PagePeopleComponent {}

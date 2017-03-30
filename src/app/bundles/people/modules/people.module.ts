@@ -7,10 +7,10 @@ import {RoutingPeopleModule} from './routing.people.module';
 import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
 import {ButtonsModule} from 'ng2-bootstrap';
 
-import {PageViewPeopleComponent} from '../views/page.view.people.component';
-import {ListViewPeopleComponent} from '../views/list.view.people.component';
-import {ItemViewPeopleComponent} from '../views/item.view.people.component';
-import {ItemListViewPeopleComponent} from '../views/item.list.view.people.component';
+import {PagePeopleComponent} from '../views/page.people.component';
+import {ListPeopleComponent} from '../views/list.people.component';
+import {ItemPeopleComponent} from '../views/item.people.component';
+import {ItemListPeopleComponent} from '../views/item.list.people.component';
 import {PutItemFormPeopleComponent} from '../forms/put.item.form.people.component';
 import {PostItemFormPeopleComponent} from '../forms/post.item.form.people.component';
 
@@ -28,10 +28,10 @@ import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
 
 @NgModule({
   declarations: [
-    PageViewPeopleComponent,
-    ListViewPeopleComponent,
-    ItemViewPeopleComponent,
-    ItemListViewPeopleComponent,
+    PagePeopleComponent,
+    ListPeopleComponent,
+    ItemPeopleComponent,
+    ItemListPeopleComponent,
     PutItemFormPeopleComponent,
     PostItemFormPeopleComponent,
     WatchedItemDataPeopleDirective,

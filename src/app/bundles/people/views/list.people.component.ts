@@ -5,11 +5,11 @@ import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
 
 
 @Component({
-  selector: 'ori-list-view-people',
-  template: `    
+  selector: 'ori-list-people',
+  template: `
     <div ori-list-data-people (dataEmitter)="peopleList=$event"></div>
     <div class="col-md-6">
-      <ori-item-list-view-people *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-item-list-view-people>
+      <ori-item-list-people *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-item-list-people>
     </div>
     <div class="col-md-6">
       <div class="fixed">
@@ -34,6 +34,6 @@ import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
     }
   `]
 })
-export class ListViewPeopleComponent {
+export class ListPeopleComponent {
   peopleList: ItemPeopleClass[];
 }

@@ -5,7 +5,7 @@ import {ManagerPeopleService} from '../services/manager.people.service';
 
 
 @Component({
-  selector: 'ori-item-list-view-people',
+  selector: 'ori-item-list-people',
   template: `
     <dl>
       <dt>Firstname</dt>
@@ -32,7 +32,7 @@ import {ManagerPeopleService} from '../services/manager.people.service';
   `,
   styles: []
 })
-export class ItemListViewPeopleComponent {
+export class ItemListPeopleComponent {
 
   @Input() peopleItem: ItemPeopleClass;
 
