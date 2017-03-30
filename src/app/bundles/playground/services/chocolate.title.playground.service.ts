@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IAppStore } from '../../root/reducers/app-store.interface';
-import { ITitlePlaygroundService } from './title.playground.interface';
+import { ITitleServicePlayground } from './titleservice.playground.interface';
 
 @Injectable()
-export class ChocolateTitlePlaygroundService implements ITitlePlaygroundService {
+export class ChocolateTitlePlaygroundService implements ITitleServicePlayground {
 
   constructor(private store: Store<IAppStore>) {}
 

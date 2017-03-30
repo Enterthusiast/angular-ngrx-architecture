@@ -4,13 +4,13 @@ import { Headers, Http } from '@angular/http';
 import { Store } from '@ngrx/store';
 
 import { IAppStore } from '../../root/reducers/app-store.interface';
-import { ITitlePlaygroundService } from './title.playground.interface';
+import { ITitleServicePlayground } from './titleservice.playground.interface';
 
 import {privateParams} from '../../../../privateparams';
 
 
 @Injectable()
-export class CaramelTitlePlaygroundService implements ITitlePlaygroundService {
+export class CaramelTitlePlaygroundService implements ITitleServicePlayground {
 
   private headers = new Headers({
     'Content-Type': 'application/json'
