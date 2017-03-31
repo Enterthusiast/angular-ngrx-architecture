@@ -10,5 +10,11 @@ export const routeConfig = [
     { routeID: segmentConfig.peopleItem, leafLink: 'item', displayName: 'Fiche Contact', nesting: [segmentConfig.people] },
     { routeID: segmentConfig.peopleItemAdd, leafLink: 'add', displayName: 'Fiche Contact (Ajouter)', nesting: [segmentConfig.people] },
     { routeID: segmentConfig.peopleItemEdit, leafLink: ':id/edit', displayName: 'Fiche Contact (Edition)', nesting: [segmentConfig.people] },
-    { routeID: segmentConfig.peopleItemShow, leafLink: ':id', displayName: 'Fiche Contact (Afficher)', nesting: [segmentConfig.people] }
+    { routeID: segmentConfig.peopleItemShow, leafLink: ':id', displayName: 'Fiche Contact (Afficher)', nesting: [segmentConfig.people] },
+  { routeID: segmentConfig.company, leafLink: 'company', displayName: 'Companys', nesting: [] },
+    { routeID: segmentConfig.companyList, leafLink: 'list', displayName: 'Companys', nesting: [segmentConfig.company] },
+    { routeID: segmentConfig.companyItem, leafLink: 'item', displayName: 'Fiche Company', nesting: [segmentConfig.company] },
+    { routeID: segmentConfig.companyItemAdd, leafLink: 'add', displayName: 'Fiche Company (Ajouter)', nesting: [segmentConfig.company] },
+    { routeID: segmentConfig.companyItemEdit, leafLink: ':id/edit', displayName: 'Fiche Company (Edition)', nesting: [segmentConfig.company] },
+    { routeID: segmentConfig.companyItemShow, leafLink: ':id', displayName: 'Fiche Company (Afficher)', nesting: [segmentConfig.company] }
 ];

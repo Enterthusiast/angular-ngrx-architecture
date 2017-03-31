@@ -9,15 +9,18 @@ import {combineReducers} from '@ngrx/store';
 import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
 
-import {PlaygroundModule} from '../../playground/modules/playground.module';
 import {PeopleModule} from '../../people/modules/people.module';
+import {CompanyModule} from '../../company/modules/company.module';
+import {PlaygroundModule} from '../../playground/modules/playground.module';
 
 import {RootRoutingModule} from './root.routing.module';
-import {RoutingPlaygroundModule} from '../../playground/modules/routing.playground.module';
 import {RoutingPeopleModule} from '../../people/modules/routing.people.module';
+import {RoutingCompanyModule} from '../../company/modules/routing.company.module';
+import {RoutingPlaygroundModule} from '../../playground/modules/routing.playground.module';
 
-import {playgroundReducer} from '../../playground/reducers/playground.reducer';
 import {peopleReducer} from '../../people/reducers/people.reducer';
+import {companyReducer} from '../../company/reducers/company.reducer';
+import {playgroundReducer} from '../../playground/reducers/playground.reducer';
 
 import {PageRootComponent} from '../views/page.root.component';
 import {WelcomeRootComponent} from '../views/welcome.root.component';
@@ -39,7 +42,8 @@ const metaReducers = environment.production
 
 const store = compose(...metaReducers)({
   title: playgroundReducer,
-  people: peopleReducer
+  people: peopleReducer,
+  company: companyReducer
 });
 
 @NgModule({
@@ -51,6 +55,7 @@ const store = compose(...metaReducers)({
   imports: [
     PlaygroundModule,
     PeopleModule,
+    CompanyModule,
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -59,6 +64,7 @@ const store = compose(...metaReducers)({
       maxAge: 10
     }),
     RoutingPeopleModule,
+    RoutingCompanyModule,
     RoutingPlaygroundModule,
     RootRoutingModule
   ],

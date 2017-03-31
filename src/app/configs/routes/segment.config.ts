@@ -8,5 +8,11 @@ export const segmentConfig = {
   peopleItem: 'people-item',
   peopleItemAdd: 'people-item-add',
   peopleItemEdit: 'people-item-edit',
-  peopleItemShow: 'people-item-show'
+  peopleItemShow: 'people-item-show',
+  company: 'company',
+  companyList: 'company-list',
+  companyItem: 'company-item',
+  companyItemAdd: 'company-item-add',
+  companyItemEdit: 'company-item-edit',
+  companyItemShow: 'company-item-show'
 };
