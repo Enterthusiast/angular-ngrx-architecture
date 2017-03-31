@@ -1,31 +1,47 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {RouteMapController} from '../../../transverses/routes/route-map.app.controller';
+import {ItemNavigationRootClass} from '../models/item.navigation.root.class';
+import {NavigationRootService} from '../services/navigation.root.service';
 
 
 @Component({
   selector: 'ori-navigation-root',
   template: `
-  <nav>
-    <a class="app-nav-li" *ngFor="let route of routeMap" routerLink="{{ route.link }}" routerLinkActive="active">{{ route.name }}</a><br>
-  </nav>
+    <nav class="nav">
+      <ul class="nav__nivA">
+        <li *ngFor="let navRoute of navRouteList" class="nav__nivA__item">
+          <a class="nav__link" (click)="onClick(navRoute)">
+            <i class="fa fa-{{navRoute.icon}"></i>
+            <span>
+              {{navRoute.displayName}}
+            </span>
+          </a>
+          <ul [hidden]="!hideMe[navRoute.id]" class="nav__nivB">
+            <li *ngFor="let child of navRoute.children" class="nav__nivB__item">
+              <a class="nav__link " routerLink="/{{child.link}}" routerLinkActive="active">
+                {{child.name}}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   `,
-  styles: [`
-    .app-nav-li {
-        margin: 0 5px 0 5px;
-    }
-    .active {
-      color: green;
-    }
-  `]
+  styleUrls: ['./navigation.root.scss']
 })
-export class NavigationRootComponent {
+export class NavigationRootComponent implements OnInit {
 
-  private routeMap: any[];
+  navRouteList: ItemNavigationRootClass[];
+  hideMe: any = {};
 
-  constructor() {
-    this.routeMap = RouteMapController.routeAppClassList();
-    // this.routeMap = RouteMapController.getRouteAppClassListFrom(['root', 'test']);
+  constructor(private navService: NavigationRootService) {}
+
+  onClick(navRoute) {
+    this.hideMe[navRoute.id] = !this.hideMe[navRoute.id];
+  }
+
+  ngOnInit() {
+    this.navRouteList = this.navService.getNavRouteList();
   }
 
 }

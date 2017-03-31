@@ -1,4 +1,4 @@
-export const routeIDList = {
+export const segmentConfig = {
   test: 'test',
   item: 'item',
   sub: 'sub',

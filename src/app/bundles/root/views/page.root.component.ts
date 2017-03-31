@@ -6,15 +6,13 @@ import { Component } from '@angular/core';
     <h1>
       Angular Architecture + ngrx - WIP
     </h1>
-    <ori-navigation-root></ori-navigation-root>
-    <router-outlet></router-outlet>`,
+    <div class="col-md-2">
+      <ori-navigation-root></ori-navigation-root>
+    </div>
+    <div class="col-md-10">
+    <router-outlet></router-outlet>
+    </div>
+  `,
   styles:  []
 })
-export class PageRootComponent {
-
-  // Starting the routerCommonService so we can react to router change if required
-  constructor(
-    // private routerCommonService: RouterCommonService
-  ) {}
-
-}
+export class PageRootComponent {}

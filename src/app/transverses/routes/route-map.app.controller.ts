@@ -1,5 +1,5 @@
 import {RouteAppFactory} from './route.app.factory';
-import {routeConfigList} from '../../configs/routes/route-config-list.const';
+import {routeConfig} from '../../configs/routes/route.config';
 
 
 export const RouteMapController = new function() {
@@ -12,7 +12,7 @@ export const RouteMapController = new function() {
     if (_routeAppClassList && _routeAppClassList.length > 0) {
       return _routeAppClassList;
     } else {
-      return _routeAppClassList = routeConfigList
+      return _routeAppClassList = routeConfig
         .map(self.RouteToRouteClass);
     }
   };
@@ -29,7 +29,7 @@ export const RouteMapController = new function() {
 
   self.getRoute = function(routeID) {
     if (!_routeConfigList || _routeConfigList.length === 0) {
-      _routeConfigList = routeConfigList.slice();
+      _routeConfigList = routeConfig.slice();
     }
     return _routeConfigList.find(routeData => routeData.routeID === routeID);
   };

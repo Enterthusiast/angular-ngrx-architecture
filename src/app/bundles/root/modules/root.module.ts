@@ -24,6 +24,8 @@ import {WelcomeRootComponent} from '../views/welcome.root.component';
 import {NavigationRootComponent} from '../views/navigation.root.component';
 
 import {ModelCommonService} from '../../common/services/model.common.service';
+import {NavigationRootService} from '../services/navigation.root.service';
+
 import {environment} from '../../../../environments/environment';
 
 
@@ -61,7 +63,8 @@ const store = compose(...metaReducers)({
     RootRoutingModule
   ],
   providers: [
-    ModelCommonService
+    ModelCommonService,
+    NavigationRootService
   ],
   bootstrap: [PageRootComponent]
 })

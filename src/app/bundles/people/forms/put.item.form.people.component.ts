@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 
 import {
-  formDefaultStyle,
-  formQuestionDefaultStyle,
-  formQuestionRadioCheckboxStyle
-} from '../../../configs/forms/form-config.const';
+  styleForm,
+  styleFormQuestion,
+  styleFormQuestionRadioCheckbox
+} from '../../../configs/forms/style.form.config';
 import {ManagerPeopleService} from '../services/manager.people.service';
 import {ItemPeopleClass} from '../models/item.people.class';
 
@@ -35,7 +35,7 @@ export class PutItemFormPeopleComponent {
 
   setData() {
     this.formParams = {
-      classes: formDefaultStyle,
+      classes: styleForm,
       settings: {
         submitButtonText: 'Send',
         errorOnDirty: true,
@@ -43,7 +43,7 @@ export class PutItemFormPeopleComponent {
       },
       questions: [
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'dropdown',
           key: 'civility',
           label: 'Civility',
@@ -60,7 +60,7 @@ export class PutItemFormPeopleComponent {
           ]
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'text',
           key: 'firstname',
           label: 'Firstname',
@@ -71,7 +71,7 @@ export class PutItemFormPeopleComponent {
           ]
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'text',
           key: 'lastname',
           label: 'Lastname',
@@ -82,7 +82,7 @@ export class PutItemFormPeopleComponent {
           ]
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'dropdown',
           key: 'status',
           label: 'Status',
@@ -97,28 +97,28 @@ export class PutItemFormPeopleComponent {
           ]
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'text',
           key: 'email',
           label: 'Email',
           value: this._peopleItem.get('email')
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'text',
           key: 'mobile',
           label: 'Mobile',
           value: this._peopleItem.get('mobile')
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'text',
           key: 'phone',
           label: 'Phone',
           value: this._peopleItem.get('phone')
         },
         {
-          classes: formQuestionDefaultStyle,
+          classes: styleFormQuestion,
           type: 'text',
           key: 'description',
           label: 'Description',

@@ -1,0 +1,42 @@
+.nav {
+
+  width: 220px;
+  background-color:#417c81;
+  &__nivA {
+    background-color:#417c81;
+    &__item {}
+  }
+  &__link {
+    color:#ffffff;
+    height:46px;
+    line-height:46px;
+    cursor:pointer;
+    padding:0 0 0 25px;
+    display:block;
+    &:hover {
+      text-decoration:none;
+      background-color:#68979B;
+    }
+    &.active {
+      background-color:#68979B;
+    }
+    i {
+      margin:0 10px 0 0;
+    }
+    &__arrow {
+      float:right;
+      &:before {
+        content: "\f104";
+      }
+    }
+  }
+  &__nivB {
+    background-color:#417c81;
+    &__item {
+      .nav__link {
+        padding: 0 0 0 60px;
+      }
+    }
+  }
+
+}

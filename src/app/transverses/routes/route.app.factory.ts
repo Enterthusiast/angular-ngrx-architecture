@@ -1,5 +1,6 @@
 import {RouteAppClass} from './route.app.class';
 
+
 export class RouteAppFactory {
 
   public static createRoute(params): RouteAppClass {
