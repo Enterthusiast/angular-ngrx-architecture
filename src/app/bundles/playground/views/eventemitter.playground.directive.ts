@@ -1,9 +1,12 @@
-import {Directive, ElementRef, EventEmitter, OnInit, Output} from "@angular/core";
+import {Directive, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
+
+
 @Directive({
   selector: '[ori-eventemitter-playground]'
 })
 export class EventemitterPlaygroundDirective implements OnInit {
   @Output() outputField: EventEmitter<string> = new EventEmitter();
+  newValue = 'Toto';
 
   constructor(el: ElementRef) {
     el.nativeElement.style.backgroundColor = 'yellow';
@@ -11,6 +14,6 @@ export class EventemitterPlaygroundDirective implements OnInit {
 
   ngOnInit() {
     this.outputField.emit('John');
-    setTimeout(() => this.outputField.emit('Toto'), 1000);
+    setTimeout(() => this.outputField.emit(this.newValue), 1000);
   }
 }

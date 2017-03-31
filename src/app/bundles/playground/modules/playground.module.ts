@@ -12,6 +12,7 @@ import {TitlePlaygroundService} from '../services/title.playground.service';
 import {CaramelTitlePlaygroundService} from '../services/caramel.title.playground.service';
 import {ChocolateTitlePlaygroundService} from '../services/chocolate.title.playground.service';
 import {EventemitterPlaygroundDirective} from '../views/eventemitter.playground.directive';
+import {ChildEventemitterPlaygroundDirective} from '../views/child.eventemitter.playground.directive';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {EventemitterPlaygroundDirective} from '../views/eventemitter.playground.
     TitlePlaygroundComponent,
     ListPlaygroundComponent,
     ClickPlaygroundComponent,
-    EventemitterPlaygroundDirective
+    EventemitterPlaygroundDirective,
+    ChildEventemitterPlaygroundDirective
   ],
   imports: [
     CommonModule,

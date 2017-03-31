@@ -9,6 +9,7 @@ import { TitlePlaygroundService } from '../services/title.playground.service';
 import { CaramelTitlePlaygroundService } from '../services/caramel.title.playground.service';
 import { ChocolateTitlePlaygroundService } from '../services/chocolate.title.playground.service';
 
+
 @Component({
   selector: 'ori-title-playground',
   providers: [
@@ -25,6 +26,9 @@ import { ChocolateTitlePlaygroundService } from '../services/chocolate.title.pla
     <div ori-eventemitter-playground (outputField)="bindToData($event)">data from dir: {{ dataFromDirective }}
     </div>
 
+    <div ori-child-eventemitter-playground (outputField)="bindToChildData($event)">data from child dir: {{ dataFromChildDirective }}
+    </div>
+
     <ori-click-playground [myService]="childService"></ori-click-playground>
   `,
   styles:  []
@@ -33,6 +37,7 @@ export class TitlePlaygroundComponent {
   title: Observable<string>;
   nextTitle: string;
   dataFromDirective: string;
+  dataFromChildDirective: string;
 
   constructor (
     private store: Store<IRootStore>
@@ -47,6 +52,11 @@ export class TitlePlaygroundComponent {
   bindToData($event) {
     this.dataFromDirective = $event;
   }
+
+  bindToChildData($event) {
+    this.dataFromChildDirective = $event;
+  }
+
 
   changeTitle() {
 
