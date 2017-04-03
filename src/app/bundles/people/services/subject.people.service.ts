@@ -1,40 +1,23 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
-
 import {IRootStore} from '../../root/reducers/root.store.interface';
-import {ItemPeopleClass} from '../models/item.people.class';
-import {PeopleState} from '../reducers/people.reducer';
+import {SubjectCommonService} from '../../common/services/subject.common.service';
 import {ManagerPeopleService} from './manager.people.service';
 
+
 @Injectable()
-export class SubjectPeopleService {
+export class SubjectPeopleService extends SubjectCommonService {
 
-  peopleState$: Observable<PeopleState>;
-  watchedPeopleItem$: Subject<ItemPeopleClass> = new Subject();
-
-  constructor (private store: Store<IRootStore>,
-               private managerPeopleService: ManagerPeopleService) {
-    this.peopleState$ = this.store.select('people');
-    this.createWatchedIdSubject();
+  constructor (public store: Store<IRootStore>,
+               public managerService: ManagerPeopleService) {
+    super(store, managerService);
   }
 
-  private createWatchedIdSubject() {
-    this.peopleState$.subscribe(value => {
-      let result;
-      if (value.watchedId) {
-        result = value.list.find(peopleItem => {
-          return peopleItem.getId() === value.watchedId;
-        });
-        if (result) {
-          this.watchedPeopleItem$.next(result);
-        } else {
-          this.managerPeopleService.getItem(value.watchedId);
-        }
-      }
-    });
+  setParams() {
+    this.params = {
+      storeKey: 'people'
+    };
   }
 
 }

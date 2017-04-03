@@ -6,43 +6,53 @@ import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
 import {privateParams} from '../../../../privateparams';
-import {ItemCommonConfig} from '../../../configs/models/item.common.config';
 
 
 @Injectable()
-export class ApiCompanyService {
+export class ApiCommonService {
 
   private headers = new Headers({
     'Content-Type': 'application/json'
     , 'Authorization': 'Basic ' + btoa(privateParams.logins.origamiDev)
   });
 
-  private apiUrl = privateParams.links.origamiCompanies;
-  private embeddedListKey = 'companies';
-  private formItemKey = 'company';
-  private uuidItemKey = ItemCommonConfig.DEFAULT_ID_KEY;
+  protected params = {
+    apiUrl: '',
+    embeddedListKey: '',
+    formItemKey: ''
+  };
 
-  constructor(private http: Http) {}
+  constructor(protected http: Http) {
+    this.setParams();
+    if (!!this.params === false ||
+      !!this.params.apiUrl === false ||
+      !!this.params.embeddedListKey === false ||
+      !!this.params.formItemKey === false) {
+      throw new Error('Params are not set correctly');
+    }
+  }
+
+  protected setParams() {}
 
   private getListUrl(): string {
-    return this.apiUrl;
+    return this.params.apiUrl;
   }
 
   private getItemUrl(id) {
-    return `${this.apiUrl}/${id}`;
+    return `${this.params.apiUrl}/${id}`;
   }
 
   private postItemUrl() {
-    return this.apiUrl;
+    return this.params.apiUrl;
   }
 
   private putItemUrl(id) {
-    return `${this.apiUrl}/${id}`;
+    return `${this.params.apiUrl}/${id}`;
   }
 
   private postItemWrapper(attributes) {
     return {
-      [this.formItemKey]: attributes
+      [this.params.formItemKey]: attributes
     };
   }
 
@@ -52,7 +62,7 @@ export class ApiCompanyService {
       .toPromise()
       .then(res => {
         const json = res.json();
-        const listJson = json._embedded[this.embeddedListKey];
+        const listJson = json._embedded[this.params.embeddedListKey];
         response$.next(listJson);
       })
       .catch(console.log);

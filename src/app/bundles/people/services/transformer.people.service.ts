@@ -1,28 +1,25 @@
 import {Injectable} from '@angular/core';
 
-import * as _ from 'lodash';
-
+import {TransformerCommonService} from '../../common/services/transformer.common.service';
 import {GetItemPeopleFields} from './fields/get.item.people.fields';
 import {PostItemPeopleFields} from './fields/post.item.people.fields';
 import {PutItemPeopleFields} from './fields/put.item.people.fields';
-import {ModelCommonService} from '../../common/services/model.common.service';
+import {ItemPeopleService} from './item.people.service';
 
 
 @Injectable()
-export class TransformerPeopleService {
+export class TransformerPeopleService extends TransformerCommonService {
 
-  constructor(private modelCommonService: ModelCommonService) {}
-
-  public toGetAttributes(dataObject): any {
-    return _.assign({}, this.modelCommonService.createGetModel(dataObject, GetItemPeopleFields));
+  constructor(public itemService: ItemPeopleService) {
+    super(itemService);
   }
 
-  public toPostAttributes(dataObject): any {
-    return _.assign({}, this.modelCommonService.createPostModel(dataObject, PostItemPeopleFields));
-  }
-
-  public toPutAttributes(dataObject): any {
-    return _.assign({}, this.modelCommonService.createPutModel(dataObject, PutItemPeopleFields));
+  setParams() {
+    this.params = {
+      getItemFields: GetItemPeopleFields,
+        postItemFields: PostItemPeopleFields,
+        putItemFields: PutItemPeopleFields
+    };
   }
 
 }

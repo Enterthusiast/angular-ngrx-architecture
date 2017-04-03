@@ -1,40 +1,27 @@
-import {Directive, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {Directive} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import {ItemPeopleClass} from '../models/item.people.class';
 import {SubjectPeopleService} from '../services/subject.people.service';
 import {ManagerPeopleService} from '../services/manager.people.service';
+import {WatchedItemDataCommonDirective} from '../../common/adapters/watched.item.data.people.directive';
 
 
 @Directive({
   selector: '[ori-watched-item-data-people]'
 })
-export class WatchedItemDataPeopleDirective implements OnInit, OnDestroy {
+export class WatchedItemDataPeopleDirective extends WatchedItemDataCommonDirective {
 
-  @Output() dataEmitter: EventEmitter<ItemPeopleClass> = new EventEmitter();
-  private watchedPeopleItemSubscription: any;
-  private routeParamsSubscribption: any;
-
-  constructor (private managerPeopleService: ManagerPeopleService,
-               private subjectPeopleService: SubjectPeopleService,
-               private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.watchedPeopleItemSubscription = this.subjectPeopleService.watchedPeopleItem$.subscribe(peopleItem => {
-      this.dataEmitter.emit(peopleItem);
-    });
-    this.routeParamsSubscribption = this.route.params.subscribe((params: Params) => {
-      if (params['id']) {
-        this.managerPeopleService.updateWatchedId(params['id']);
-      } else {
-        this.managerPeopleService.updateWatchedId('');
-      }
-    });
+  constructor (public managerService: ManagerPeopleService,
+               public subjectService: SubjectPeopleService,
+               public route: ActivatedRoute) {
+    super(managerService, subjectService, route);
   }
 
-  ngOnDestroy() {
-    this.watchedPeopleItemSubscription.unsubscribe();
-    this.routeParamsSubscribption.unsubscribe();
+  setParams() {
+    this.params = {
+      watchedItemKey: 'watchedItem$',
+      updateWatchedIdKey: 'updateWatchedId'
+    };
   }
 
 }

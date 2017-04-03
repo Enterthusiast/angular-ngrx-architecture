@@ -21,6 +21,7 @@ import {SubjectPeopleService} from '../services/subject.people.service';
 import {EffectPeopleService} from '../services/effect.people.service';
 import {DecoratorPeopleService} from '../services/decorator.people.service';
 import {ManagerPeopleService} from '../services/manager.people.service';
+import {ItemPeopleService} from '../services/item.people.service';
 
 import {WatchedItemDataPeopleDirective} from '../adapters/watched.item.data.people.directive';
 import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
@@ -52,7 +53,8 @@ import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
     TransformerPeopleService,
     DecoratorPeopleService,
     FactoryPeopleService,
-    ManagerPeopleService
+    ManagerPeopleService,
+    ItemPeopleService
   ],
   bootstrap: []
 })

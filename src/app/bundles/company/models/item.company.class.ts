@@ -1,4 +1,4 @@
-import {ModelCommonClass} from '../../common/models/model.common.class';
+import {ItemCommonClass} from '../../common/models/item.common.class';
 
 
-export class ItemCompanyClass extends ModelCommonClass {}
+export class ItemCompanyClass extends ItemCommonClass {}

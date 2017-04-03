@@ -26,7 +26,15 @@ import {PageRootComponent} from '../views/page.root.component';
 import {WelcomeRootComponent} from '../views/welcome.root.component';
 import {NavigationRootComponent} from '../views/navigation.root.component';
 
-import {ModelCommonService} from '../../common/services/model.common.service';
+import {ApiCommonService} from '../../common/services/api.common.service';
+import {DecoratorCommonService} from '../../common/services/decorator.common.service';
+import {EffectCommonService} from '../../common/services/effect.common.service';
+import {ItemCommonService} from '../../common/services/item.common.service';
+import {ItemFactoryCommonService} from '../../common/services/item.factory.common.service';
+import {ManagerCommonService} from '../../common/services/manager.common.service';
+import {SubjectCommonService} from '../../common/services/subject.common.service';
+import {TransformerCommonService} from '../../common/services/transformer.common.service';
+
 import {NavigationRootService} from '../services/navigation.root.service';
 
 import {environment} from '../../../../environments/environment';
@@ -69,7 +77,14 @@ const store = compose(...metaReducers)({
     RootRoutingModule
   ],
   providers: [
-    ModelCommonService,
+    ApiCommonService,
+    DecoratorCommonService,
+    EffectCommonService,
+    ItemCommonService,
+    ItemFactoryCommonService,
+    ManagerCommonService,
+    TransformerCommonService,
+    SubjectCommonService,
     NavigationRootService
   ],
   bootstrap: [PageRootComponent]

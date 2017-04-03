@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {TransformerCompanyService} from './transformer.company.service';
 import {ItemCompanyClass} from '../models/item.company.class';
-import {ModelCommonConfig} from '../../../configs/models/model.common.config';
+import {ItemCommonConfig} from '../../../configs/models/item.common.config';
 
 @Injectable()
 export class FactoryCompanyService {
@@ -18,7 +18,7 @@ export class FactoryCompanyService {
       case 'put':
         return this.createPutCompany(params.data);
       default:
-        return new ItemCompanyClass({ [ModelCommonConfig.ATTRIBUTES] : params.data });
+        return new ItemCompanyClass({ [ItemCommonConfig.ATTRIBUTES] : params.data });
     }
   }
 
@@ -30,17 +30,17 @@ export class FactoryCompanyService {
 
   public createGetCompany(data): ItemCompanyClass {
     const attributes = this.transformerCompanyService.toGetAttributes(data);
-    return new ItemCompanyClass({ [ModelCommonConfig.ATTRIBUTES] : attributes });
+    return new ItemCompanyClass({ [ItemCommonConfig.ATTRIBUTES] : attributes });
   }
 
   public createPutCompany(data): ItemCompanyClass {
     const attributes = this.transformerCompanyService.toPutAttributes(data);
-    return new ItemCompanyClass({ [ModelCommonConfig.ATTRIBUTES]: attributes });
+    return new ItemCompanyClass({ [ItemCommonConfig.ATTRIBUTES]: attributes });
   }
 
   public createPostCompany(data): ItemCompanyClass {
     const attributes = this.transformerCompanyService.toPostAttributes(data);
-    return new ItemCompanyClass({ [ModelCommonConfig.ATTRIBUTES]: attributes });
+    return new ItemCompanyClass({ [ItemCommonConfig.ATTRIBUTES]: attributes });
   }
 
 }
