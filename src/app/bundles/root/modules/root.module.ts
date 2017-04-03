@@ -9,16 +9,16 @@ import {combineReducers} from '@ngrx/store';
 import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
 
-import {PeopleModule} from '../../people/modules/people.module';
+import {PeopleModule} from '../../people/self/modules/people.module';
 import {CompanyModule} from '../../company/modules/company.module';
 import {PlaygroundModule} from '../../playground/modules/playground.module';
 
 import {RootRoutingModule} from './root.routing.module';
-import {RoutingPeopleModule} from '../../people/modules/routing.people.module';
+import {RoutingPeopleModule} from '../../people/self/modules/routing.people.module';
 import {RoutingCompanyModule} from '../../company/modules/routing.company.module';
 import {RoutingPlaygroundModule} from '../../playground/modules/routing.playground.module';
 
-import {peopleReducer} from '../../people/reducers/people.reducer';
+import {peopleReducer} from '../../people/self/reducers/people.reducer';
 import {companyReducer} from '../../company/reducers/company.reducer';
 import {playgroundReducer} from '../../playground/reducers/playground.reducer';
 

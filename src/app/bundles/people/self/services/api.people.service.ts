@@ -3,8 +3,8 @@ import {Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import {privateParams} from '../../../../privateparams';
-import {ApiCommonService} from '../../common/services/api.common.service';
+import {privateParams} from '../../../../../privateparams';
+import {ApiCommonService} from '../../../common/services/api.common.service';
 
 
 @Injectable()

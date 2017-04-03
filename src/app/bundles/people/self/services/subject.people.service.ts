@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 
-import {IRootStore} from '../../root/reducers/root.store.interface';
-import {SubjectCommonService} from '../../common/services/subject.common.service';
+import {IRootStore} from '../../../root/reducers/root.store.interface';
+import {SubjectCommonService} from '../../../common/services/subject.common.service';
 import {ManagerPeopleService} from './manager.people.service';
 
 

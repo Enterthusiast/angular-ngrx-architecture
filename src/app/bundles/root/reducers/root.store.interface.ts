@@ -1,4 +1,4 @@
-import {PeopleState} from '../../people/reducers/people.reducer';
+import {PeopleState} from '../../people/self/reducers/people.reducer';
 
 export interface IRootStore {
   title: string;

@@ -5,7 +5,7 @@ import {TransformerPeopleService} from './transformer.people.service';
 import {FactoryPeopleService} from './factory.people.service';
 import {EffectPeopleService} from './effect.people.service';
 import {ApiPeopleService} from './api.people.service';
-import {ManagerCommonService} from '../../common/services/manager.common.service';
+import {ManagerCommonService} from '../../../common/services/manager.common.service';
 
 
 @Injectable()

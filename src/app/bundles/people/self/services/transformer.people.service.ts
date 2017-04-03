@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {TransformerCommonService} from '../../common/services/transformer.common.service';
+import {TransformerCommonService} from '../../../common/services/transformer.common.service';
 import {GetItemPeopleFields} from './fields/get.item.people.fields';
 import {PostItemPeopleFields} from './fields/post.item.people.fields';
 import {PutItemPeopleFields} from './fields/put.item.people.fields';

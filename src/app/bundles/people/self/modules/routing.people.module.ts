@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {RouteMapController} from '../../../transverses/routes/route-map.app.controller';
+import {RouteMapController} from '../../../../transverses/routes/route-map.app.controller';
 import {PagePeopleComponent} from '../views/page.people.component';
 import {ListPeopleComponent} from '../views/list.people.component';
 import {PostItemFormPeopleComponent} from '../forms/post.item.form.people.component';

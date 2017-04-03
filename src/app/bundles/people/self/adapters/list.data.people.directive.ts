@@ -2,7 +2,7 @@ import {Directive} from '@angular/core';
 
 import {ManagerPeopleService} from '../services/manager.people.service';
 import {SubjectPeopleService} from '../services/subject.people.service';
-import {ListDataCommonDirective} from '../../common/adapters/list.data.people.directive';
+import {ListDataCommonDirective} from '../../../common/adapters/list.data.people.directive';
 
 
 @Directive({

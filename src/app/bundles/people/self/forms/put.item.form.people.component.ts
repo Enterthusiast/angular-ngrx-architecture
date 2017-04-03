@@ -4,7 +4,7 @@ import {
   styleForm,
   styleFormQuestion,
   styleFormQuestionRadioCheckbox
-} from '../../../configs/forms/style.form.config';
+} from '../../../../configs/forms/style.form.config';
 import {ManagerPeopleService} from '../services/manager.people.service';
 import {ItemPeopleClass} from '../models/item.people.class';
 
