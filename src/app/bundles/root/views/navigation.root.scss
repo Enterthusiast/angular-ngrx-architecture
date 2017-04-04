@@ -1,9 +1,14 @@
-.nav {
+$nav-color:#0099ff;
+$nav-active-color:#19a3ff;
+$nav-hover-color:#32adff;
 
+
+.nav {
+  height: 100%;
   width: 220px;
-  background-color:#417c81;
+  background-color:$nav-color;
+  font-size:13px;
   &__nivA {
-    background-color:#417c81;
     &__item {}
   }
   &__link {
@@ -15,10 +20,10 @@
     display:block;
     &:hover {
       text-decoration:none;
-      background-color:#68979B;
+      background-color:$nav-hover-color;
     }
     &.active {
-      background-color:#68979B;
+      background-color:$nav-active-color;
     }
     i {
       margin:0 10px 0 0;
@@ -31,7 +36,7 @@
     }
   }
   &__nivB {
-    background-color:#417c81;
+
     &__item {
       .nav__link {
         padding: 0 0 0 60px;
@@ -39,4 +44,17 @@
     }
   }
 
+}
+
+a:not([href]):not([tabindex]) {
+  color:#fff;
+}
+
+
+ori-navigation-root {
+  height:100%;
+}
+
+ori-page-root {
+  height:100%;
 }

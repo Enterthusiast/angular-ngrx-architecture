@@ -6,7 +6,7 @@ export const styleForm = {
   form: 'form-horizontal',
   wrapperSubmit: 'form-group',
   submit: 'col-sm-offset-2 col-sm-10',
-  submitButton: 'btn btn-default'
+  submitButton: 'btn btn-validate'
 };
 
 export const styleFormQuestion = {

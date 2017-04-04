@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    _vars.scss
+\*------------------------------------*/
+/**
+ *
+ * this file is used to override Bootstrap's variables
+ * it must be imported before Bootstrap
+ *
+ */
+
+/**
+
+/** colors map */
+
+$edit-color: #b8b8c8;
+$remove-color: #ff0000;
+$validate-color:#33cc00;
+$display-color:#ffffff;
+
+
+
+
+/**  headings size */
+
+$h1-size:           40px;
+$h2-size:           36px;
+$h3-size:           26px;
+$h4-size:           20px;
+$h5-size:           16px;
+$h6-size:           14px;

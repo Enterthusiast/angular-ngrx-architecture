@@ -1,0 +1,17 @@
+.imgCircle {
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin:-50px 0 0 -50px;
+}
+
+.figureCircle {
+  width:110px;
+  height:110px;
+  background-color:#fff;
+  border-radius:50%;
+  position:relative;
+}

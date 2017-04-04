@@ -11,7 +11,9 @@ import {WatchedItemDataPeopleDirective} from '../adapters/watched.item.data.peop
     <div>{{ peopleItem?.attributes?.firstname }}</div>
     <div>{{ peopleItem?.attributes?.lastname }}</div>
   `,
-  styles: []
+  styles: [
+
+  ]
 })
 export class ItemPeopleComponent {
   peopleItem: ItemPeopleClass;

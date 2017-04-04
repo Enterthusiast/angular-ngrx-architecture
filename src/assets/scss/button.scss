@@ -1,0 +1,71 @@
+.btn {
+  border: none;
+  border-radius: 50%;
+  color: #000000;
+  position: relative;
+  height: 40px;
+  margin: 5px 0;
+  min-width: 40px;
+  width:40px;
+  padding: 0 13px;
+  display: inline-block;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  align-items: flex-start;
+  box-sizing: border-box;
+  text-rendering: auto;
+  -webkit-appearance: button;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
+
+}
+
+.btn:hover {
+  background-color: rgba(158,158,158,.2);
+}
+
+
+.btn--display {
+  background:$display-color;
+}
+
+.btn--delete {
+  background-color:$remove-color;
+}
+
+.btn--edit {
+  background-color:$edit-color;
+}
+
+
+.btn--delete i,.btn--edit i{
+  color:#fff;
+}
+
+.btn--delete:hover i, .btn--edit:hover i {
+  color:#000;
+}
+
+.btn-validate {
+  background-color:$validate-color;
+  width:auto;
+  border-radius:10%;
+  font-weight:700;
+  color:#ffffff;
+  &:hover {
+    color:#000000;
+  }
+}

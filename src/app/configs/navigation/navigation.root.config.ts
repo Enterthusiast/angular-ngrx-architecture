@@ -23,5 +23,18 @@ export const NavigationRootConfig = [
         routerId: segmentConfig.peopleItemAdd
       }
     ]
+  },
+  {
+    displayName: 'Compagnie',
+    iconNav: 'briefcase',
+    id: 3,
+    children: [
+      {
+        routerId: segmentConfig.companyList
+      },
+      {
+        routerId: segmentConfig.companyItemAdd
+      }
+    ]
   }
 ];

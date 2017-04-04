@@ -7,31 +7,23 @@ import {ListDataPeopleDirective} from '../adapters/list.data.people.directive';
 @Component({
   selector: 'ori-list-people',
   template: `
-    <div ori-list-data-people (dataEmitter)="peopleList=$event"></div>
-    <div class="col-md-6">
-      <ori-item-list-people *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-item-list-people>
-    </div>
-    <div class="col-md-6">
-      <div class="fixed">
+    <div class="wrapperLeft">
+        <ori-item-list-people *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-item-list-people> 
+    </div><!--
+    --><div class="wrapperRight">
+        <div ori-list-data-people (dataEmitter)="peopleList=$event"></div>
         <router-outlet name="action"></router-outlet>
-      </div>
     </div>
+ 
+      
+    
+   
   `,
   styles: [`
-    .fixed {
-      display: block;
-      position: fixed;
-      top: 128px;
-      left: 50%;
-      width: 50%;
-    }
-    .block {
-      display: block;
-    }
-    .inlineblock {
-      display: inline-block;
-      vertical-align: top;
-    }
+    ori-item-list-people {
+      width:calc (50% - 40px);
+      display: inherit;
+      margin:20px;
   `]
 })
 export class ListPeopleComponent {

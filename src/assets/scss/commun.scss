@@ -1,0 +1,35 @@
+html, body {
+  margin:0; height: 100%;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+ul {
+  padding:0;
+  list-style-type:none;
+  width:100%;
+}
+
+.oriContainer {
+  display: flex;
+  flex-flow: row wrap;
+  height:100%;
+}
+
+main {
+  flex:1;
+}
+
+
+// wrapper
+
+.wrapperLeft {
+  width:50%;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.wrapperRight {
+  width:50%;
+  display:inline-block;
+  vertical-align:top;
+}
