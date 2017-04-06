@@ -34,6 +34,7 @@ export class WatchedItemDataCommonDirective implements OnInit, OnDestroy {
       this.dataEmitter.emit(item);
     });
     this.routeParamsSubscription = this.route.params.subscribe((params: Params) => {
+      debugger
       if (params['id']) {
         this.managerCommonService[this.params.updateWatchedIdKey](params['id']);
       } else {

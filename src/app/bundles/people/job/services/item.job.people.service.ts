@@ -1,0 +1,7 @@
+import {Injectable} from '@angular/core';
+
+import {ItemCommonService} from '../../../common/services/item.common.service';
+
+
+@Injectable()
+export class ItemJobPeopleService extends ItemCommonService {}
