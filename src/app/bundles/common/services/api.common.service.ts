@@ -28,7 +28,7 @@ export class ApiCommonService {
       !!this.params.apiUrl === false ||
       !!this.params.embeddedListKey === false ||
       !!this.params.formItemKey === false) {
-      throw new Error('Params are not set correctly');
+      console.error('ApiCommonService params are not set correctly');
     }
   }
 
@@ -62,7 +62,7 @@ export class ApiCommonService {
       .toPromise()
       .then(res => {
         const json = res.json();
-        const listJson = json._embedded[this.params.embeddedListKey];
+        const listJson = json && json._embedded && json._embedded[this.params.embeddedListKey];
         response$.next(listJson);
       })
       .catch(console.log);
