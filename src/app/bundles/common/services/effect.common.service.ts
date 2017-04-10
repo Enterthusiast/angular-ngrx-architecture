@@ -16,8 +16,8 @@ export class EffectCommonService {
   protected params = {
     storeKey: '',
     reducerFunctions: {
-      setList: function(list) { return {type: '', payload: list}; },
-      setWatchedId: function(watchedId) { return {type: '', payload: watchedId}; },
+      setList: function(list) { return {type: 'SET_LIST', payload: list}; },
+      setWatchedId: function(watchedId) { return {type: 'SET_WATCHEDID', payload: watchedId}; },
     }
   };
 

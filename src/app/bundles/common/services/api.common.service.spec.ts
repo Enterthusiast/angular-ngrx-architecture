@@ -133,7 +133,7 @@ describe('ApiCommonService', () => {
 
     })));
 
-  it('.getItem(id) should return a json of an item',
+  it('.getItem(id) should return a json of the chosen item',
     async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
 
       const mockResponse = {
@@ -157,7 +157,7 @@ describe('ApiCommonService', () => {
 
     })));
 
-  it('.postItem(item) should return a json of the item',
+  it('.postItem(item) should return a json of the post item',
     async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
 
       const mockObject = {
@@ -183,7 +183,7 @@ describe('ApiCommonService', () => {
 
     })));
 
-  it('.putItem(item) should return a json of the item',
+  it('.putItem(item) should return a json of the put item',
     async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
 
       const mockObject = {
@@ -209,7 +209,7 @@ describe('ApiCommonService', () => {
 
     })));
 
-  it('.deleteItem(id) should return true',
+  it('.deleteItem(id) should return true when done',
     async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
 
       const mockResponse = true;
