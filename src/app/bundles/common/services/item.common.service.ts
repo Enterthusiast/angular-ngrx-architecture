@@ -6,9 +6,9 @@ import * as _ from 'lodash';
 @Injectable()
 export class ItemCommonService {
 
-  public createGetItem(model, postFields): any {
+  public createGetItem(model, getFields): any {
     return _.chain(model)
-      .pick(postFields)
+      .pick(getFields)
       .value();
   }
 
