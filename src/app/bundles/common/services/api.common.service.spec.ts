@@ -1,6 +1,5 @@
 import {TestBed, async, inject} from '@angular/core/testing';
 import {Http, HttpModule, Response, ResponseOptions, XHRBackend} from '@angular/http';
-
 import {Injectable} from '@angular/core';
 import {MockBackend} from '@angular/http/testing';
 

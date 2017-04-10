@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 
 import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 import {IRootStore} from '../../root/reducers/root.store.interface';
 import {ManagerCommonService} from './manager.common.service';
@@ -12,7 +12,7 @@ import {ManagerCommonService} from './manager.common.service';
 export class SubjectCommonService {
 
   state$: Observable<any>;
-  watchedItem$: Subject<any> = new Subject();
+  watchedItem$: BehaviorSubject<any> = new BehaviorSubject('');
 
   protected params = {
     storeKey: ''
@@ -21,11 +21,19 @@ export class SubjectCommonService {
   constructor (protected store: Store<IRootStore>,
                protected managerService: ManagerCommonService) {
     this.setParams();
-    this.state$ = this.store.select(this.params.storeKey);
-    this.createWatchedIdSubject();
+    this.createStoreObservable();
+    if (this.params.storeKey) {
+      this.createWatchedIdSubject();
+    } else {
+      console.error('SubjectCommonService params are not set correctly');
+    }
   }
 
   protected setParams() {}
+
+  private createStoreObservable() {
+    this.state$ = this.store.select(this.params.storeKey);
+  }
 
   private createWatchedIdSubject() {
     this.state$.subscribe(value => {
