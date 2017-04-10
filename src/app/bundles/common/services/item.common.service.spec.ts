@@ -9,7 +9,7 @@ import {ItemCommonService} from './item.common.service';
 export class TestItemCommonService extends ItemCommonService {}
 
 // start testing
-describe('EffectCommonService', () => {
+describe('ItemCommonService', () => {
 
   let testModel;
   let testFields;
