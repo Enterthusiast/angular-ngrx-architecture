@@ -35,6 +35,41 @@ describe('ItemFactoryCommonService', () => {
       expect(service).toBeTruthy();
     }));
 
+  it('.createList(params) should return a new list with models matching the params (list & type)',
+    inject([TestItemFactoryCommonService], (service) => {
+
+      const list = [
+        { fakeKey_1: 'fakeData_1' },
+        { fakeKey_1: 'fakeData_2' },
+        { fakeKey_1: 'fakeData_3' },
+      ];
+
+      const paramsGet = {
+        list: list,
+        type: 'get'
+      };
+      const paramsPost = {
+        list: list,
+        type: 'post'
+      };
+      const paramsPut = {
+        list: list,
+        type: 'put'
+      };
+
+      spyOn(service, 'createGetItem');
+      expect(service.createList(paramsGet).length).toEqual(list.length);
+      spyOn(service, 'createPostItem');
+      expect(service.createList(paramsPost).length).toEqual(list.length);
+      spyOn(service, 'createPutItem');
+      expect(service.createList(paramsPut).length).toEqual(list.length);
+
+      expect(service.createGetItem).toHaveBeenCalledTimes(3);
+      expect(service.createPostItem).toHaveBeenCalledTimes(3);
+      expect(service.createPutItem).toHaveBeenCalledTimes(3);
+
+    }));
+
   it('.createItem(params) should return a new model matching the params (data & type)',
     inject([TestItemFactoryCommonService], (service) => {
 
