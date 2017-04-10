@@ -34,13 +34,13 @@ export class ItemFactoryCommonService {
     return new ItemCommonClass({ [ItemCommonConfig.ATTRIBUTES] : attributes });
   }
 
-  public createPutItem(data): ItemCommonClass {
-    const attributes = this.transformerService.toPutAttributes(data);
+  public createPostItem(data): ItemCommonClass {
+    const attributes = this.transformerService.toPostAttributes(data);
     return new ItemCommonClass({ [ItemCommonConfig.ATTRIBUTES]: attributes });
   }
 
-  public createPostItem(data): ItemCommonClass {
-    const attributes = this.transformerService.toPostAttributes(data);
+  public createPutItem(data): ItemCommonClass {
+    const attributes = this.transformerService.toPutAttributes(data);
     return new ItemCommonClass({ [ItemCommonConfig.ATTRIBUTES]: attributes });
   }
 

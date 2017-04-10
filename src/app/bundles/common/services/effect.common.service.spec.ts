@@ -58,31 +58,31 @@ describe('EffectCommonService', () => {
   });
 
   it('should be able to initialise the service',
-    inject([EffectCommonService], (effectCommonService) => {
-      expect(effectCommonService).toBeTruthy();
+    inject([EffectCommonService], (service) => {
+      expect(service).toBeTruthy();
     }));
 
   it('should be able to initialize a children service class',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
-      expect(testEffectCommonService).toBeTruthy();
+    inject([TestEffectCommonService], (service) => {
+      expect(service).toBeTruthy();
     }));
 
   it('.setParams() should have set the service params',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
-      Object.keys(testEffectCommonService.params).map((key) => {
-        expect(testEffectCommonService.params[key]).toEqual(testParams[key]);
-        expect(testEffectCommonService.params[key]).toBeTruthy();
+    inject([TestEffectCommonService], (service) => {
+      Object.keys(service.params).map((key) => {
+        expect(service.params[key]).toEqual(testParams[key]);
+        expect(service.params[key]).toBeTruthy();
       });
     }));
 
   it('.updateWatchedId(id) should set the store watchedId to the id value',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
-      testEffectCommonService.updateWatchedId(1234);
-      expect(testEffectCommonService.state.watchedId).toEqual(1234);
+    inject([TestEffectCommonService], (service) => {
+      service.updateWatchedId(1234);
+      expect(service.state.watchedId).toEqual(1234);
     }));
 
   it('.postOrUpdateList(list) should set or update the store list with the provided items',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -106,11 +106,11 @@ describe('EffectCommonService', () => {
         { id: 3, name: 'TROIS', getId() { return this.id; } }
       ];
 
-      testEffectCommonService.postOrUpdateList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.postOrUpdateList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.postOrUpdateList(testListUp);
-      testEffectCommonService.state.list.map((item, index) => {
+      service.postOrUpdateList(testListUp);
+      service.state.list.map((item, index) => {
         expect(item.id).toEqual(testListResult[index].id);
         expect(item.name).toEqual(testListResult[index].name);
       });
@@ -118,7 +118,7 @@ describe('EffectCommonService', () => {
     }));
 
   it('.postList(list) should merge the store list with the given list',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -145,11 +145,11 @@ describe('EffectCommonService', () => {
         { id: 13, name: 'TROIS', getId() { return this.id; } }
       ];
 
-      testEffectCommonService.postList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.postList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.postList(testListUp);
-      testEffectCommonService.state.list.map((item, index) => {
+      service.postList(testListUp);
+      service.state.list.map((item, index) => {
         expect(item.id).toEqual(testListResult[index].id);
         expect(item.name).toEqual(testListResult[index].name);
       });
@@ -157,7 +157,7 @@ describe('EffectCommonService', () => {
     }));
 
   it('.updateList(list) should override the store list with the given list',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -173,16 +173,16 @@ describe('EffectCommonService', () => {
         { id: 13, name: 'TROIS', getId() { return this.id; } }
       ];
 
-      testEffectCommonService.updateList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.updateList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.updateList(testListUp);
-      expect(testEffectCommonService.state.list).toEqual(testListUp);
+      service.updateList(testListUp);
+      expect(service.state.list).toEqual(testListUp);
 
     }));
 
   it('.updateList(list) should override the store list with the given list',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -198,16 +198,16 @@ describe('EffectCommonService', () => {
         { id: 13, name: 'TROIS', getId() { return this.id; } }
       ];
 
-      testEffectCommonService.updateList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.updateList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.updateList(testListUp);
-      expect(testEffectCommonService.state.list).toEqual(testListUp);
+      service.updateList(testListUp);
+      expect(service.state.list).toEqual(testListUp);
 
     }));
 
   it('.postItem(list) should add the item to the store',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -226,11 +226,11 @@ describe('EffectCommonService', () => {
         { id: 10, name: 'ZERO', getId() { return this.id; } }
       ];
 
-      testEffectCommonService.postList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.postList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.postItem(testItemUp);
-      testEffectCommonService.state.list.map((item, index) => {
+      service.postItem(testItemUp);
+      service.state.list.map((item, index) => {
         expect(item.id).toEqual(testListResult[index].id);
         expect(item.name).toEqual(testListResult[index].name);
       });
@@ -238,7 +238,7 @@ describe('EffectCommonService', () => {
     }));
 
   it('.updateItem(list) should update the item already in the store',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -256,11 +256,11 @@ describe('EffectCommonService', () => {
         { id: 3, name: 'trois', getId() { return this.id; } },
       ];
 
-      testEffectCommonService.postList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.postList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.updateItem(testItemUp);
-      testEffectCommonService.state.list.map((item, index) => {
+      service.updateItem(testItemUp);
+      service.state.list.map((item, index) => {
         expect(item.id).toEqual(testListResult[index].id);
         expect(item.name).toEqual(testListResult[index].name);
       });
@@ -268,7 +268,7 @@ describe('EffectCommonService', () => {
     }));
 
   it('.deleteItem(list) should delete the item from the store',
-    inject([TestEffectCommonService], (testEffectCommonService) => {
+    inject([TestEffectCommonService], (service) => {
 
       const testListLow = [
         { id: 0, name: 'zero', getId() { return this.id; } },
@@ -283,11 +283,11 @@ describe('EffectCommonService', () => {
         { id: 3, name: 'trois', getId() { return this.id; } }
       ];
 
-      testEffectCommonService.postList(testListLow);
-      expect(testEffectCommonService.state.list).toEqual(testListLow);
+      service.postList(testListLow);
+      expect(service.state.list).toEqual(testListLow);
 
-      testEffectCommonService.deleteItem(2);
-      testEffectCommonService.state.list.map((item, index) => {
+      service.deleteItem(2);
+      service.state.list.map((item, index) => {
         expect(item.id).toEqual(testListResult[index].id);
         expect(item.name).toEqual(testListResult[index].name);
       });

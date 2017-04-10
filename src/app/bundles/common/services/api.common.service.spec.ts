@@ -37,49 +37,49 @@ describe('ApiCommonService', () => {
   });
 
   it('should be able to initialise the service',
-    inject([ApiCommonService], (apiCommonService) => {
-      expect(apiCommonService).toBeTruthy();
+    inject([ApiCommonService], (service) => {
+      expect(service).toBeTruthy();
     }));
 
   it('should be able to initialize a children service class',
-    inject([TestApiCommonService], (testApiCommonService) => {
-      expect(testApiCommonService).toBeTruthy();
+    inject([TestApiCommonService], (service) => {
+      expect(service).toBeTruthy();
     }));
 
   it('.setParams() should have set the service params',
-    inject([TestApiCommonService], (testApiCommonService) => {
-      Object.keys(testApiCommonService.params).map((key) => {
-        expect(testApiCommonService.params[key]).toEqual(testParams[key]);
-        expect(testApiCommonService.params[key]).toBeTruthy();
+    inject([TestApiCommonService], (service) => {
+      Object.keys(service.params).map((key) => {
+        expect(service.params[key]).toEqual(testParams[key]);
+        expect(service.params[key]).toBeTruthy();
       });
     }));
 
   it('.getListUrl() should return a get a list Url',
-    inject([TestApiCommonService], (testApiCommonService) => {
-      expect(testApiCommonService.getListUrl()).toEqual(testParams.apiUrl);
-      expect(testApiCommonService.getListUrl()).not.toBeFalsy();
+    inject([TestApiCommonService], (service) => {
+      expect(service.getListUrl()).toEqual(testParams.apiUrl);
+      expect(service.getListUrl()).not.toBeFalsy();
     }));
 
   it('.getItemUrl() should return a get an item Url',
-    inject([TestApiCommonService], (testApiCommonService) => {
-      expect(testApiCommonService.getItemUrl(1234)).toEqual(`${testParams.apiUrl}/1234`);
-      expect(testApiCommonService.getItemUrl(1234)).not.toEqual('/1234');
+    inject([TestApiCommonService], (service) => {
+      expect(service.getItemUrl(1234)).toEqual(`${testParams.apiUrl}/1234`);
+      expect(service.getItemUrl(1234)).not.toEqual('/1234');
     }));
 
   it('.postItemUrl() should return a post an item Url',
-    inject([TestApiCommonService], (testApiCommonService) => {
-      expect(testApiCommonService.postItemUrl()).toEqual(testParams.apiUrl);
-      expect(testApiCommonService.postItemUrl()).toBeTruthy();
+    inject([TestApiCommonService], (service) => {
+      expect(service.postItemUrl()).toEqual(testParams.apiUrl);
+      expect(service.postItemUrl()).toBeTruthy();
     }));
 
   it('.putItemUrl() should return a put an item Url',
-    inject([TestApiCommonService], (testApiCommonService) => {
-      expect(testApiCommonService.putItemUrl(1234)).toEqual(`${testParams.apiUrl}/1234`);
-      expect(testApiCommonService.putItemUrl(1234)).not.toEqual('/1234');
+    inject([TestApiCommonService], (service) => {
+      expect(service.putItemUrl(1234)).toEqual(`${testParams.apiUrl}/1234`);
+      expect(service.putItemUrl(1234)).not.toEqual('/1234');
     }));
 
   it('.postItemWrapper() should return a wrapped item',
-    inject([TestApiCommonService], (testApiCommonService) => {
+    inject([TestApiCommonService], (service) => {
 
       const mockObject = {
         firstname: 'John',
@@ -95,12 +95,12 @@ describe('ApiCommonService', () => {
         }
       };
 
-      expect(testApiCommonService.postItemWrapper(mockObject)).toEqual(mockWrappedObject);
-      expect(testApiCommonService.postItemUrl()).toBeTruthy();
+      expect(service.postItemWrapper(mockObject)).toEqual(mockWrappedObject);
+      expect(service.postItemUrl()).toBeTruthy();
     }));
 
   it('.getList() should return a json list of item',
-    async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
+    async(inject([TestApiCommonService, XHRBackend], (service, mockBackend) => {
 
       const mockData = [
         '1',
@@ -122,7 +122,7 @@ describe('ApiCommonService', () => {
         })));
       });
 
-      testApiCommonService.getList().subscribe((json) => {
+      service.getList().subscribe((json) => {
         expect(json && json.length).toEqual(mockData.length);
         if (Array.isArray(json)) {
           json.map((data, index) => {
@@ -134,7 +134,7 @@ describe('ApiCommonService', () => {
     })));
 
   it('.getItem(id) should return a json of the chosen item',
-    async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
+    async(inject([TestApiCommonService, XHRBackend], (service, mockBackend) => {
 
       const mockResponse = {
         firstname: 'John',
@@ -147,7 +147,7 @@ describe('ApiCommonService', () => {
         })));
       });
 
-      testApiCommonService.getItem(1234).subscribe((json) => {
+      service.getItem(1234).subscribe((json) => {
         expect(json).toBeDefined();
         Object.keys(json).map((key) => {
           expect(json[key]).toEqual(mockResponse[key]);
@@ -158,7 +158,7 @@ describe('ApiCommonService', () => {
     })));
 
   it('.postItem(item) should return a json of the post item',
-    async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
+    async(inject([TestApiCommonService, XHRBackend], (service, mockBackend) => {
 
       const mockObject = {
         firstname: 'John',
@@ -173,7 +173,7 @@ describe('ApiCommonService', () => {
         })));
       });
 
-      testApiCommonService.postItem(mockObject).subscribe((json) => {
+      service.postItem(mockObject).subscribe((json) => {
         expect(json).toBeDefined();
         Object.keys(json).map((key) => {
           expect(json[key]).toEqual(mockResponse[key]);
@@ -184,7 +184,7 @@ describe('ApiCommonService', () => {
     })));
 
   it('.putItem(item) should return a json of the put item',
-    async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
+    async(inject([TestApiCommonService, XHRBackend], (service, mockBackend) => {
 
       const mockObject = {
         firstname: 'John',
@@ -199,7 +199,7 @@ describe('ApiCommonService', () => {
         })));
       });
 
-      testApiCommonService.putItem(mockObject).subscribe((json) => {
+      service.putItem(mockObject).subscribe((json) => {
         expect(json).toBeDefined();
         Object.keys(json).map((key) => {
           expect(json[key]).toEqual(mockResponse[key]);
@@ -210,7 +210,7 @@ describe('ApiCommonService', () => {
     })));
 
   it('.deleteItem(id) should return true when done',
-    async(inject([TestApiCommonService, XHRBackend], (testApiCommonService, mockBackend) => {
+    async(inject([TestApiCommonService, XHRBackend], (service, mockBackend) => {
 
       const mockResponse = true;
 
@@ -220,7 +220,7 @@ describe('ApiCommonService', () => {
         })));
       });
 
-      testApiCommonService.deleteItem(1234).subscribe((json) => {
+      service.deleteItem(1234).subscribe((json) => {
         expect(json).toBe(true);
       });
 
