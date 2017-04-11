@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 
 import {Observable} from 'rxjs/Observable';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Subject} from 'rxjs/Subject';
 
 import {IRootStore} from '../../root/reducers/root.store.interface';
 import {ManagerCommonService} from './manager.common.service';
@@ -12,7 +12,7 @@ import {ManagerCommonService} from './manager.common.service';
 export class SubjectCommonService {
 
   state$: Observable<any>;
-  watchedItem$: BehaviorSubject<any> = new BehaviorSubject('');
+  watchedItem$: Subject<any> = new Subject();
 
   protected params = {
     storeKey: ''

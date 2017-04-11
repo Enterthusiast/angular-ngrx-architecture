@@ -1,6 +1,5 @@
-import {TestBed, async, inject, fakeAsync} from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 import {Injectable} from '@angular/core';
-import {Store} from '@ngrx/store';
 import {StoreModule} from '@ngrx/store';
 import {Http, HttpModule, Response, ResponseOptions, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
@@ -20,10 +19,6 @@ import {ItemCommonConfig} from '../../../configs/models/item.common.config';
 
 
 // create dummy services
-const testManagerParams = {
-  embeddedListKey: 'test-list'
-};
-
 @Injectable()
 export class TestManagerCommonService extends ManagerCommonService {
 
