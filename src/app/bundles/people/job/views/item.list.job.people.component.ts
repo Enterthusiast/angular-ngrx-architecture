@@ -8,19 +8,19 @@ import {ManagerJobPeopleService} from '../services/manager.job.people.service';
   selector: 'ori-item-list-job-people',
   template: `
     <dl>
-      <dt>Firstname</dt>
-      <dd>{{ peopleItem.get('firstname') }}</dd>
-      <dt>Lastname</dt>
-      <dd>{{ peopleItem.get('lastname') }}</dd>
+      <dt>Title</dt>
+      <dd>{{ jobPeopleItem.get('title') }}</dd>
+      <dt>Summary</dt>
+      <dd>{{ jobPeopleItem.get('summary') }}</dd>
       <dt></dt>
       <dd>
         <a class="btn btn-link"
-           [routerLink]="[ { outlets: { action: [peopleItem.getId()] } } ]"
+           [routerLink]="[ { outlets: { action: [jobPeopleItem.getId()] } } ]"
            routerLinkActive="active" [hidden]="displayData?.routerLink">
           Afficher
         </a>
         <a class="btn btn-link"
-           [routerLink]="[ { outlets: { action: [peopleItem.getId(), 'edit'] } } ]"
+           [routerLink]="[ { outlets: { action: [jobPeopleItem.getId(), 'edit'] } } ]"
            routerLinkActive="active" [hidden]="displayData?.routerLink">
           Editer
         </a>
@@ -34,12 +34,12 @@ import {ManagerJobPeopleService} from '../services/manager.job.people.service';
 })
 export class ItemListJobPeopleComponent {
 
-  @Input() peopleItem: ItemJobPeopleClass;
+  @Input() jobPeopleItem: ItemJobPeopleClass;
 
   constructor(private managerPeopleService: ManagerJobPeopleService) {}
 
   deleteItem() {
-    this.managerPeopleService.deleteItem(this.peopleItem.getId());
+    this.managerPeopleService.deleteItem(this.jobPeopleItem.getId());
   }
 
 }

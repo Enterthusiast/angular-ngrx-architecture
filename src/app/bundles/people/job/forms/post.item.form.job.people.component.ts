@@ -40,38 +40,20 @@ export class PostItemFormJobPeopleComponent implements OnInit {
       questions: [
         {
           classes: styleFormQuestion,
-          type: 'dropdown',
-          key: 'civility',
-          label: 'Civility',
-          options: [
-            { value: '1', name: 'M'},
-            { value: '2', name: 'Mme'},
-            { value: '3', name: 'Dr'},
-            { value: '4', name: 'Pr'},
-            { value: '5', name: 'Sir'}
-          ],
+          type: 'text',
+          key: 'title',
+          label: 'Title',
           validation: [
-            {type: 'required'}
+            {type: 'required'},
           ]
         },
         {
           classes: styleFormQuestion,
           type: 'text',
-          key: 'firstname',
-          label: 'Firstname',
+          key: 'summary',
+          label: 'Summary',
           validation: [
             {type: 'required'},
-            {type: 'pattern', value: '[a-zA-Z ]+'}
-          ]
-        },
-        {
-          classes: styleFormQuestion,
-          type: 'text',
-          key: 'lastname',
-          label: 'Lastname',
-          validation: [
-            {type: 'required'},
-            {type: 'pattern', value: '[a-zA-Z ]+'}
           ]
         },
         {
@@ -91,26 +73,32 @@ export class PostItemFormJobPeopleComponent implements OnInit {
         {
           classes: styleFormQuestion,
           type: 'text',
-          key: 'email',
-          label: 'Email',
+          key: 'profession_uuid',
+          label: 'Profession Uuid',
         },
         {
           classes: styleFormQuestion,
           type: 'text',
-          key: 'mobile',
-          label: 'Mobile',
+          key: 'company_uuid',
+          label: 'Company Uuid',
         },
         {
           classes: styleFormQuestion,
           type: 'text',
-          key: 'phone',
-          label: 'Phone',
+          key: 'service_code',
+          label: 'Service Code',
         },
         {
           classes: styleFormQuestion,
-          type: 'text',
-          key: 'description',
-          label: 'Description',
+          type: 'date',
+          key: 'start_date',
+          label: 'Start Date',
+        },
+        {
+          classes: styleFormQuestion,
+          type: 'date',
+          key: 'end_date',
+          label: 'End Date',
         }
       ]
     };

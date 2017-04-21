@@ -24,7 +24,8 @@ export class TransformerCommonService {
   protected setParams() {}
 
   public toGetAttributes(dataObject): any {
-    return _.assign({}, this.itemService.createGetItem(dataObject, this.params.getItemFields));
+    const dataFields = _.assign({}, dataObject, this.embeddedUuidFields(dataObject));
+    return _.assign({}, this.itemService.createGetItem(dataFields, this.params.getItemFields));
   }
 
   public toPostAttributes(dataObject): any {
@@ -33,6 +34,19 @@ export class TransformerCommonService {
 
   public toPutAttributes(dataObject): any {
     return _.assign({}, this.itemService.createPutItem(dataObject, this.params.putItemFields));
+  }
+
+  private embeddedUuidFields(dataObject): any {
+    const embeddedObject = dataObject._embedded;
+    if (embeddedObject) {
+      return _.keys(embeddedObject).reduce( (embeddedHash, key) => {
+        const value = embeddedObject[key];
+        if (value.uuid) {
+          embeddedHash[`${key}_uuid`] = value.uuid;
+        }
+        return embeddedHash;
+      }, {});
+    }
   }
 
 }

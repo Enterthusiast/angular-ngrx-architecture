@@ -7,9 +7,10 @@ import {ListDataJobPeopleDirective} from '../adapters/list.data.job.people.direc
 @Component({
   selector: 'ori-list-job-people',
   template: `
-    <div ori-list-data-job-people (dataEmitter)="peopleList=$event"></div>
+    <div ori-activatedroute-data-root></div>
+    <div ori-list-data-job-people (dataEmitter)="jobPeopleList=$event"></div>
     <div class="col-md-6">
-      <ori-item-list-job-people *ngFor="let peopleItem of peopleList" [peopleItem]="peopleItem"></ori-item-list-job-people>
+      <ori-item-list-job-people *ngFor="let jobPeopleItem of jobPeopleList" [jobPeopleItem]="jobPeopleItem"></ori-item-list-job-people>
     </div>
     <div class="col-md-6">
       <div class="fixed">
@@ -35,5 +36,5 @@ import {ListDataJobPeopleDirective} from '../adapters/list.data.job.people.direc
   `]
 })
 export class ListJobPeopleComponent {
-  peopleList: ItemJobPeopleClass[];
+  jobPeopleList: ItemJobPeopleClass[];
 }

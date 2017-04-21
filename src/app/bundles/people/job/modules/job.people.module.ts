@@ -14,6 +14,10 @@ import {ItemListJobPeopleComponent} from '../views/item.list.job.people.componen
 import {PutItemFormJobPeopleComponent} from '../forms/put.item.form.job.people.component';
 import {PostItemFormJobPeopleComponent} from '../forms/post.item.form.job.people.component';
 
+import {ActivatedRouteRootDirective} from '../../../root/adapters/activatedRoute.root.directive';
+import {WatchedItemDataJobPeopleDirective} from '../adapters/watched.item.data.job.people.directive';
+import {ListDataJobPeopleDirective} from '../adapters/list.data.job.people.directive';
+
 import {ApiJobPeopleService} from '../services/api.job.people.service';
 import {TransformerJobPeopleService} from '../services/transformer.job.people.service';
 import {FactoryJobPeopleService} from '../services/factory.job.people.service';
@@ -22,9 +26,6 @@ import {EffectJobPeopleService} from '../services/effect.job.people.service';
 import {DecoratorJobPeopleService} from '../services/decorator.job.people.service';
 import {ManagerJobPeopleService} from '../services/manager.job.people.service';
 import {ItemJobPeopleService} from '../services/item.job.people.service';
-
-import {WatchedItemDataJobPeopleDirective} from '../adapters/watched.item.data.job.people.directive';
-import {ListDataJobPeopleDirective} from '../adapters/list.data.job.people.directive';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {ListDataJobPeopleDirective} from '../adapters/list.data.job.people.direc
     ItemListJobPeopleComponent,
     PutItemFormJobPeopleComponent,
     PostItemFormJobPeopleComponent,
+    ActivatedRouteRootDirective,
     WatchedItemDataJobPeopleDirective,
     ListDataJobPeopleDirective
   ],

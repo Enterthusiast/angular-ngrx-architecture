@@ -1,21 +1,10 @@
 export const PostItemJobPeopleFields = [
-  'address',
-  'address_npai',
-  'civility',
-  'description',
-  'email',
-  'email_npai',
-  'email_spam',
-  'facebook_id',
-  'firstname',
-  'google_id',
-  'lastname',
-  'linkedin_id',
-  'media_url',
-  'mobile',
-  'mobile_npai',
-  'phone',
-  'phone_npai',
+  'title',
+  'summary',
   'status',
-  'twitter_id'
+  'service_code',
+  'start_date',
+  'end_date',
+  'profession_uuid',
+  'company_uuid'
 ];

@@ -11,9 +11,13 @@ import {PutItemFormJobPeopleComponent} from '../forms/put.item.form.job.people.c
 
 const jobPeopleRoutes: Routes = [
   { path: RouteMapController.getLeafLink('people') + '/:id/' + RouteMapController.getLeafLink('job-people'), component: PageJobPeopleComponent },
-  { path: 'contact/:people_id/job/list', component: ListJobPeopleComponent },
+  { path: 'contact/:people_id/job/list', component: ListJobPeopleComponent, children: [
+    { path: 'add', outlet: 'action', component: PostItemFormJobPeopleComponent },
+    { path: ':id/edit', outlet: 'action', component: PutItemFormJobPeopleComponent },
+    { path: ':id', outlet: 'action', component: ItemJobPeopleComponent }
+  ]},
   { path: 'contact/:people_id/job/add', component: PostItemFormJobPeopleComponent },
-  { path: 'contact/:people_id/job/edit', component: PutItemFormJobPeopleComponent },
+  { path: 'contact/:people_id/job/:id/edit', component: PutItemFormJobPeopleComponent },
   { path: 'contact/:people_id/job/:id', component: ItemJobPeopleComponent }
 ];
 

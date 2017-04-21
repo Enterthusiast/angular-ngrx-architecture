@@ -20,6 +20,7 @@ import {RoutingJobPeopleModule} from '../../people/job/modules/routing.job.peopl
 import {RoutingCompanyModule} from '../../company/modules/routing.company.module';
 import {RoutingPlaygroundModule} from '../../playground/modules/routing.playground.module';
 
+import {ActivatedRouteRootReducer} from '../reducers/activatedRoute.root.reducer';
 import {peopleReducer} from '../../people/self/reducers/people.reducer';
 import {jobPeopleReducer} from '../../people/job/reducers/job.people.reducer';
 import {companyReducer} from '../../company/reducers/company.reducer';
@@ -52,6 +53,7 @@ const metaReducers = environment.production
   : [storeFreeze, combineReducers];
 
 const store = compose(...metaReducers)({
+  activatedRoute: ActivatedRouteRootReducer,
   title: playgroundReducer,
   people: peopleReducer,
   jobPeople: jobPeopleReducer,
@@ -93,6 +95,6 @@ const store = compose(...metaReducers)({
     SubjectCommonService,
     NavigationRootService
   ],
-  bootstrap: [PageRootComponent]
+  bootstrap: [PageRootComponent],
 })
 export class RootModule { }
