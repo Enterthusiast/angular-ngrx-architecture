@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 
 import {SubjectJobPeopleService} from '../services/subject.job.people.service';
 import {ManagerJobPeopleService} from '../services/manager.job.people.service';
-import {WatchedItemDataCommonDirective} from '../../../common/adapters/watched.item.data.people.directive';
+import {WatchedItemDataCommonDirective} from '../../../common/adapters/watched.item.data.common.directive';
 
 
 @Directive({

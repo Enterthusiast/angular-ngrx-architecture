@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
+import {CommonCrudModule} from '../../../common/modules/common.crud.module';
 import {RoutingJobPeopleModule} from './routing.job.people.module';
 import {EasyFormsModule} from 'angular2-easy-forms-enterthusiast/components';
 import {ButtonsModule} from 'ng2-bootstrap';
@@ -14,7 +15,6 @@ import {ItemListJobPeopleComponent} from '../views/item.list.job.people.componen
 import {PutItemFormJobPeopleComponent} from '../forms/put.item.form.job.people.component';
 import {PostItemFormJobPeopleComponent} from '../forms/post.item.form.job.people.component';
 
-import {ActivatedRouteRootDirective} from '../../../root/adapters/activatedRoute.root.directive';
 import {WatchedItemDataJobPeopleDirective} from '../adapters/watched.item.data.job.people.directive';
 import {ListDataJobPeopleDirective} from '../adapters/list.data.job.people.directive';
 
@@ -36,12 +36,12 @@ import {ItemJobPeopleService} from '../services/item.job.people.service';
     ItemListJobPeopleComponent,
     PutItemFormJobPeopleComponent,
     PostItemFormJobPeopleComponent,
-    ActivatedRouteRootDirective,
     WatchedItemDataJobPeopleDirective,
     ListDataJobPeopleDirective
   ],
   imports: [
     CommonModule,
+    CommonCrudModule,
     FormsModule,
     ButtonsModule,
     HttpModule,

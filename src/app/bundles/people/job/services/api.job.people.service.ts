@@ -22,6 +22,10 @@ export class ApiJobPeopleService extends ApiCommonService {
               public store: Store<IRootStore>) {
     super(http);
 
+    // Logic required for api sublevel routes/directory:
+    // Service can't access the activatedRoute object so we have to use some tricks here to get the route params
+    // We use the ActivatedRouteCommonDirective to hydrate the activatedRoute store with the current route data
+    // Then we listen to the store and extract the route params we need
     this.storeSubscription = this.store.select('activatedRoute').subscribe((activatedRouteRootState: ActivatedRouteRootState) => {
       const route = activatedRouteRootState.activatedRoute;
       if (route.params) {

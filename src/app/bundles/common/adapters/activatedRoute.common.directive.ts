@@ -3,14 +3,14 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 import {Store} from '@ngrx/store';
 
-import {activatedRouteRootSetItem} from '../reducers/activatedRoute.root.reducer';
-import {IRootStore} from '../reducers/root.store.interface';
+import {activatedRouteRootSetItem} from '../../root/reducers/activatedRoute.root.reducer';
+import {IRootStore} from '../../root/reducers/root.store.interface';
 
 
 @Directive({
-  selector: '[ori-activatedroute-data-root]'
+  selector: '[ori-activatedroute-data-common]'
 })
-export class ActivatedRouteRootDirective {
+export class ActivatedRouteCommonDirective {
 
   private routeParamsSubscription: any;
 

@@ -9,8 +9,9 @@ import {combineReducers} from '@ngrx/store';
 import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
 
-import {JobPeopleModule} from '../../people/job/modules/job.people.module';
+import {CommonCrudModule} from '../../common/modules/common.crud.module';
 import {PeopleModule} from '../../people/self/modules/people.module';
+import {JobPeopleModule} from '../../people/job/modules/job.people.module';
 import {CompanyModule} from '../../company/modules/company.module';
 import {PlaygroundModule} from '../../playground/modules/playground.module';
 
@@ -30,18 +31,9 @@ import {PageRootComponent} from '../views/page.root.component';
 import {WelcomeRootComponent} from '../views/welcome.root.component';
 import {NavigationRootComponent} from '../views/navigation.root.component';
 
-import {ApiCommonService} from '../../common/services/api.common.service';
-import {DecoratorCommonService} from '../../common/services/decorator.common.service';
-import {EffectCommonService} from '../../common/services/effect.common.service';
-import {ItemCommonService} from '../../common/services/item.common.service';
-import {ItemFactoryCommonService} from '../../common/services/item.factory.common.service';
-import {ManagerCommonService} from '../../common/services/manager.common.service';
-import {SubjectCommonService} from '../../common/services/subject.common.service';
-import {TransformerCommonService} from '../../common/services/transformer.common.service';
+import {environment} from '../../../../environments/environment';
 
 import {NavigationRootService} from '../services/navigation.root.service';
-
-import {environment} from '../../../../environments/environment';
 
 
 // Add deepfreeze on reducers while in development
@@ -67,6 +59,7 @@ const store = compose(...metaReducers)({
     NavigationRootComponent
   ],
   imports: [
+    CommonCrudModule,
     PlaygroundModule,
     JobPeopleModule,
     PeopleModule,
@@ -85,14 +78,6 @@ const store = compose(...metaReducers)({
     RootRoutingModule
   ],
   providers: [
-    ApiCommonService,
-    DecoratorCommonService,
-    EffectCommonService,
-    ItemCommonService,
-    ItemFactoryCommonService,
-    ManagerCommonService,
-    TransformerCommonService,
-    SubjectCommonService,
     NavigationRootService
   ],
   bootstrap: [PageRootComponent],
