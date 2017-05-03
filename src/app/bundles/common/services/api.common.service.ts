@@ -1,10 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http';
+import {Params, Router} from '@angular/router';
+
+import {Store} from '@ngrx/store';
 
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
+import {IRootStore} from '../../root/reducers/root.store.interface';
+import {ActivatedRouteRootState} from '../../root/reducers/activatedRoute.root.reducer';
 import {privateParams} from '../../../../privateparams';
 
 
@@ -22,7 +27,9 @@ export class ApiCommonService {
     formItemKey: ''
   };
 
-  constructor(protected http: Http) {
+  constructor(protected http: Http,
+              protected router?: Router,
+              protected store?: Store<IRootStore>) {
     this.setParams();
     if (!!this.params === false ||
       !!this.params.apiUrl === false ||
@@ -31,8 +38,6 @@ export class ApiCommonService {
       console.error('ApiCommonService params are not set correctly');
     }
   }
-
-  protected setParams() {}
 
   private getListUrl(): string {
     return this.params.apiUrl;
@@ -55,6 +60,27 @@ export class ApiCommonService {
       [this.params.formItemKey]: attributes
     };
   }
+
+  protected setParams(params?) {
+    if (params) {
+      this.params = params;
+    }
+  }
+
+  setParamsSubscription(serviceParams, routeStoreName = 'activatedRoute') {
+    this.store.select(routeStoreName).subscribe((activatedRouteRootState: ActivatedRouteRootState) => {
+      const route = activatedRouteRootState.activatedRoute;
+      if (route.params) {
+        route.params.subscribe((params: Params) => {
+          this.setParams({
+            apiUrl: serviceParams.apiUrl(params),
+            embeddedListKey: serviceParams.embeddedListKey,
+            formItemKey: serviceParams.formItemKey,
+          });
+        });
+      }
+    });
+  };
 
   getList(): Observable<any> {
     const response$ = new Subject();

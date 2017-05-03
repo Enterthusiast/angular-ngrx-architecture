@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
 import {Http, HttpModule, Response, ResponseOptions, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 import 'rxjs/add/operator/last';
 import * as _ from 'lodash';
@@ -48,6 +49,7 @@ describe('ManagerCommonService', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpModule,
+        RouterTestingModule,
         StoreModule.provideStore({
           test: (state = { list: storeList, watchedId: 2 }, action ) => {
             switch (action.type) {
