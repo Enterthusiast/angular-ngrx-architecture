@@ -6,15 +6,20 @@ import {TransformerCommonService} from './transformer.common.service';
 import {ItemFactoryCommonService} from './item.factory.common.service';
 import {EffectCommonService} from './effect.common.service';
 import {ApiCommonService} from './api.common.service';
+import {ManagerCommonService} from './manager.common.service';
+import {EmbeddedCommonService} from './embedded.common.service';
 
 
 @Injectable()
-export class ManagerCommonService {
+export class EmbeddedManagerCommonService extends ManagerCommonService {
 
   constructor(protected apiService: ApiCommonService,
               protected transformerService: TransformerCommonService,
               protected factoryService: ItemFactoryCommonService,
-              protected effectService: EffectCommonService) {}
+              protected effectService: EffectCommonService,
+              protected embeddedService: EmbeddedCommonService) {
+    super(apiService, transformerService, factoryService, effectService);
+  }
 
   getApiService() {
     return this.apiService;
@@ -40,7 +45,13 @@ export class ManagerCommonService {
     const apiResponse$ = this.apiService.getList();
     const apiSubscription = apiResponse$.subscribe(response => {
       const resList = this.factoryService.createList({ list: response, type: 'get' });
-      this.effectService.postOrUpdateList(resList);
+      resList.map(item => {
+        const embeddedSubscription = this.embeddedService.embeddedObject$.subscribe(embeddedObject => {
+          debugger;
+          embeddedSubscription.unsubscribe();
+        });
+        this.embeddedService.getEmbeddedData(item.getLinks());
+      });
       apiSubscription.unsubscribe();
     });
   }

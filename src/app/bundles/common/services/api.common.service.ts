@@ -61,7 +61,7 @@ export class ApiCommonService {
     };
   }
 
-  protected setParams(params?) {
+  setParams(params?) {
     if (params) {
       this.params = params;
     }

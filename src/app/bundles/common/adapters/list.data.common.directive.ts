@@ -26,6 +26,8 @@ export class ListDataCommonDirective implements OnDestroy {
   constructor (protected managerService: ManagerCommonService,
                protected subjectService: SubjectCommonService) {
 
+    this.atConstructorStart();
+
     this.setParams();
 
     this.state$ = subjectService[this.params.stateKey];
@@ -40,6 +42,7 @@ export class ListDataCommonDirective implements OnDestroy {
 
   }
 
+  protected atConstructorStart() {}
   protected setParams() {}
 
   decorateItem(item) {

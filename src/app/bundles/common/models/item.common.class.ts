@@ -70,4 +70,12 @@ export class ItemCommonClass {
     }
   }
 
+  getLinks(): any {
+    if (this[ItemCommonConfig.LINKS]) {
+      return this[ItemCommonConfig.LINKS];
+    } else {
+      return undefined;
+    }
+  }
+
 }

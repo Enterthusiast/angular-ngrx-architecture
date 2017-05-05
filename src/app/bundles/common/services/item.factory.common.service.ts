@@ -31,7 +31,8 @@ export class ItemFactoryCommonService {
 
   public createGetItem(data): ItemCommonClass {
     const attributes = this.transformerService.toGetAttributes(data);
-    return new ItemCommonClass({ [ItemCommonConfig.ATTRIBUTES] : attributes });
+    const links = this.transformerService.getLinkHrefs(data);
+    return new ItemCommonClass({ [ItemCommonConfig.ATTRIBUTES] : attributes, [ItemCommonConfig.LINKS] : links });
   }
 
   public createPostItem(data): ItemCommonClass {

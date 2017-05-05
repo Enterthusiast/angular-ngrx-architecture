@@ -17,10 +17,10 @@ const testParams = {
 };
 @Injectable()
 class TestApiCommonService extends ApiCommonService {
-  constructor(public http: Http) {
+  constructor(protected http: Http) {
     super(http);
   }
-  protected setParams() {
+  setParams() {
     this.params = testParams;
   }
 }

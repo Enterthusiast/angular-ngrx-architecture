@@ -24,7 +24,7 @@ export class TransformerCommonService {
   protected setParams() {}
 
   public toGetAttributes(dataObject): any {
-    const dataFields = _.assign({}, dataObject, this.embeddedUuidFields(dataObject));
+    const dataFields = _.assign({}, dataObject, this.getEmbeddedUuidFields(dataObject));
     return _.assign({}, this.itemService.createGetItem(dataFields, this.params.getItemFields));
   }
 
@@ -36,13 +36,39 @@ export class TransformerCommonService {
     return _.assign({}, this.itemService.createPutItem(dataObject, this.params.putItemFields));
   }
 
-  private embeddedUuidFields(dataObject): any {
+  public getLinkHrefs(dataObject): any {
+    const linksObject = dataObject._links;
+    if (linksObject) {
+      return _.keys(linksObject).reduce( (linksHash, key) => {
+        const value = linksObject[key];
+        if (value.href) {
+          linksHash[key] = value.href;
+        }
+        return linksHash;
+      }, {});
+    }
+  }
+
+  public getEmbeddedUuids(dataObject): any {
     const embeddedObject = dataObject._embedded;
     if (embeddedObject) {
       return _.keys(embeddedObject).reduce( (embeddedHash, key) => {
         const value = embeddedObject[key];
         if (value.uuid) {
-          embeddedHash[`${key}_uuid`] = value.uuid;
+          embeddedHash[key] = value.uuid;
+        }
+        return embeddedHash;
+      }, {});
+    }
+  }
+
+  private getEmbeddedUuidFields(dataObject): any {
+    const embeddedUuids = this.getEmbeddedUuids(dataObject);
+    if (embeddedUuids) {
+      return _.keys(embeddedUuids).map( (embeddedHash, key) => {
+        const uuid = embeddedUuids[key];
+        if (uuid) {
+          embeddedHash[`${key}_uuid`] = uuid;
         }
         return embeddedHash;
       }, {});
