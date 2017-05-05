@@ -21,12 +21,14 @@ export class EffectCommonService {
     }
   };
 
-  constructor (protected store: Store<IRootStore>) {
+  constructor (protected store?: Store<IRootStore>) {
     this.setParams();
-    this.state$ = this.store.select(this.params.storeKey);
-    this.state$.subscribe(value => {
-      this.state = value;
-    });
+    if (this.store) {
+      this.state$ = this.store.select(this.params.storeKey);
+      this.state$.subscribe(value => {
+        this.state = value;
+      });
+    }
   }
 
   protected setParams() {}

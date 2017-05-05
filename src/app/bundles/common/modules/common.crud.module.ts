@@ -16,9 +16,8 @@ import {DecoratorCommonService} from '../services/decorator.common.service';
 import {ItemFactoryCommonService} from '../services/item.factory.common.service';
 import {ManagerCommonService} from '../services/manager.common.service';
 import {ItemCommonService} from '../services/item.common.service';
-import {EmbeddedManagerCommonService} from "../services/embedded.manager.common.service";
-import {EmbeddedCommonService} from "../services/embedded.common.service";
-import {ObjectEffectCommonService} from "../services/object.effect.common.service";
+import {ObjectEffectCommonService} from '../services/object.effect.common.service';
+import {managerCommonServiceProvider} from '../services/manager.common.service.provider';
 
 
 @NgModule({
@@ -42,8 +41,7 @@ import {ObjectEffectCommonService} from "../services/object.effect.common.servic
     ManagerCommonService,
     ItemCommonService,
     ObjectEffectCommonService,
-    EmbeddedCommonService,
-    EmbeddedManagerCommonService,
+    managerCommonServiceProvider
   ],
   exports: [
     ActivatedRouteCommonDirective

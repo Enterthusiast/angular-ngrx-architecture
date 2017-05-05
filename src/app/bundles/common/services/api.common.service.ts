@@ -30,11 +30,13 @@ export class ApiCommonService {
   constructor(protected http: Http,
               protected router?: Router,
               protected store?: Store<IRootStore>) {
+    this.atConstructorStart();
     this.setParams();
     if (!!this.params === false ||
       !!this.params.apiUrl === false ||
       !!this.params.embeddedListKey === false ||
       !!this.params.formItemKey === false) {
+      debugger;
       console.error('ApiCommonService params are not set correctly');
     }
   }
@@ -60,6 +62,8 @@ export class ApiCommonService {
       [this.params.formItemKey]: attributes
     };
   }
+
+  protected atConstructorStart() {}
 
   setParams(params?) {
     if (params) {

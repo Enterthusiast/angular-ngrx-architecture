@@ -18,7 +18,10 @@ export class ApiJobPeopleService extends ApiCommonService {
               public store: Store<IRootStore>) {
     super(http, router, store);
     this.setParamsSubscription({
-      apiUrl: params => `${privateParams.links.origamiPeoples}/${params['people_id']}/jobs`,
+      apiUrl: params => {
+        debugger;
+        return `${privateParams.links.origamiPeoples}/${params['people_id']}/jobs`;
+      },
       embeddedListKey: 'jobs',
       formItemKey: 'job',
     });

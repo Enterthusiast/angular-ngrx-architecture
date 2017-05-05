@@ -3,10 +3,12 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
 import * as _ from 'lodash';
+import {Observable} from "rxjs";
+import {EffectCommonService} from "./effect.common.service";
 
 
 @Injectable()
-export class ObjectEffectCommonService {
+export class ObjectEffectCommonService extends EffectCommonService {
 
   dataObject$: Subject<any> = new Subject();
   protected dataObject: any = { list: [] };
@@ -16,7 +18,9 @@ export class ObjectEffectCommonService {
   // then allow other service to listen to the dataObject
   // and put the data wherever they want: store, other object, local storage etc
 
-  constructor () {}
+  constructor () {
+    super();
+  }
 
   postOrUpdateList(list) {
     list.map(item => {

@@ -12,9 +12,12 @@ export class ApiPeopleService extends ApiCommonService {
 
   constructor(public http: Http) {
     super(http);
+  }
+
+  atConstructorStart() {
     this.setParams({
       apiUrl: privateParams.links.origamiPeoples,
-      embeddedListKey: 'peoples',
+        embeddedListKey: 'peoples',
       formItemKey: 'people',
     });
   }
